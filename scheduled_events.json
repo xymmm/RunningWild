@@ -1,0 +1,69 @@
+{
+  "rest_day": {
+    "id": "rest_day",
+    "name": "Rest day",
+    "hp_delta": 1,
+    "water_gain_L": 0.0,
+    "food_gain_kcal": 0,
+    "skip_consumption": true,
+    "notes": "No random events fire; baseline water and food consumption skipped; HP +1 from rest."
+  },
+  "fortune_events": {
+    "foraging_success": {
+      "name": "Foraging success",
+      "hp_delta": 0,
+      "water_gain_L": 2.0,
+      "food_gain_kcal": 3000,
+      "skip_consumption": false,
+      "weight_in_pool": 1.0,
+      "notes": "Major find. Large food and water windfall."
+    },
+    "treasure_found": {
+      "name": "Treasure found",
+      "hp_delta": 0,
+      "water_gain_L": 0.6,
+      "food_gain_kcal": 400,
+      "skip_consumption": false,
+      "weight_in_pool": 1.5,
+      "notes": "Small but reliable windfall."
+    },
+    "successful_haunt": {
+      "name": "Successful haunt",
+      "hp_delta": -1,
+      "water_gain_L": 1.0,
+      "food_gain_kcal": 1000,
+      "skip_consumption": false,
+      "weight_in_pool": 1.0,
+      "notes": "Risk-for-reward: small HP cost, decent water and food gain."
+    },
+    "wild_herb_garden": {
+      "name": "Wild herb garden",
+      "hp_delta": 1,
+      "water_gain_L": 0.0,
+      "food_gain_kcal": 500,
+      "skip_consumption": false,
+      "weight_in_pool": 1.0,
+      "notes": "Calm, restorative find. Mild HP and food bonus."
+    },
+    "shelter_cave": {
+      "name": "Shelter cave",
+      "hp_delta": 2,
+      "water_gain_L": 0.5,
+      "food_gain_kcal": 0,
+      "skip_consumption": true,
+      "weight_in_pool": 0.7,
+      "notes": "Safe overnight rest in a found shelter. No daily drain. Larger HP bonus."
+    },
+    "clear_lake": {
+      "name": "Clear lake",
+      "hp_delta": 0,
+      "water_gain_L": 3.0,
+      "food_gain_kcal": 0,
+      "skip_consumption": false,
+      "weight_in_pool": 1.0,
+      "requires_items_pool": ["water_purif_tabs", "filter_bottle"],
+      "fallback_water_gain_L": 0.5,
+      "notes": "Clear lake found. Without purification only 0.5L is safe to drink."
+    }
+  }
+}
