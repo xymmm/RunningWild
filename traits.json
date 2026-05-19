@@ -1,0 +1,173 @@
+{
+  "injured_at_start": {
+    "name": "Injured at Start",
+    "hp_init_delta": -3,
+    "notes": "Begin with HP -3."
+  },
+  "leaky_backpack": {
+    "name": "Leaky Backpack",
+    "trigger_category": "water_collection",
+    "extra_water_loss_per_event": 1.0,
+    "negated_by_items": [
+      "waterproof_bag"
+    ],
+    "notes": "Each water leak event loses extra 1 L unless waterproof bag carried."
+  },
+  "lucky_ration": {
+    "name": "Lucky Ration",
+    "food_init_delta": 600,
+    "notes": "Start with +600 kcal dry food."
+  },
+  "fragile_shoelaces": {
+    "name": "Fragile Shoelaces",
+    "oneshot_trigger": "boot_lace_snap",
+    "oneshot_hp_delta": -1,
+    "negated_by_items": [
+      "duct_tape"
+    ],
+    "notes": "First boot lace snap causes HP -1 unless duct tape carried."
+  },
+  "cold_sensitive": {
+    "name": "Cold Sensitive",
+    "hp_modifiers": {
+      "weather_cold": -1,
+      "medical_injury": 0
+    },
+    "negated_by_items": [
+      "down_jacket"
+    ],
+    "negation_amount": 1,
+    "notes": "Cold-related events extra 1 HP loss; down jacket cancels 1."
+  },
+  "heat_resistant": {
+    "name": "Heat Resistant",
+    "hp_modifiers": {
+      "weather_hot": 1
+    },
+    "notes": "Hot weather and sun events 1 HP better."
+  },
+  "climber": {
+    "name": "Climber",
+    "hp_modifiers": {
+      "slip_fall": 1
+    },
+    "notes": "Slip or fall events 1 HP better."
+  },
+  "allergy_prone": {
+    "name": "Allergy Prone",
+    "hp_modifiers": {
+      "medical_sting": -1,
+      "insect": -1
+    },
+    "negated_by_items": [
+      "allergy_meds"
+    ],
+    "notes": "Bee sting and insect events extra 1 HP unless allergy medicine."
+  },
+  "old_batteries": {
+    "name": "Old Batteries",
+    "oneshot_trigger": "headlamp_dead",
+    "oneshot_hp_delta": -1,
+    "negated_by_items": [
+      "spare_batteries"
+    ],
+    "notes": "First headlamp dead causes HP -1 if no spares."
+  },
+  "hot_drink_lover": {
+    "name": "Hot Drink Lover",
+    "trigger_events": [
+      "hot_tea",
+      "tea_leaves_found",
+      "wild_herb_tea"
+    ],
+    "extra_hp_delta": 1,
+    "requires_items": [
+      "stove_fuel",
+      "cooking_pot"
+    ],
+    "notes": "Hot drink events give +1 extra HP with stove + pot."
+  },
+  "clean_freak": {
+    "name": "Clean Freak",
+    "oneshot_trigger": "berries_sour",
+    "oneshot_hp_delta": -1,
+    "negated_by_items": [
+      "disinfectant"
+    ],
+    "notes": "First scavenged food event extra -1 HP without disinfectant."
+  },
+  "water_hoarder": {
+    "name": "Water Hoarder",
+    "condition": "water_carried > 5",
+    "daily_hp_delta": -1,
+    "notes": "If carrying >5L water, suffer HP -1 per day."
+  },
+  "light_pack_expert": {
+    "name": "Light Pack Expert",
+    "condition": "total_weight <= 15",
+    "daily_hp_delta": 1,
+    "notes": "If total weight <=15 kg, recover HP +1 each night."
+  },
+  "repair_expert": {
+    "name": "Repair Expert",
+    "hp_modifiers": {
+      "equipment": 1
+    },
+    "requires_items": [
+      "tent_repair_kit"
+    ],
+    "notes": "Equipment damage events 1 HP better with repair kit."
+  },
+  "animal_friend": {
+    "name": "Animal Friend",
+    "set_to_zero_categories": [
+      "wildlife_calm"
+    ],
+    "notes": "Non-attack wildlife always HP 0."
+  },
+  "night_walker": {
+    "name": "Night Walker",
+    "hp_modifiers": {
+      "navigation": 1
+    },
+    "requires_items": [
+      "headlamp"
+    ],
+    "notes": "Night/darkness events 1 HP better with headlamp."
+  },
+  "coffee_bonus": {
+    "name": "Coffee Bonus",
+    "oneshot_trigger_category": "medical_illness",
+    "oneshot_set_to_zero": true,
+    "requires_items": [
+      "coffee_press",
+      "stove_fuel"
+    ],
+    "notes": "First fatigue/headache event becomes HP 0 with coffee press + stove."
+  },
+  "picky_eater": {
+    "name": "Picky Eater",
+    "hp_modifiers": {
+      "food_spoilage": -1
+    },
+    "notes": "Raw/uncooked food events always extra -1 HP."
+  },
+  "backup_hammock": {
+    "name": "Backup Hammock",
+    "condition": "no_tent_or_tarp",
+    "hp_modifiers": {
+      "weather_wet": 1
+    },
+    "notes": "If no tent/tarp on rainy nights, exposure reduced by 1 HP."
+  },
+  "old_rope": {
+    "name": "Old Rope",
+    "oneshot_trigger_category": "slip_fall",
+    "oneshot_hp_delta": -1,
+    "negated_by_items": [
+      "rope_tool_kit",
+      "climbing_rope"
+    ],
+    "notes": "First cliff/river crossing event extra -1 HP without rope/tool kit."
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "lakeside": {
+    "display_name": "Lakeside",
+    "hp_modifiers": {
+      "medical_injury": -1
+    },
+    "water_gain_mult": {
+      "water_collection": 1.5,
+      "weather_wet": 1.5
+    },
+    "notes": "Cold exposure unchanged. Water events produce 1.5x more water."
+  },
+  "glacier_ridge": {
+    "display_name": "Glacier Ridge",
+    "hp_modifiers": {
+      "weather_cold": -1,
+      "slip_fall": -1
+    },
+    "water_gain_mult": {
+      "water_collection": 0.0
+    },
+    "requires_stove_for_water": true,
+    "notes": "Cold-weather events cause an extra 1 HP damage. Water events need stove."
+  },
+  "deep_forest": {
+    "display_name": "Deep Forest",
+    "hp_modifiers": {
+      "weather_wet": -1,
+      "insect": -1
+    },
+    "food_gain_bonus": 100,
+    "notes": "Food/berry events give +100 kcal. Wet-cold and insect events deal extra 1 HP."
+  },
+  "valley_floor": {
+    "display_name": "Valley Floor",
+    "hp_modifiers": {
+      "weather_cold": 1,
+      "weather_hot": 1,
+      "weather_wet": 1,
+      "weather_wind": 1,
+      "navigation": -1
+    },
+    "water_gain_mult": {
+      "water_collection": 1.2,
+      "weather_wet": 1.2
+    },
+    "notes": "All weather HP reduced by 1. Water events x1.2. Navigation events 1 HP worse."
+  },
+  "high_plateau": {
+    "display_name": "High Plateau",
+    "hp_modifiers": {
+      "weather_hot": -1,
+      "weather_wind": -1,
+      "navigation": 1
+    },
+    "notes": "Sun/UV and wind events worse by 1 HP. Navigation events better by 1 HP."
+  },
+  "scree_slope": {
+    "display_name": "Scree Slope",
+    "hp_modifiers": {
+      "slip_fall": -1,
+      "equipment": -1
+    },
+    "notes": "Slip/fall and equipment damage events deal extra 1 HP."
+  },
+  "cave_mouth": {
+    "display_name": "Cave Mouth",
+    "hp_modifiers": {
+      "weather_cold": 1,
+      "food_spoilage": -1,
+      "navigation": -1
+    },
+    "notes": "Cold night events reduced by 1. Food spoilage and night navigation extra 1 HP."
+  },
+  "wind_pass": {
+    "display_name": "Wind Pass",
+    "hp_modifiers": {
+      "weather_wind": -2,
+      "weather_wet": -1
+    },
+    "notes": "Wind events extra 2 HP. Rain/snow storms extra 1 HP."
+  },
+  "boggy_hollow": {
+    "display_name": "Boggy Hollow",
+    "hp_modifiers": {
+      "insect": -1,
+      "water_collection": -1
+    },
+    "water_purif_required": true,
+    "notes": "Water easy but dirty. Insect events extra 1 HP. Without purification water events extra 1 HP."
+  },
+  "old_trail": {
+    "display_name": "Old Trail",
+    "hp_modifiers": {
+      "navigation": 2
+    },
+    "set_to_zero_categories": [
+      "wildlife_calm"
+    ],
+    "notes": "Navigation events reduced by 2 HP. Wildlife (non-attack) become HP 0."
+  }
+}

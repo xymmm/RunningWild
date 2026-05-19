@@ -1,0 +1,23 @@
+{
+  "horizon_days": 50,
+  "hp_initial": 20,
+  "water_initial_L": 6.0,
+  "food_initial_kcal": 6000,
+  "weight_cap_kg": 20.0,
+  "volume_cap_L": 80.0,
+  "baseline_water_L_per_day": 0.5,
+  "baseline_food_kcal_per_day": 500,
+  "carrying_threshold_kg": 15.0,
+  "carrying_penalty_hp_per_kg_per_day": 0.1,
+  "endgame_water_L_per_hp": 1.0,
+  "endgame_food_kcal_per_hp": 1000,
+  "endgame_water_hp_cap": 5,
+  "endgame_food_hp_cap": 10,
+  "dehydration_days_max": 3,
+  "starvation_days_max": 10,
+  "starvation_kcal_threshold": 500,
+  "event_sampling_scheme": "A",
+  "expected_events_per_day_target": 1.65,
+  "water_gain_base_L": 1.0,
+  "food_gain_base_kcal": 300
+}

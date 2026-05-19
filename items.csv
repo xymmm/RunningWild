@@ -1,0 +1,94 @@
+id,name,weight_kg,volume_L,category,kcal,litres,is_wearable
+tent,Lightweight tent,2.5,10.0,shelter,0,0.0,False
+sleeping_bag,Sleeping bag,1.2,6.0,shelter,0,0.0,False
+thermal_blanket,Emergency thermal blanket,0.6,3.0,shelter,0,0.0,False
+rain_tarp,Rain tarp,0.9,4.0,shelter,0,0.0,False
+ground_tarp,Ground tarp,0.7,3.0,shelter,0,0.0,False
+bivy_bag,Emergency bivy bag,0.4,2.0,shelter,0,0.0,False
+seat_pad,Camping seat pad,0.2,0.8,shelter,0,0.0,False
+rain_poncho,Rain poncho,0.3,1.0,clothing,0,0.0,True
+fleece_jacket,Fleece jacket,0.8,3.0,clothing,0,0.0,True
+down_jacket,Down jacket,1.1,4.0,clothing,0,0.0,True
+winter_coat,Thick winter coat,1.8,5.0,clothing,0,0.0,True
+waterproof_jacket,Waterproof jacket,0.9,4.0,clothing,0,0.0,True
+hiking_boots,Waterproof hiking boots,1.2,3.0,clothing,0,0.0,True
+extra_socks,Extra socks,0.15,0.3,clothing,0,0.0,False
+thermal_socks,Thermal socks,0.2,0.4,clothing,0,0.0,False
+gloves,Gloves,0.2,0.5,clothing,0,0.0,False
+wool_hat,Wool hat,0.15,0.4,clothing,0,0.0,False
+sun_hat,Sun hat,0.2,0.7,clothing,0,0.0,False
+sunglasses,Sunglasses,0.1,0.2,clothing,0,0.0,False
+scarf,Scarf,0.2,0.5,clothing,0,0.0,False
+headlamp,Headlamp with batteries,0.25,0.7,nav_light,0,0.0,False
+spare_headlamp,Spare headlamp,0.25,0.7,nav_light,0,0.0,False
+compass_map,Compass and map,0.15,0.5,nav_light,0,0.0,False
+gps,GPS device,0.3,1.0,nav_light,0,0.0,False
+spare_batteries,Spare batteries,0.5,1.0,nav_light,0,0.0,False
+solar_panel,Mini solar panel,0.9,2.5,nav_light,0,0.0,False
+power_bank,Portable power bank,0.4,1.0,nav_light,0,0.0,False
+multi_tool,Multi-tool knife,0.2,0.3,tools,0,0.0,False
+hatchet,Small hatchet,0.7,2.0,tools,0,0.0,False
+saw,Lightweight saw,0.45,1.2,tools,0,0.0,False
+rope_tool_kit,Rope and tool kit,0.8,2.0,tools,0,0.0,False
+climbing_rope,Climbing rope 20m,1.4,5.0,tools,0,0.0,False
+tent_repair_kit,Tent repair kit,0.2,0.6,tools,0,0.0,False
+sewing_kit,Sewing repair kit,0.1,0.3,tools,0,0.0,False
+duct_tape,Duct tape,0.2,0.8,tools,0,0.0,False
+trekking_pole,Trekking pole,0.4,1.5,tools,0,0.0,False
+small_shovel,Small shovel,0.5,1.5,tools,0,0.0,False
+folding_spade,Folding spade,0.7,2.0,tools,0,0.0,False
+pry_bar,Metal pry bar,0.6,2.0,tools,0,0.0,False
+stove_fuel,Stove with fuel (3 days),1.8,5.0,fire_cook,0,0.0,False
+extra_fuel,Extra fuel (3 days),1.2,3.0,fire_cook,0,0.0,False
+fire_starter,Fire starter and lighter,0.07,0.1,fire_cook,0,0.0,False
+matches,Waterproof matches,0.1,0.2,fire_cook,0,0.0,False
+cooking_pot,Cooking pot,0.6,2.0,fire_cook,0,0.0,False
+metal_cup,Metal cup,0.2,0.4,fire_cook,0,0.0,False
+coffee_press,Portable coffee press,0.3,1.0,fire_cook,0,0.0,False
+portable_cutlery,Portable cutlery,0.2,0.5,fire_cook,0,0.0,False
+dry_food,Dry food pack 6000kcal,2.0,4.0,food,6000,0.0,False
+energy_bars,Energy bars (12),0.5,1.0,food,2400,0.0,False
+protein_biscuits,Protein biscuits,0.4,1.0,food,1600,0.0,False
+dried_fruit_nuts,Dried fruit and nuts,0.4,0.8,food,1800,0.0,False
+hard_crackers,Hard crackers,0.3,0.8,food,1200,0.0,False
+chocolate_bars,Chocolate bars (pack),0.3,0.8,food,1500,0.0,False
+peanut_butter,Peanut butter jar,0.5,0.6,food,2800,0.0,False
+instant_noodles,Instant noodles (5 packs),0.5,1.5,food,1700,0.0,False
+insulated_food,Insulated food container,0.7,1.5,food,0,0.0,False
+electrolyte,Electrolyte powder (10 packs),0.2,0.5,food,0,0.0,False
+water_5L,Potable water 5L,5.0,5.0,water,0,5.0,False
+water_2L,Potable water 2L,2.0,2.0,water,0,2.0,False
+water_purif_tabs,Water purification tablets,0.2,1.0,water,0,0.0,False
+filter_bottle,Filter water bottle,0.7,3.0,water,0,0.0,False
+water_container,Foldable water container 5L,0.1,0.5,water,0,0.0,False
+waterproof_box,Waterproof storage box,0.6,3.0,storage,0,0.0,False
+waterproof_bag,Waterproof bag,0.25,1.0,storage,0,0.0,False
+zip_bags,Plastic zip bags,0.1,0.2,storage,0,0.0,False
+garbage_bags,Garbage bags,0.1,0.3,storage,0,0.0,False
+whistle,Emergency whistle,0.05,0.1,signal,0,0.0,False
+whistle_reflective,Whistle with reflective tag,0.08,0.1,signal,0,0.0,False
+signal_mirror,Signal mirror,0.1,0.2,signal,0,0.0,False
+small_radio,Small radio,0.4,1.0,signal,0,0.0,False
+thermo_hygro,Thermo-hygrometer,0.2,0.6,signal,0,0.0,False
+drone,Lightweight drone,1.1,4.0,signal,0,0.0,False
+small_medkit,Small medical kit,0.5,2.0,medical,0,0.0,False
+adv_medkit,Advanced medical kit,0.9,3.0,medical,0,0.0,False
+bandages,Bandages and gauze,0.25,0.7,medical,0,0.0,False
+cold_compress,Cold compress packs (2),0.2,0.5,medical,0,0.0,False
+sunscreen,Sunscreen,0.2,0.5,medical,0,0.0,False
+mosquito_repel,Mosquito repellent,0.25,0.6,medical,0,0.0,False
+painkillers,Painkillers (10),0.15,0.4,medical,0,0.0,False
+allergy_meds,Allergy medication,0.1,0.3,medical,0,0.0,False
+antibiotic_cream,Antibiotic cream,0.1,0.3,medical,0,0.0,False
+heat_pack,Emergency heat pack,0.15,0.6,medical,0,0.0,False
+hand_warmers,Hand warmers (10),0.25,0.6,medical,0,0.0,False
+disinfectant,Disinfectant wipes,0.2,0.6,medical,0,0.0,False
+hygiene_kit,Hygiene kit,0.4,1.5,medical,0,0.0,False
+soap,Biodegradable soap,0.2,0.5,medical,0,0.0,False
+toothbrush,Toothbrush and toothpaste,0.15,0.3,medical,0,0.0,False
+towel,Quick-dry towel,0.25,0.7,medical,0,0.0,False
+bear_spray,Bear spray,0.4,1.0,defence,0,0.0,False
+pepper_spray,Pepper spray,0.15,0.4,defence,0,0.0,False
+notebook,Notebook and pencil,0.1,0.5,morale,0,0.0,False
+playing_cards,Small book or playing cards,0.3,1.0,morale,0,0.0,False
+statue,Mysterious small statue,0.2,0.5,morale,0,0.0,False
