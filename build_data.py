@@ -575,12 +575,26 @@ PARAMETERS = {
     "starvation_kcal_threshold": 500,
 
     # event sampling scheme
-    "event_sampling_scheme": "A",   # A=per-event Bernoulli; B=single categorical; C=stratified
-    "expected_events_per_day_target": 1.65,
+    "event_sampling_scheme": "A_plus",  # A=Bernoulli only; A_plus = A + scheduled calendar
+    "expected_events_per_day_target": 1.59,
 
     # water gain per water_collection event (base, before location multipliers)
     "water_gain_base_L": 1.0,
     "food_gain_base_kcal": 300,
+
+    # calendar for Scheme A+
+    # rest days override Scheme A: no random events, no baseline consumption, +1 HP
+    # fortune days override Scheme A: one scheduled bonus event from the pool
+    "calendar": {
+        "rest_days": [10, 20, 30, 40, 50],
+        "fortune_days": {
+            "7":  ["foraging_success", "wild_herb_garden", "treasure_found"],
+            "17": ["foraging_success", "clear_lake"],
+            "25": ["treasure_found", "wild_herb_garden", "shelter_cave"],
+            "33": ["successful_haunt", "shelter_cave", "treasure_found"],
+            "43": ["foraging_success", "successful_haunt", "clear_lake"]
+        }
+    }
 }
 
 # ----------------------------------------------------------------------------
