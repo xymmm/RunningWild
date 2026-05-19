@@ -46,12 +46,12 @@ strong_wind,Strong wind,weather_wind,-2,ANY,tent|rain_tarp,0,0.01
 windstorm,Windstorm,weather_wind,-3,ALL,tent|tent_repair_kit,0,0.01
 dust_storm,Dust storm,weather_wind,-2,ANY,sunglasses|scarf,0,0.008
 floating_ash,Floating ash,weather_wind,-1,ANY,scarf,0,0.006
-fine_afternoon,Fine afternoon,bonus_morale,1,NONE,,0,0.009
-calm_warm_night,Calm warm night,bonus_morale,1,NONE,,0,0.009
-hot_tea,Hot tea,bonus_morale,1,ALL,stove_fuel|cooking_pot,0,0.0075
-tea_leaves_found,Tea leaves found,bonus_morale,1,ANY,cooking_pot,0,0.0075
-wild_herb_tea,Wild herb tea,bonus_morale,1,ANY,cooking_pot,0,0.0075
-nightingale_sings,Nightingale sings,bonus_morale,1,NONE,,0,0.012
+fine_afternoon,Fine afternoon,bonus_morale,1,NONE,,0,0.006
+calm_warm_night,Calm warm night,bonus_morale,1,NONE,,0,0.006
+hot_tea,Hot tea,bonus_morale,1,ALL,stove_fuel|cooking_pot,0,0.005
+tea_leaves_found,Tea leaves found,bonus_morale,1,ANY,cooking_pot,0,0.005
+wild_herb_tea,Wild herb tea,bonus_morale,1,ANY,cooking_pot,0,0.005
+nightingale_sings,Nightingale sings,bonus_morale,1,NONE,,0,0.008
 stove_smoke,Stove smoke,medical_illness,-1,ANY,rain_tarp,0,0.008
 cold_sore,Cold sore,medical_illness,-1,ANY,small_medkit,0,0.008
 cough_all_night,Cough all night,medical_illness,-1,ANY,sleeping_bag,0,0.008
@@ -167,11 +167,11 @@ carried_too_much_w,Carried too much water,food_spoilage,-1,ANY,seat_pad,0,0.005
 stale_crackers,Stale crackers,food_spoilage,0,NONE,,0,0.005
 poisonous_berries,Poisonous berries,food_spoilage,-2,ANY,small_medkit|adv_medkit,0,0.005
 only_nuts_eaten,Only nuts eaten,food_spoilage,-1,NONE,,0,0.005
-stored_water_frozen,Stored water frozen,water_collection,-1,ALL,stove_fuel|cooking_pot,0,0.03
-melted_snow,Melted snow,water_collection,-1,ANY,water_purif_tabs|filter_bottle|stove_fuel,0,0.015
-water_too_muddy,Water too muddy,water_collection,-1,ANY,filter_bottle,0,0.015
-dry_throat,Dry throat,water_collection,-1,ANY,water_2L|water_5L,0,0.015
-dry_lips,Dry lips,water_collection,0,ANY,water_2L|water_5L,0,0.03
+stored_water_frozen,Stored water frozen,water_collection,-1,ALL,stove_fuel|cooking_pot,0,0.01
+melted_snow,Melted snow,water_collection,-1,ANY,water_purif_tabs|filter_bottle|stove_fuel,0,0.005
+water_too_muddy,Water too muddy,water_collection,-1,ANY,filter_bottle,0,0.005
+dry_throat,Dry throat,water_collection,-1,ANY,water_2L|water_5L,0,0.005
+dry_lips,Dry lips,water_collection,0,ANY,water_2L|water_5L,0,0.01
 partridge_scare,Partridge scare,wildlife_calm,-1,ANY,trekking_pole,0,0.008
 goat_appears,Goat appears,wildlife_calm,0,ANY,drone,0,0.008
 lynx_passing,Lynx passing,wildlife_calm,0,ANY,bear_spray,0,0.008

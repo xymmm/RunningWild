@@ -331,10 +331,10 @@ def main():
     print(f"  CALIBRATION TARGET CHECK")
     print(f"{'='*60}")
     targets = {
-        "Random":    (0.25, 0.40),
-        "Stockpile": (0.40, 0.55),
-        "Balanced":  (0.55, 0.70),
-        "MILP":      (0.70, 0.85),
+        "Random":    (0.20, 0.35),
+        "Stockpile": (0.25, 0.40),
+        "Balanced":  (0.75, 0.90),
+        "MILP":      (0.90, 0.99),
     }
     actuals = {
         "Random":    len([r for r in res_random if r.alive]) / N,
