@@ -1,0 +1,336 @@
+group,item,name,qty
+1,allergy_meds,Allergy medication,1
+1,chocolate_bars,Chocolate bars (pack),1
+1,compass_map,Compass and map,1
+1,drone,Lightweight drone,1
+1,fire_starter,Fire starter and lighter,1
+1,ground_tarp,Ground tarp,1
+1,headlamp,Headlamp with batteries,1
+1,heat_pack,Emergency heat pack,1
+1,notebook,Notebook and pencil,1
+1,painkillers,Painkillers (10),1
+1,portable_speaker,Portable speaker,1
+1,pry_bar,Metal pry bar,1
+1,signal_mirror,Signal mirror,1
+1,statue,Mysterious small statue,1
+1,thermal_socks,Thermal socks,1
+1,water_bladder_3L,Water bladder 3L (full),2
+1,winter_coat,Thick winter coat,1
+1,winter_sleeping_bag,Winter sleeping bag (-15C),1
+2,adv_medkit,Advanced medical kit,1
+2,antibiotic_cream,Antibiotic cream,1
+2,bivy_bag,Emergency bivy bag,1
+2,cold_compress,Cold compress packs (2),1
+2,drone,Lightweight drone,1
+2,dry_food,Dry food pack 6000kcal,1
+2,electrolyte,Electrolyte powder (10 packs),3
+2,energy_bars,Energy bars (12),2
+2,freeze_dried_meals,Freeze-dried meals (5),1
+2,gloves,Gloves,1
+2,hand_warmers,Hand warmers (10),1
+2,hiking_boots,Waterproof hiking boots,1
+2,hygiene_kit,Hygiene kit,1
+2,ice_axe,Ice axe,1
+2,mosquito_repel,Mosquito repellent,1
+2,notebook,Notebook and pencil,1
+2,pepper_spray,Pepper spray,1
+2,portable_speaker,Portable speaker,1
+2,power_bank,Portable power bank,1
+2,rain_poncho,Rain poncho,1
+2,rope_tool_kit,Rope and tool kit,1
+2,scarf,Scarf,1
+2,small_shovel,Small shovel,1
+2,soap,Biodegradable soap,1
+2,sun_hat,Sun hat,1
+2,sunglasses,Sunglasses,1
+2,water_container,Foldable water container 5L,1
+2,whistle,Emergency whistle,1
+2,wilderness_medkit,Wilderness medical kit (full),1
+2,zip_bags,Plastic zip bags,1
+3,climbing_rope,Climbing rope 20m,1
+3,compass_map,Compass and map,1
+3,disinfectant,Disinfectant wipes,1
+3,drone,Lightweight drone,1
+3,garbage_bags,Garbage bags,1
+3,hatchet,Small hatchet,1
+3,headlamp,Headlamp with batteries,1
+3,notebook,Notebook and pencil,1
+3,pry_bar,Metal pry bar,1
+3,sleeping_bag,Sleeping bag,1
+3,soap,Biodegradable soap,1
+3,solar_panel,Mini solar panel,1
+3,water_5L,Potable water 5L,1
+3,waterproof_jacket,Waterproof jacket,1
+3,winter_sleeping_bag,Winter sleeping bag (-15C),1
+4,crampons,Crampons,1
+4,dried_fruit_nuts,Dried fruit and nuts,3
+4,dry_food,Dry food pack 6000kcal,1
+4,electrolyte,Electrolyte powder (10 packs),1
+4,energy_bars,Energy bars (12),3
+4,face_mask,"Face mask (N95, 5 pack)",1
+4,freeze_dried_meals,Freeze-dried meals (5),1
+4,head_net,Mosquito head net,1
+4,insulated_food,Insulated food container,1
+4,mosquito_repel,Mosquito repellent,1
+4,notebook,Notebook and pencil,1
+4,power_bank,Portable power bank,1
+4,rain_poncho,Rain poncho,1
+4,sewing_kit,Sewing repair kit,1
+4,small_shovel,Small shovel,1
+4,soap,Biodegradable soap,1
+4,solar_panel,Mini solar panel,1
+4,spare_batteries,Spare batteries,1
+4,spare_headlamp,Spare headlamp,1
+4,toothbrush,Toothbrush and toothpaste,1
+4,water_2L,Potable water 2L,2
+4,water_container,Foldable water container 5L,1
+4,whistle,Emergency whistle,1
+5,canned_food,Canned food (4 tins),2
+5,chocolate_bars,Chocolate bars (pack),1
+5,coffee_press,Portable coffee press,1
+5,disinfectant,Disinfectant wipes,1
+5,four_season_tent,Four-season tent,1
+5,gps,GPS device,1
+5,ground_tarp,Ground tarp,1
+5,hard_crackers,Hard crackers,3
+5,notebook,Notebook and pencil,1
+5,painkillers,Painkillers (10),1
+5,peanut_butter,Peanut butter jar,1
+5,portable_speaker,Portable speaker,1
+5,rain_tarp,Rain tarp,1
+5,saw,Lightweight saw,1
+5,small_shovel,Small shovel,1
+5,snakebite_kit,Venom extractor kit,1
+5,solar_panel,Mini solar panel,1
+5,statue,Mysterious small statue,1
+5,thermal_blanket,Emergency thermal blanket,1
+5,toothbrush,Toothbrush and toothpaste,1
+5,towel,Quick-dry towel,1
+5,whistle,Emergency whistle,1
+6,adv_medkit,Advanced medical kit,1
+6,antibiotic_cream,Antibiotic cream,1
+6,bear_spray,Bear spray,1
+6,canned_food,Canned food (4 tins),3
+6,face_mask,"Face mask (N95, 5 pack)",1
+6,filter_bottle,Filter water bottle,3
+6,fire_starter,Fire starter and lighter,1
+6,gps,GPS device,1
+6,headlamp,Headlamp with batteries,1
+6,hiking_boots,Waterproof hiking boots,1
+6,hygiene_kit,Hygiene kit,1
+6,insulated_food,Insulated food container,1
+6,merino_base_layer,Merino base layer,1
+6,notebook,Notebook and pencil,1
+6,peanut_butter,Peanut butter jar,1
+6,pemmican,Pemmican bars,1
+6,portable_speaker,Portable speaker,1
+6,rain_poncho,Rain poncho,1
+6,rain_tarp,Rain tarp,1
+6,spare_batteries,Spare batteries,1
+6,sunglasses,Sunglasses,1
+7,allergy_meds,Allergy medication,1
+7,antibiotic_cream,Antibiotic cream,1
+7,face_mask,"Face mask (N95, 5 pack)",1
+7,four_season_tent,Four-season tent,1
+7,garbage_bags,Garbage bags,1
+7,hand_warmers,Hand warmers (10),1
+7,heat_pack,Emergency heat pack,1
+7,instant_noodles,Instant noodles (5 packs),1
+7,insulated_food,Insulated food container,3
+7,matches,Waterproof matches,1
+7,metal_cup,Metal cup,1
+7,mosquito_repel,Mosquito repellent,1
+7,notebook,Notebook and pencil,1
+7,scarf,Scarf,1
+7,seat_pad,Camping seat pad,1
+7,sewing_kit,Sewing repair kit,1
+7,signal_mirror,Signal mirror,1
+7,small_medkit,Small medical kit,1
+7,tent_repair_kit,Tent repair kit,1
+7,toothbrush,Toothbrush and toothpaste,1
+7,water_2L,Potable water 2L,2
+7,water_container,Foldable water container 5L,1
+7,waterproof_box,Waterproof storage box,1
+7,waterproof_jacket,Waterproof jacket,1
+7,whistle,Emergency whistle,1
+7,zip_bags,Plastic zip bags,1
+8,balaclava,Balaclava,1
+8,bear_spray,Bear spray,1
+8,coffee_press,Portable coffee press,1
+8,cold_compress,Cold compress packs (2),1
+8,drone,Lightweight drone,1
+8,four_season_tent,Four-season tent,1
+8,gloves,Gloves,1
+8,goretex_shell,Gore-Tex shell jacket,1
+8,hard_crackers,Hard crackers,1
+8,hygiene_kit,Hygiene kit,1
+8,multi_tool,Multi-tool knife,1
+8,painkillers,Painkillers (10),1
+8,saw,Lightweight saw,1
+8,sleeping_pad,Insulated sleeping pad,1
+8,small_medkit,Small medical kit,1
+8,small_shovel,Small shovel,1
+8,solar_panel,Mini solar panel,1
+8,spare_headlamp,Spare headlamp,1
+8,sun_hat,Sun hat,1
+8,sunscreen,Sunscreen,1
+8,tent,Lightweight tent,1
+8,towel,Quick-dry towel,1
+8,water_purif_tabs,Water purification tablets,1
+8,waterproof_bag,Waterproof bag,1
+9,climbing_rope,Climbing rope 20m,1
+9,extra_fuel,Extra fuel (3 days),1
+9,gloves,Gloves,1
+9,hard_crackers,Hard crackers,2
+9,hygiene_kit,Hygiene kit,1
+9,matches,Waterproof matches,1
+9,peanut_butter,Peanut butter jar,1
+9,protein_biscuits,Protein biscuits,1
+9,rain_tarp,Rain tarp,1
+9,snakebite_kit,Venom extractor kit,1
+9,spare_headlamp,Spare headlamp,1
+9,statue,Mysterious small statue,1
+9,sunglasses,Sunglasses,1
+9,water_bladder_3L,Water bladder 3L (full),2
+9,winter_sleeping_bag,Winter sleeping bag (-15C),1
+10,balaclava,Balaclava,1
+10,bandages,Bandages and gauze,1
+10,bivy_bag,Emergency bivy bag,1
+10,chocolate_bars,Chocolate bars (pack),3
+10,cooking_pot,Cooking pot,1
+10,electrolyte,Electrolyte powder (10 packs),1
+10,face_mask,"Face mask (N95, 5 pack)",1
+10,filter_bottle,Filter water bottle,1
+10,fire_starter,Fire starter and lighter,1
+10,fishing_kit,Fishing kit,1
+10,garbage_bags,Garbage bags,1
+10,goretex_shell,Gore-Tex shell jacket,1
+10,ground_tarp,Ground tarp,1
+10,head_net,Mosquito head net,1
+10,headlamp,Headlamp with batteries,1
+10,mosquito_repel,Mosquito repellent,1
+10,notebook,Notebook and pencil,1
+10,portable_cutlery,Portable cutlery,1
+10,rice_bag,Rice bag 1kg,3
+10,satellite_messenger,Satellite messenger,1
+10,sleeping_bag,Sleeping bag,1
+10,small_medkit,Small medical kit,1
+10,small_radio,Small radio,1
+10,small_shovel,Small shovel,1
+10,solar_panel,Mini solar panel,1
+10,statue,Mysterious small statue,1
+10,thermal_blanket,Emergency thermal blanket,1
+10,thermal_socks,Thermal socks,1
+10,towel,Quick-dry towel,1
+10,water_purif_tabs,Water purification tablets,2
+10,whistle,Emergency whistle,1
+10,whistle_reflective,Whistle with reflective tag,1
+10,zip_bags,Plastic zip bags,1
+11,cold_compress,Cold compress packs (2),1
+11,dried_fruit_nuts,Dried fruit and nuts,1
+11,face_mask,"Face mask (N95, 5 pack)",1
+11,folding_spade,Folding spade,1
+11,garbage_bags,Garbage bags,1
+11,hand_warmers,Hand warmers (10),1
+11,hiking_boots,Waterproof hiking boots,1
+11,merino_base_layer,Merino base layer,1
+11,multi_tool,Multi-tool knife,1
+11,notebook,Notebook and pencil,1
+11,saw,Lightweight saw,1
+11,spare_batteries,Spare batteries,1
+11,statue,Mysterious small statue,1
+11,thermo_hygro,Thermo-hygrometer,1
+11,water_5L,Potable water 5L,2
+11,whistle,Emergency whistle,1
+12,allergy_meds,Allergy medication,1
+12,bear_spray,Bear spray,1
+12,cooking_pot,Cooking pot,1
+12,crampons,Crampons,1
+12,dried_fruit_nuts,Dried fruit and nuts,2
+12,face_mask,"Face mask (N95, 5 pack)",1
+12,fire_starter,Fire starter and lighter,1
+12,fishing_kit,Fishing kit,1
+12,fleece_jacket,Fleece jacket,1
+12,gps,GPS device,1
+12,gravity_filter,Gravity water filter,1
+12,notebook,Notebook and pencil,1
+12,painkillers,Painkillers (10),1
+12,pemmican,Pemmican bars,1
+12,playing_cards,Small book or playing cards,1
+12,rice_bag,Rice bag 1kg,1
+12,saw,Lightweight saw,1
+12,scarf,Scarf,1
+12,small_radio,Small radio,1
+12,small_shovel,Small shovel,1
+12,softshell_jacket,Softshell jacket,1
+12,solar_panel,Mini solar panel,1
+12,statue,Mysterious small statue,1
+12,thermal_blanket,Emergency thermal blanket,1
+12,whistle,Emergency whistle,1
+12,winter_coat,Thick winter coat,1
+12,winter_sleeping_bag,Winter sleeping bag (-15C),1
+12,zip_bags,Plastic zip bags,1
+13,antibiotic_cream,Antibiotic cream,1
+13,canned_food,Canned food (4 tins),1
+13,cold_compress,Cold compress packs (2),1
+13,crampons,Crampons,1
+13,extra_socks,Extra socks,1
+13,face_mask,"Face mask (N95, 5 pack)",1
+13,folding_spade,Folding spade,1
+13,hand_warmers,Hand warmers (10),1
+13,insulated_food,Insulated food container,1
+13,matches,Waterproof matches,1
+13,rain_tarp,Rain tarp,1
+13,scarf,Scarf,1
+13,sewing_kit,Sewing repair kit,1
+13,soap,Biodegradable soap,1
+13,softshell_jacket,Softshell jacket,1
+13,sunglasses,Sunglasses,1
+13,towel,Quick-dry towel,1
+13,water_5L,Potable water 5L,1
+13,waterproof_box,Waterproof storage box,1
+13,winter_sleeping_bag,Winter sleeping bag (-15C),1
+14,adv_medkit,Advanced medical kit,1
+14,bear_spray,Bear spray,1
+14,canned_food,Canned food (4 tins),3
+14,compass_map,Compass and map,1
+14,cooking_pot,Cooking pot,1
+14,down_jacket,Down jacket,1
+14,fire_starter,Fire starter and lighter,1
+14,goretex_shell,Gore-Tex shell jacket,1
+14,hand_warmers,Hand warmers (10),1
+14,hard_crackers,Hard crackers,3
+14,hatchet,Small hatchet,1
+14,pemmican,Pemmican bars,1
+14,pepper_spray,Pepper spray,1
+14,rain_tarp,Rain tarp,1
+14,rope_tool_kit,Rope and tool kit,1
+14,sleeping_pad,Insulated sleeping pad,1
+14,spare_batteries,Spare batteries,1
+14,statue,Mysterious small statue,1
+14,thermo_hygro,Thermo-hygrometer,1
+14,waterproof_bag,Waterproof bag,1
+15,canned_food,Canned food (4 tins),1
+15,climbing_rope,Climbing rope 20m,1
+15,compass_map,Compass and map,1
+15,disinfectant,Disinfectant wipes,1
+15,electrolyte,Electrolyte powder (10 packs),1
+15,freeze_dried_meals,Freeze-dried meals (5),3
+15,hammock_tarp,Hammock with tarp,1
+15,hatchet,Small hatchet,1
+15,ice_axe,Ice axe,1
+15,metal_cup,Metal cup,1
+15,painkillers,Painkillers (10),1
+15,playing_cards,Small book or playing cards,1
+15,rain_poncho,Rain poncho,1
+15,rope_tool_kit,Rope and tool kit,1
+15,small_medkit,Small medical kit,1
+15,snakebite_kit,Venom extractor kit,1
+15,soap,Biodegradable soap,1
+15,spare_batteries,Spare batteries,1
+15,tent_repair_kit,Tent repair kit,1
+15,towel,Quick-dry towel,1
+15,water_container,Foldable water container 5L,1
+15,water_purif_tabs,Water purification tablets,1
+15,waterproof_jacket,Waterproof jacket,1
+15,winter_sleeping_bag,Winter sleeping bag (-15C),1

@@ -54,8 +54,41 @@ Monte Carlo (`python calibrate.py`) showed that with 20 kg and 80 L the item set
 |---|---|---|
 | Starting HP | 20 | 15 |
 | Weight / volume limit | 20 kg / 80 L | 15 kg / 60 L |
-| Final-score HP from leftover water / food | uncapped | at most 5 each |
+| Final-score bonus from leftover water and food | 1 HP per 0.5 L plus 1 HP per 500 kcal, uncapped | reserve days: min(water days, food days, 5) |
 | Days | 50 | 20 |
 | Resupply | none | 3 random unannounced days, +2 L water and +1500 kcal each |
 
 Result over 20 days: random backpacks survive about 73 percent, a greedy protection-only backpack about 98 percent, and the protection-only backpack still loses groups to dehydration when resupply is switched off.
+
+## 5. End-of-game settlement
+
+HP_final = HP_end + min( floor(W / daily water), floor(F / daily food), 5 ), for surviving groups only.
+
+Leftover water and food count as the number of extra days the group could still survive, which is set by the scarcer of the two, and at most 5 days count. In 400 simulated classes the slides' uncapped rule let a pure stockpiling backpack win 21 percent of games (every game in which it survived); under the reserve-days rule it won none, while a backpack balancing protection with a modest reserve won about 87 percent.
+
+## 6. Trait balance
+
+Light Pack Expert (+1 HP every night) and Water Hoarder (-1 HP every day) were worth up to +20 and -20 HP over 20 days, far more than any other card. Both now act every 5th day, at most +4 or -4 HP. Light Pack Expert now needs a backpack of at most two-thirds of the weight limit, because with a 15 kg limit the old "15 kg or less" condition was met by every group. Over 300 simulated games with random backpacks, the average effect of each trait card now lies between -3 HP (Injured at Start) and +0.7 HP (Heat Resistant), and no card changes a game by more than 5 HP.
+
+## 7. Global balance check (version 3)
+
+Every location was played 200 times with a backpack chosen greedily for that location, and 200 times with random backpacks; every trait card was played on top of each location.
+
+Changes made:
+
+| Card | Before | Now | Reason |
+|---|---|---|---|
+| Valley Floor | all weather 1 HP milder, navigation 1 HP milder | rain and wind 1 HP milder, navigation 1 HP worse (as on the printed card) | easiest location by far: 88 percent survival with random packs against 64 to 80 elsewhere |
+| Glacier Ridge | every cold-related event 1 HP worse | cold-weather events and hypothermia 1 HP worse | hardest location with random packs |
+| Scree Slope | every equipment event 1 HP worse, including harmless ones | only equipment events that already cost HP | hardest location with good packs |
+| Injured at Start | -3 HP | -2 HP | three times larger than any other card |
+| Lucky Ration | +600 kcal | +1500 kcal | had no visible effect |
+| Animal Friend | also cancelled the Nightingale bonus | only cancels losses | a helpful card should not hurt |
+| Night Walker | never triggered, because a headlamp already protects against night events | with a headlamp, all unprotected navigation events 1 HP milder | had no effect |
+| Coffee Bonus | first fatigue or headache event only | every fatigue, headache or cramp event | had no visible effect |
+
+Result: with a sensible location-aware backpack, all ten locations now end within 0.7 HP of each other (16.9 to 17.6 final HP); with random backpacks survival ranges from 68 to 81 percent. Choosing the backpack for your location matters, and good planning removes most of the luck of the draw. Three slide examples (Valley Floor on days 1, 12 and 13) no longer hold and are marked "v3" in `tests/test_rules.py`.
+
+## 8. Open item: GAMS template
+
+The GAMS template students use still has the old 93 items, the old event list and the old mitigation matrix. Before November it should be regenerated from `data/` so that the model students build and the game the app plays use the same data.

@@ -163,8 +163,9 @@ def leaderboard(room):
             "Location": loc_name(g["location"]),
             "Trait": trait_name(g["trait"]),
             "HP end": s["hp"],
-            "HP from water": fs["hp_water"] if fs else None,
-            "HP from food": fs["hp_food"] if fs else None,
+            "Water days left": fs["water_days"] if fs else None,
+            "Food days left": fs["food_days"] if fs else None,
+            "Bonus HP": fs["hp_bonus"] if fs else None,
             "Final HP": fs["hp_final"] if fs else None,
             "Status": status_text(s),
             "_alive": s["alive"], "_dday": s["death_day"] or 0,
@@ -421,8 +422,8 @@ def instructor_login():
             bf = st.number_input("Daily food (kcal)", 0, 3000, P["baseline_food_kcal_per_day"], 50)
             wcap = st.number_input("Weight limit (kg)", 5.0, 50.0, float(P["weight_cap_kg"]), 1.0)
             vcap = st.number_input("Volume limit (L)", 10.0, 200.0, float(P["volume_cap_L"]), 5.0)
-            wcapc = st.number_input("Max final-score HP from leftover water", 0, 100, P["endgame_water_hp_cap"])
-            fcapc = st.number_input("Max final-score HP from leftover food", 0, 100, P["endgame_food_hp_cap"])
+            rcap = st.number_input("Max bonus HP from leftover water and food (reserve days)", 0, 20,
+                                   P["endgame_reserve_cap"])
             wh = st.checkbox("Use the Water Hoarder trait penalty", P["water_hoarder_enabled"])
         with st.expander("Resupply days", expanded=True):
             modes = {"random": "Random days (unannounced)", "fixed": "Every few days", "off": "No resupply"}
@@ -437,7 +438,7 @@ def instructor_login():
                                         "baseline_water_L_per_day": bw, "baseline_food_kcal_per_day": bf,
                                         "starvation_kcal_threshold": min(bf, P["starvation_kcal_threshold"]),
                                         "weight_cap_kg": wcap, "volume_cap_L": vcap,
-                                        "endgame_water_hp_cap": wcapc, "endgame_food_hp_cap": fcapc,
+                                        "endgame_reserve_cap": rcap,
                                         "water_hoarder_enabled": wh, "resupply_mode": mode,
                                         "resupply_every": every, "resupply_count": count,
                                         "resupply_water_L": rw, "resupply_food_kcal": rf})

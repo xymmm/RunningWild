@@ -1,7 +1,7 @@
 {
   "lakeside": {
     "name": "Lakeside",
-    "card": "Water events produce 1.5x more water (round up to nearest 0.5 L). Dehydration HP penalties are reduced by 1. Cold exposure unchanged.",
+    "card": "Water events give 1.5x water (rounded up to 0.5 L). Unprotected dehydration events make you lose 1 HP less.",
     "hp_rules": [
       {
         "tag": "dehydration",
@@ -13,10 +13,10 @@
   },
   "glacier_ridge": {
     "name": "Glacier Ridge",
-    "card": "Every cold-weather event causes an extra 1 HP damage. Water events require a stove to melt ice; without a stove, water gain becomes zero. Slip/fall events deal an extra 1 HP damage.",
+    "card": "Unprotected cold-weather events (including hypothermia) and slip or fall events make you lose 1 HP more. Water events give no water without a stove to melt ice.",
     "hp_rules": [
       {
-        "tag": "cold",
+        "tag": "cold_weather",
         "delta": -1
       },
       {
@@ -30,7 +30,7 @@
   },
   "deep_forest": {
     "name": "Deep Forest",
-    "card": "Food and berry events give +100 kcal. Humid or wet-cold events deal an extra 1 HP. Insect-related events deal an extra 1 HP.",
+    "card": "Food and berry events give 100 kcal more. Unprotected humid or wet-cold events and insect events make you lose 1 HP more.",
     "hp_rules": [
       {
         "tag": "wet_humid",
@@ -45,22 +45,22 @@
   },
   "valley_floor": {
     "name": "Valley Floor",
-    "card": "All weather exposure HP is reduced by 1. Water events produce 1.2x more water. Navigation events deal 1 HP less (less risk of being lost).",
+    "card": "Unprotected rain and wind events make you lose 1 HP less. Unprotected navigation events make you lose 1 HP more (the open valley has few landmarks). Water events give 1.2x water.",
     "hp_rules": [
       {
-        "tag": "weather",
+        "tag": "rain_wind",
         "delta": 1
       },
       {
         "tag": "navigation",
-        "delta": 1
+        "delta": -1
       }
     ],
     "water_gain_mult": 1.2
   },
   "high_plateau": {
     "name": "High Plateau",
-    "card": "Sun/UV events deal an extra 1 HP. Wind events deal an extra 1 HP. Navigation events gain 1 HP (better visibility).",
+    "card": "Unprotected sun, heat and wind events make you lose 1 HP more. Unprotected navigation events make you lose 1 HP less.",
     "hp_rules": [
       {
         "tag": "sun",
@@ -78,21 +78,21 @@
   },
   "scree_slope": {
     "name": "Scree Slope",
-    "card": "Slip, fall, sprain, or ankle events deal an extra 1 HP. Equipment damage events deal an extra 1 HP. Food and water are unchanged.",
+    "card": "Unprotected slip, fall and sprain events make you lose 1 HP more. Unprotected equipment events that already cost HP make you lose 1 HP more.",
     "hp_rules": [
       {
         "tag": "slip_fall",
         "delta": -1
       },
       {
-        "tag": "equipment",
+        "tag": "equipment_damage",
         "delta": -1
       }
     ]
   },
   "cave_mouth": {
     "name": "Cave Mouth",
-    "card": "Cold night events' damage is reduced by 1. Food spoilage events deal an extra 1 HP. Without headlamp, night navigation events deal an extra 1 HP.",
+    "card": "Unprotected cold-night events make you lose 1 HP less. Unprotected food-spoilage events make you lose 1 HP more. Without a headlamp, night-navigation events make you lose 1 HP more.",
     "hp_rules": [
       {
         "tag": "cold_night",
@@ -114,7 +114,7 @@
   },
   "wind_pass": {
     "name": "Wind Pass",
-    "card": "Wind-related events deal an extra 2 HP. Rain/snow storms deal an extra 1 HP.",
+    "card": "Unprotected wind events make you lose 2 HP more. Unprotected rain and snow storms make you lose 1 HP more.",
     "hp_rules": [
       {
         "tag": "wind",
@@ -128,7 +128,7 @@
   },
   "boggy_hollow": {
     "name": "Boggy Hollow",
-    "card": "Water is easy to find, but always dirty. Without purification, water events cause an extra 1 HP. Insect events deal an extra 1 HP.",
+    "card": "Water is easy to find but always dirty: without purification tablets, a filter or a stove, water events make you lose 1 HP more. Unprotected insect events make you lose 1 HP more.",
     "hp_rules": [
       {
         "tag": "insect",
@@ -149,7 +149,7 @@
   },
   "old_trail": {
     "name": "Old Trail",
-    "card": "Navigation events' damage is reduced by 2 HP. Wildlife encounter events (non-attack) become HP 0.",
+    "card": "Unprotected navigation events make you lose 2 HP less. Calm wildlife encounters never change your HP.",
     "hp_rules": [
       {
         "tag": "navigation",

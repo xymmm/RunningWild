@@ -7,32 +7,32 @@ fog_covers_sun,Fog covers sun,weather_neutral,,0,,0.0,0,0.008,0.0,0,0.0,0,,1.0
 fine_dry_air,Fine dry air,weather_neutral,,0,,0.0,0,0.006,0.0,0,0.0,0,,1.0
 light_breeze,Light breeze,weather_neutral,,0,,0.0,0,0.006,0.0,0,0.0,0,,1.0
 dew_on_gear,Dew on gear,weather_neutral,,0,waterproof_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
-light_rain,Light rain,weather_wet,weather,-1,rain_poncho|goretex_shell,0.0,0,0.01,0.0,0,0.0,0,,1.0
-short_shower,Short shower,weather_wet,weather,-1,rain_poncho|goretex_shell|waterproof_jacket|softshell_jacket,0.0,0,0.01,0.0,0,0.0,0,,1.0
-heavy_rain,Heavy rain,weather_wet,weather,-2,rain_tarp|tent|four_season_tent|hammock_tarp,0.0,0,0.01,0.0,0,0.0,0,,1.0
-torrential_rain,Torrential rain,weather_wet,storm|weather,-3,rain_tarp+waterproof_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
-chilly_drizzle,Chilly drizzle,weather_wet,weather,-1,rain_poncho|goretex_shell,0.0,0,0.008,0.0,0,0.0,0,,1.0
-cold_drizzle,Cold drizzle,weather_wet,weather,-1,rain_poncho|goretex_shell,0.0,0,0.006,0.0,0,0.0,0,,1.0
-rain_at_night,Rain at night,weather_wet,rain_night|weather,-1,tent|four_season_tent|hammock_tarp,0.0,0,0.006,0.0,0,0.0,0,,1.0
-thunderstorm,Thunderstorm,weather_wet,storm|weather,-2,waterproof_bag|rain_tarp,0.0,0,0.008,0.0,0,0.0,0,,1.0
-hail_storm,Hail storm,weather_wet,storm|weather,-3,waterproof_jacket|goretex_shell|rain_tarp,0.0,0,0.008,0.0,0,0.0,0,,1.0
-hail_at_noon,Hail at noon,weather_wet,weather,-2,waterproof_jacket|goretex_shell,0.0,0,0.006,0.0,0,0.0,0,,1.0
-high_humidity,High humidity,weather_wet,weather|wet_humid,-1,thermal_socks|extra_socks|merino_base_layer,0.0,0,0.008,0.0,0,0.0,0,,1.0
-humid_cold,Humid cold,weather_wet,weather|wet_humid,-1,thermal_socks|merino_base_layer,0.0,0,0.008,0.0,0,0.0,0,,1.0
-cold_morning,Cold morning,weather_cold,cold|weather,-1,fleece_jacket|softshell_jacket|merino_base_layer,0.0,0,0.01,0.0,0,0.0,0,,1.0
-cold_wave,Cold wave,weather_cold,cold|weather,-3,sleeping_bag|winter_sleeping_bag|down_jacket|winter_coat|thermal_blanket|bivy_bag,0.0,0,0.01,0.0,0,0.0,200,,1.0
-frost_night,Frost at night,weather_cold,cold|cold_night|weather,-2,sleeping_bag|winter_sleeping_bag,0.0,0,0.008,0.0,0,0.0,0,,1.0
-sudden_cold_drop,Sudden cold drop,weather_cold,cold|weather,-2,down_jacket,0.0,0,0.008,0.0,0,0.0,0,,1.0
-snow_flurries,Snow flurries,weather_cold,cold|weather,-2,thermal_blanket|down_jacket,0.0,0,0.008,0.0,0,0.0,0,,1.0
-snowstorm,Snowstorm,weather_cold,cold|storm|weather,-3,sleeping_bag+tent|four_season_tent+sleeping_bag|tent+winter_sleeping_bag|four_season_tent+winter_sleeping_bag|four_season_tent+sleeping_pad,0.0,0,0.008,0.0,0,0.0,200,,1.0
-freezing_wind,Freezing wind,weather_cold,cold|weather|wind,-2,gloves+wool_hat|balaclava+gloves,0.0,0,0.008,0.0,0,0.0,0,,1.0
-cold_night,Cold night,weather_cold,cold|cold_night|weather,-2,sleeping_bag|winter_sleeping_bag|heat_pack,0.0,0,0.008,0.0,0,0.0,0,,1.0
-black_ice_slip,Black ice slip,weather_cold,cold|slip_fall|weather,-2,hiking_boots|crampons,0.0,0,0.008,0.0,0,0.0,0,,1.0
-icy_ground,Icy ground,weather_cold,cold|slip_fall|weather,-1,trekking_pole|hiking_boots|crampons|ice_axe,0.0,0,0.008,0.0,0,0.0,0,,1.0
-night_frost,Night frost,weather_cold,cold|cold_night|weather,-1,heat_pack|sleeping_pad,0.0,0,0.006,0.0,0,0.0,0,,1.0
-chill_wind,Chill wind,weather_cold,cold|weather|wind,-1,fleece_jacket|softshell_jacket|merino_base_layer,0.0,0,0.006,0.0,0,0.0,0,,1.0
-bright_cold_day,Bright cold day,weather_cold,cold|weather,-1,fleece_jacket+sunglasses,0.0,0,0.006,0.0,0,0.0,0,,1.0
-frozen_ground,Frozen ground cracks,weather_cold,cold|weather,-1,hiking_boots|crampons,0.0,0,0.006,0.0,0,0.0,0,,1.0
+light_rain,Light rain,weather_wet,rain_wind|weather,-1,rain_poncho|goretex_shell,0.0,0,0.01,0.0,0,0.0,0,,1.0
+short_shower,Short shower,weather_wet,rain_wind|weather,-1,rain_poncho|goretex_shell|waterproof_jacket|softshell_jacket,0.0,0,0.01,0.0,0,0.0,0,,1.0
+heavy_rain,Heavy rain,weather_wet,rain_wind|weather,-2,rain_tarp|tent|four_season_tent|hammock_tarp,0.0,0,0.01,0.0,0,0.0,0,,1.0
+torrential_rain,Torrential rain,weather_wet,rain_wind|storm|weather,-3,rain_tarp+waterproof_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
+chilly_drizzle,Chilly drizzle,weather_wet,rain_wind|weather,-1,rain_poncho|goretex_shell,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_drizzle,Cold drizzle,weather_wet,rain_wind|weather,-1,rain_poncho|goretex_shell,0.0,0,0.006,0.0,0,0.0,0,,1.0
+rain_at_night,Rain at night,weather_wet,rain_night|rain_wind|weather,-1,tent|four_season_tent|hammock_tarp,0.0,0,0.006,0.0,0,0.0,0,,1.0
+thunderstorm,Thunderstorm,weather_wet,rain_wind|storm|weather,-2,waterproof_bag|rain_tarp,0.0,0,0.008,0.0,0,0.0,0,,1.0
+hail_storm,Hail storm,weather_wet,rain_wind|storm|weather,-3,waterproof_jacket|goretex_shell|rain_tarp,0.0,0,0.008,0.0,0,0.0,0,,1.0
+hail_at_noon,Hail at noon,weather_wet,rain_wind|weather,-2,waterproof_jacket|goretex_shell,0.0,0,0.006,0.0,0,0.0,0,,1.0
+high_humidity,High humidity,weather_wet,rain_wind|weather|wet_humid,-1,thermal_socks|extra_socks|merino_base_layer,0.0,0,0.008,0.0,0,0.0,0,,1.0
+humid_cold,Humid cold,weather_wet,rain_wind|weather|wet_humid,-1,thermal_socks|merino_base_layer,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_morning,Cold morning,weather_cold,cold|cold_weather|weather,-1,fleece_jacket|softshell_jacket|merino_base_layer,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cold_wave,Cold wave,weather_cold,cold|cold_weather|weather,-3,sleeping_bag|winter_sleeping_bag|down_jacket|winter_coat|thermal_blanket|bivy_bag,0.0,0,0.01,0.0,0,0.0,200,,1.0
+frost_night,Frost at night,weather_cold,cold|cold_night|cold_weather|weather,-2,sleeping_bag|winter_sleeping_bag,0.0,0,0.008,0.0,0,0.0,0,,1.0
+sudden_cold_drop,Sudden cold drop,weather_cold,cold|cold_weather|weather,-2,down_jacket,0.0,0,0.008,0.0,0,0.0,0,,1.0
+snow_flurries,Snow flurries,weather_cold,cold|cold_weather|weather,-2,thermal_blanket|down_jacket,0.0,0,0.008,0.0,0,0.0,0,,1.0
+snowstorm,Snowstorm,weather_cold,cold|cold_weather|storm|weather,-3,sleeping_bag+tent|four_season_tent+sleeping_bag|tent+winter_sleeping_bag|four_season_tent+winter_sleeping_bag|four_season_tent+sleeping_pad,0.0,0,0.008,0.0,0,0.0,200,,1.0
+freezing_wind,Freezing wind,weather_cold,cold|cold_weather|rain_wind|weather|wind,-2,gloves+wool_hat|balaclava+gloves,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_night,Cold night,weather_cold,cold|cold_night|cold_weather|weather,-2,sleeping_bag|winter_sleeping_bag|heat_pack,0.0,0,0.008,0.0,0,0.0,0,,1.0
+black_ice_slip,Black ice slip,weather_cold,cold|cold_weather|slip_fall|weather,-2,hiking_boots|crampons,0.0,0,0.008,0.0,0,0.0,0,,1.0
+icy_ground,Icy ground,weather_cold,cold|cold_weather|slip_fall|weather,-1,trekking_pole|hiking_boots|crampons|ice_axe,0.0,0,0.008,0.0,0,0.0,0,,1.0
+night_frost,Night frost,weather_cold,cold|cold_night|cold_weather|weather,-1,heat_pack|sleeping_pad,0.0,0,0.006,0.0,0,0.0,0,,1.0
+chill_wind,Chill wind,weather_cold,cold|cold_weather|rain_wind|weather|wind,-1,fleece_jacket|softshell_jacket|merino_base_layer,0.0,0,0.006,0.0,0,0.0,0,,1.0
+bright_cold_day,Bright cold day,weather_cold,cold|cold_weather|weather,-1,fleece_jacket+sunglasses,0.0,0,0.006,0.0,0,0.0,0,,1.0
+frozen_ground,Frozen ground cracks,weather_cold,cold|cold_weather|weather,-1,hiking_boots|crampons,0.0,0,0.006,0.0,0,0.0,0,,1.0
 hot_dry_sun,Hot dry sun,weather_hot,sun|weather,-1,sun_hat|sunscreen,0.0,0,0.01,0.0,0,0.0,0,,1.0
 uv_burn,UV burn,weather_hot,sun|weather,-1,sunscreen,0.0,0,0.008,0.0,0,0.0,0,,1.0
 blazing_sun,Blazing sun,weather_hot,sun|weather,-2,sun_hat,1.0,0,0.008,0.0,0,0.3,0,,1.0
@@ -40,11 +40,11 @@ strong_uv,Strong UV,weather_hot,sun|weather,-1,sun_hat,0.0,0,0.006,0.0,0,0.0,0,,
 blinding_sun,Blinding sunshine,weather_hot,sun|weather,-1,sunglasses,0.0,0,0.006,0.0,0,0.0,0,,1.0
 cloudbreak_heat,Cloudbreak heat,weather_hot,sun|weather,-1,sunscreen,0.0,0,0.008,0.0,0,0.0,0,,1.0
 heat_surge,Heat surge,weather_hot,sun|weather,-1,sun_hat,1.0,0,0.008,0.0,0,0.3,0,,1.0
-dry_hot_wind,Dry hot wind,weather_hot,weather|wind,-1,,1.0,0,0.008,0.0,0,0.3,0,,1.0
-windy_day,Windy day,weather_wind,weather|wind,-1,waterproof_jacket|goretex_shell|softshell_jacket,0.0,0,0.01,0.0,0,0.0,0,,1.0
-strong_wind,Strong wind,weather_wind,weather|wind,-2,tent|four_season_tent|rain_tarp,0.0,0,0.01,0.0,0,0.0,0,,1.0
-windstorm,Windstorm,weather_wind,weather|wind,-3,tent+tent_repair_kit|four_season_tent,0.0,0,0.01,0.0,0,0.0,0,,1.0
-dust_storm,Dust storm,weather_wind,weather|wind,-2,sunglasses|scarf|face_mask,0.0,0,0.008,0.0,0,0.0,0,,1.0
+dry_hot_wind,Dry hot wind,weather_hot,rain_wind|weather|wind,-1,,1.0,0,0.008,0.0,0,0.3,0,,1.0
+windy_day,Windy day,weather_wind,rain_wind|weather|wind,-1,waterproof_jacket|goretex_shell|softshell_jacket,0.0,0,0.01,0.0,0,0.0,0,,1.0
+strong_wind,Strong wind,weather_wind,rain_wind|weather|wind,-2,tent|four_season_tent|rain_tarp,0.0,0,0.01,0.0,0,0.0,0,,1.0
+windstorm,Windstorm,weather_wind,rain_wind|weather|wind,-3,tent+tent_repair_kit|four_season_tent,0.0,0,0.01,0.0,0,0.0,0,,1.0
+dust_storm,Dust storm,weather_wind,rain_wind|weather|wind,-2,sunglasses|scarf|face_mask,0.0,0,0.008,0.0,0,0.0,0,,1.0
 floating_ash,Floating ash,weather_wind,weather,-1,scarf|face_mask,0.0,0,0.006,0.0,0,0.0,0,,1.0
 fine_afternoon,Fine afternoon,bonus_morale,,1,sleeping_bag|winter_sleeping_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
 calm_warm_night,Calm warm night,bonus_morale,,1,sleeping_bag|winter_sleeping_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
@@ -66,7 +66,7 @@ minor_concussion,Minor concussion,medical_illness,slip_fall,-3,small_medkit|adv_
 mild_fever,Mild fever,medical_illness,,-2,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
 stomach_pain,Stomach pain,medical_illness,,-2,water_purif_tabs|gravity_filter,0.0,0,0.01,0.0,0,0.0,0,,1.0
 food_poisoning,Food poisoning,medical_illness,,-3,small_medkit|adv_medkit|wilderness_medkit,0.0,-1,0.01,0.0,0,0.0,0,,1.0
-toothache,Toothache,medical_illness,,-1,painkillers|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+toothache,Toothache,medical_illness,fatigue,-1,painkillers|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
 nosebleed,Nosebleed,medical_illness,,-1,,0.5,0,0.01,0.0,0,0.0,0,,1.0
 severe_blister1,Severe blister,medical_injury,,-1,bandages|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
 severe_blister2,Severe blister (deep),medical_injury,,-2,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
@@ -91,8 +91,8 @@ sunburn,Sunburn,medical_injury,sun,-1,sunscreen,0.0,0,0.01,0.0,0,0.0,0,,1.0
 eye_burn,Eye burn,medical_injury,sun,-1,sunglasses,0.0,0,0.01,0.0,0,0.0,0,,1.0
 sore_back,Sore back,medical_injury,,-1,sleeping_pad,0.0,0,0.01,0.0,0,0.0,0,,1.0
 shoulder_pain,Shoulder pain,medical_injury,,-1,,0.0,0,0.01,0.0,0,0.0,0,,1.0
-muscle_cramp,Muscle cramp,medical_injury,dehydration,-2,electrolyte,0.5,0,0.007,0.0,0,0.3,0,,1.0
-hypothermia_warn,Hypothermia warning,medical_injury,cold,-3,sleeping_bag|winter_sleeping_bag|heat_pack|thermal_blanket|bivy_bag,0.0,-1,0.01,0.0,0,0.0,0,,1.0
+muscle_cramp,Muscle cramp,medical_injury,dehydration|fatigue,-2,electrolyte,0.5,0,0.007,0.0,0,0.3,0,,1.0
+hypothermia_warn,Hypothermia warning,medical_injury,cold|cold_weather,-3,sleeping_bag|winter_sleeping_bag|heat_pack|thermal_blanket|bivy_bag,0.0,-1,0.01,0.0,0,0.0,0,,1.0
 heat_exhaustion,Heat exhaustion,medical_injury,dehydration|sun|weather,-3,,2.0,-1,0.01,0.0,0,0.5,0,,1.0
 severe_dehydration,Severe dehydration,medical_injury,dehydration|sun,-4,electrolyte,3.0,-2,0.01,0.0,0,0.5,0,,1.0
 mosquito_fever,Mosquito fever,medical_sting,insect|sting,-2,mosquito_repel|head_net,0.0,0,0.008,0.0,0,0.0,0,,1.0
@@ -122,8 +122,8 @@ narrow_pass,Narrow pass,slip_fall,crossing,0,rope_tool_kit|climbing_rope|ice_axe
 cliff_edge,Cliff edge,slip_fall,crossing,-2,rope_tool_kit|climbing_rope|ice_axe,0.0,-1,0.01,0.0,0,0.0,200,,1.0
 deep_stream,Deep stream,slip_fall,crossing,-1,rope_tool_kit|trekking_pole|gaiters,0.0,0,0.01,0.0,0,0.0,200,,1.0
 tent_peg_lost,Tent peg lost,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
-tent_pole_break,Tent pole break,equipment,equipment,-1,tent_repair_kit|duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
-backpack_strap,Backpack strap tear,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+tent_pole_break,Tent pole break,equipment,equipment|equipment_damage,-1,tent_repair_kit|duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+backpack_strap,Backpack strap tear,equipment,equipment|equipment_damage,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
 boot_lace_snap,Boot lace snap,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
 storage_crack,Storage box crack,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
 cooking_pot_dent,Cooking pot dent,equipment,equipment,0,pry_bar,0.0,0,0.01,0.0,0,0.0,0,,1.0
@@ -131,28 +131,28 @@ spade_handle,Spade loose handle,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0
 saw_blade_dull,Saw blade dull,equipment,equipment,0,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
 knife_rust,Knife rust,equipment,equipment,0,disinfectant,0.0,0,0.01,0.0,0,0.0,0,,1.0
 radio_static,Radio static,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
-water_filter_clog,Water filter clog,equipment,equipment,-1,water_purif_tabs|gravity_filter|filter_bottle,0.0,0,0.01,0.0,0,0.0,0,,1.0
-fuel_spill,Fuel spill,equipment,equipment,-1,waterproof_box,0.0,0,0.01,0.0,0,0.0,0,,1.0
-fuel_can_leak,Fuel can leak,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
-matches_wet,Matches wet,equipment,equipment,-1,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
+water_filter_clog,Water filter clog,equipment,equipment|equipment_damage,-1,water_purif_tabs|gravity_filter|filter_bottle,0.0,0,0.01,0.0,0,0.0,0,,1.0
+fuel_spill,Fuel spill,equipment,equipment|equipment_damage,-1,waterproof_box,0.0,0,0.01,0.0,0,0.0,0,,1.0
+fuel_can_leak,Fuel can leak,equipment,equipment|equipment_damage,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+matches_wet,Matches wet,equipment,equipment|equipment_damage,-1,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
 lighter_jam,Lighter jam,equipment,equipment,0,fire_starter|matches,0.0,0,0.01,0.0,0,0.0,0,,1.0
-tarp_tear,Tarp tear,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+tarp_tear,Tarp tear,equipment,equipment|equipment_damage,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
 seat_punct,Seat pad puncture,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
 power_bank_dead,Power bank dead,equipment,equipment,0,solar_panel,0.0,0,0.01,0.0,0,0.0,0,,1.0
 radio_batt_empty,Radio battery empty,equipment,equipment,0,spare_batteries,0.0,0,0.01,0.0,0,0.0,0,,1.0
-drone_lost,Drone lost,equipment,equipment,-1,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+drone_lost,Drone lost,equipment,equipment|equipment_damage,-1,,0.0,0,0.01,0.0,0,0.0,0,,1.0
 drone_camera,Drone camera crack,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
 loose_screws,Loose screws,equipment,equipment,0,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
-boot_sole_peel,Boot sole peel,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
-knife_in_water,Knife falls in water,equipment,equipment,-1,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
-stove_clogged,Stove clogged,equipment,equipment,-1,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+boot_sole_peel,Boot sole peel,equipment,equipment|equipment_damage,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+knife_in_water,Knife falls in water,equipment,equipment|equipment_damage,-1,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
+stove_clogged,Stove clogged,equipment,equipment|equipment_damage,-1,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
 mirror_scratch,Mirror scratched,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
 signal_mirror_drop,Signal mirror drop,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
 whistle_lost,Whistle lost,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
 cup_dent,Cup dent,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
 shovel_bend,Shovel bend,equipment,equipment,0,pry_bar,0.0,0,0.01,0.0,0,0.0,0,,1.0
 saw_tooth_broke,Saw tooth broke,equipment,equipment,0,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
-broken_water_bag,Broken water bag,equipment,equipment,-1,duct_tape,0.0,0,0.005,0.0,0,0.0,0,,1.0
+broken_water_bag,Broken water bag,equipment,equipment|equipment_damage,-1,duct_tape,0.0,0,0.005,0.0,0,0.0,0,,1.0
 fuel_soaked,Fuel soaked,equipment,equipment,0,waterproof_box,0.0,0,0.005,0.0,0,0.0,0,,1.0
 lost_spoon,Lost spoon,equipment,equipment,0,,0.0,0,0.005,0.0,0,0.0,0,,1.0
 water_container_torn,Water container torn,equipment,equipment|water_loss,0,duct_tape,0.0,0,0.005,-1.0,0,0.0,0,,1.0

@@ -1,0 +1,16 @@
+group,location,trait,alive,out_on_day,cause,hp_end,water,food,final_hp
+8,Glacier Ridge,Backup Hammock,True,,,9,2.0,3100,13.0
+14,Deep Forest,Old Rope,True,,,7,5.5,13000,12.0
+10,Deep Forest,Animal Friend,True,,,4,5.5,6600,9.0
+6,High Plateau,Clean Freak,True,,,3,5.5,12000,8.0
+9,Cave Mouth,Coffee Bonus,True,,,3,11.5,8700,8.0
+13,Boggy Hollow,Lucky Ration,True,,,3,10.5,5000,8.0
+15,Old Trail,Hot Drink Lover,True,,,3,6.25,3500,8.0
+7,Old Trail,Cold Sensitive,True,,,4,10.25,1900,7.0
+11,Valley Floor,Light Pack Expert,True,,,2,16.2,3700,7.0
+12,High Plateau,Leaky Backpack,True,,,2,5.5,8000,7.0
+1,Valley Floor,Picky Eater,True,,,1,12.2,3400,6.0
+2,Wind Pass,Fragile Shoelaces,False,18.0,HP reached 0,0,7.25,13700,
+3,Scree Slope,Night Walker,False,18.0,HP reached 0,0,11.5,2900,
+4,Lakeside,Injured at Start,False,18.0,HP reached 0,-1,13.75,21500,
+5,Boggy Hollow,Water Hoarder,False,18.0,HP reached 0,-1,6.5,14000,

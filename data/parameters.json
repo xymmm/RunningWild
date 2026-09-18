@@ -10,8 +10,6 @@
   "dehydration_days_max": 3,
   "starvation_days_max": 10,
   "starvation_kcal_threshold": 500,
-  "endgame_water_L_per_hp": 0.5,
-  "endgame_food_kcal_per_hp": 500,
   "water_hoarder_enabled": true,
   "default_days": 20,
   "default_selection_minutes": 30,
@@ -20,6 +18,7 @@
   "resupply_count": 3,
   "resupply_water_L": 2.0,
   "resupply_food_kcal": 1500,
-  "endgame_water_hp_cap": 5,
-  "endgame_food_hp_cap": 5
+  "endgame_reserve_cap": 5,
+  "trait_periodic_every": 5,
+  "light_pack_fraction": 0.67
 }

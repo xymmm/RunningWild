@@ -1,0 +1,308 @@
+group,location,trait,day,hp,water,food,event,dhp,notes,event_name
+1,valley_floor,picky_eater,0,15,12.0,7500,start,0,,start
+2,wind_pass,fragile_shoelaces,0,15,6.0,16800,start,0,,start
+3,scree_slope,night_walker,0,15,11.0,6000,start,0,,start
+4,lakeside,injured_at_start,0,13,10.0,24600,start,0,Injured at Start: HP -2,start
+5,boggy_hollow,water_hoarder,0,15,6.0,17100,start,0,,start
+6,high_plateau,clean_freak,0,15,6.0,16100,start,0,,start
+7,old_trail,cold_sensitive,0,15,10.0,6000,start,0,,start
+8,glacier_ridge,backup_hammock,0,15,6.0,7200,start,0,,start
+9,cave_mouth,coffee_bonus,0,15,12.0,12800,start,0,,start
+10,deep_forest,animal_friend,0,15,6.0,10500,start,0,,start
+11,valley_floor,light_pack_expert,0,15,16.0,7800,start,0,,start
+12,high_plateau,leaky_backpack,0,15,6.0,12100,start,0,,start
+13,boggy_hollow,lucky_ration,0,15,11.0,9100,start,0,Lucky Ration: +1500 kcal,start
+14,deep_forest,old_rope,0,15,6.0,16900,start,0,,start
+15,old_trail,hot_drink_lover,0,15,6.0,7600,start,0,,start
+1,valley_floor,picky_eater,1,15,11.5,7000,dry_throat,0,protected by 0.5 L water,Dry throat
+2,wind_pass,fragile_shoelaces,1,15,5.5,16300,dry_throat,0,protected by 0.5 L water,Dry throat
+3,scree_slope,night_walker,1,15,10.5,5500,dry_throat,0,protected by 0.5 L water,Dry throat
+4,lakeside,injured_at_start,1,13,9.5,24100,dry_throat,0,protected by 0.5 L water,Dry throat
+5,boggy_hollow,water_hoarder,1,15,5.5,16600,dry_throat,0,protected by 0.5 L water,Dry throat
+6,high_plateau,clean_freak,1,15,5.5,15600,dry_throat,0,protected by 0.5 L water,Dry throat
+7,old_trail,cold_sensitive,1,15,9.5,5500,dry_throat,0,protected by 0.5 L water,Dry throat
+8,glacier_ridge,backup_hammock,1,15,5.5,6700,dry_throat,0,protected by 0.5 L water,Dry throat
+9,cave_mouth,coffee_bonus,1,15,11.5,12300,dry_throat,0,protected by 0.5 L water,Dry throat
+10,deep_forest,animal_friend,1,15,5.5,10000,dry_throat,0,protected by 0.5 L water,Dry throat
+11,valley_floor,light_pack_expert,1,15,15.5,7300,dry_throat,0,protected by 0.5 L water,Dry throat
+12,high_plateau,leaky_backpack,1,15,5.5,11600,dry_throat,0,protected by 0.5 L water,Dry throat
+13,boggy_hollow,lucky_ration,1,15,10.5,8600,dry_throat,0,protected by 0.5 L water,Dry throat
+14,deep_forest,old_rope,1,15,5.5,16400,dry_throat,0,protected by 0.5 L water,Dry throat
+15,old_trail,hot_drink_lover,1,15,5.5,7100,dry_throat,0,protected by 0.5 L water,Dry throat
+1,valley_floor,picky_eater,2,15,11.0,6800,edible_berries,0,,Edible berries
+2,wind_pass,fragile_shoelaces,2,15,5.0,16100,edible_berries,0,,Edible berries
+3,scree_slope,night_walker,2,15,10.0,5300,edible_berries,0,,Edible berries
+4,lakeside,injured_at_start,2,13,9.0,23900,edible_berries,0,,Edible berries
+5,boggy_hollow,water_hoarder,2,15,5.0,16400,edible_berries,0,,Edible berries
+6,high_plateau,clean_freak,2,14,5.0,15400,edible_berries,-1,Clean Freak: -1,Edible berries
+7,old_trail,cold_sensitive,2,15,9.0,5300,edible_berries,0,,Edible berries
+8,glacier_ridge,backup_hammock,2,15,5.0,6500,edible_berries,0,,Edible berries
+9,cave_mouth,coffee_bonus,2,15,11.0,12100,edible_berries,0,,Edible berries
+10,deep_forest,animal_friend,2,15,5.0,9900,edible_berries,0,,Edible berries
+11,valley_floor,light_pack_expert,2,15,15.0,7100,edible_berries,0,,Edible berries
+12,high_plateau,leaky_backpack,2,15,5.0,11400,edible_berries,0,,Edible berries
+13,boggy_hollow,lucky_ration,2,15,10.0,8400,edible_berries,0,,Edible berries
+14,deep_forest,old_rope,2,15,5.0,16300,edible_berries,0,,Edible berries
+15,old_trail,hot_drink_lover,2,15,5.0,6900,edible_berries,0,,Edible berries
+1,valley_floor,picky_eater,3,15,12.5,7800,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+2,wind_pass,fragile_shoelaces,3,14,6.5,17100,boot_lace_snap,-1,"resupply +2 L, +1500 kcal; Fragile Shoelaces: -1",Boot lace snap
+3,scree_slope,night_walker,3,15,11.5,6300,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+4,lakeside,injured_at_start,3,13,10.5,24900,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+5,boggy_hollow,water_hoarder,3,15,6.5,17400,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+6,high_plateau,clean_freak,3,14,6.5,16400,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+7,old_trail,cold_sensitive,3,15,10.5,6300,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+8,glacier_ridge,backup_hammock,3,15,6.5,7500,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+9,cave_mouth,coffee_bonus,3,15,12.5,13100,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+10,deep_forest,animal_friend,3,15,6.5,10900,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+11,valley_floor,light_pack_expert,3,15,16.5,8100,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+12,high_plateau,leaky_backpack,3,15,6.5,12400,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+13,boggy_hollow,lucky_ration,3,15,11.5,9400,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+14,deep_forest,old_rope,3,15,6.5,17300,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+15,old_trail,hot_drink_lover,3,15,6.5,7900,boot_lace_snap,0,"resupply +2 L, +1500 kcal",Boot lace snap
+1,valley_floor,picky_eater,4,15,13.8,7300,clear_stream,0,,Clear stream found
+2,wind_pass,fragile_shoelaces,4,14,8.25,16600,clear_stream,0,Foldable water container 5L: x1.5,Clear stream found
+3,scree_slope,night_walker,4,15,12.5,5800,clear_stream,0,,Clear stream found
+4,lakeside,injured_at_start,4,13,13.75,24400,clear_stream,0,Foldable water container 5L: x1.5,Clear stream found
+5,boggy_hollow,water_hoarder,4,14,7.5,16900,clear_stream,-1,Boggy Hollow: -1,Clear stream found
+6,high_plateau,clean_freak,4,14,7.5,15900,clear_stream,0,,Clear stream found
+7,old_trail,cold_sensitive,4,15,12.25,5800,clear_stream,0,Foldable water container 5L: x1.5,Clear stream found
+8,glacier_ridge,backup_hammock,4,15,6.0,7000,clear_stream,0,"Glacier Ridge: no stove, no water",Clear stream found
+9,cave_mouth,coffee_bonus,4,15,13.5,12600,clear_stream,0,,Clear stream found
+10,deep_forest,animal_friend,4,15,7.5,10400,clear_stream,0,,Clear stream found
+11,valley_floor,light_pack_expert,4,15,17.8,7600,clear_stream,0,,Clear stream found
+12,high_plateau,leaky_backpack,4,15,7.5,11900,clear_stream,0,,Clear stream found
+13,boggy_hollow,lucky_ration,4,14,12.5,8900,clear_stream,-1,Boggy Hollow: -1,Clear stream found
+14,deep_forest,old_rope,4,15,7.5,16800,clear_stream,0,,Clear stream found
+15,old_trail,hot_drink_lover,4,15,8.25,7400,clear_stream,0,Foldable water container 5L: x1.5,Clear stream found
+1,valley_floor,picky_eater,5,14,13.3,6800,matches_wet,-1,,Matches wet
+2,wind_pass,fragile_shoelaces,5,13,7.75,16100,matches_wet,-1,,Matches wet
+3,scree_slope,night_walker,5,13,12.0,5300,matches_wet,-2,Scree Slope: -1,Matches wet
+4,lakeside,injured_at_start,5,12,13.25,23900,matches_wet,-1,,Matches wet
+5,boggy_hollow,water_hoarder,5,13,7.0,16400,matches_wet,-1,,Matches wet
+6,high_plateau,clean_freak,5,13,7.0,15400,matches_wet,-1,,Matches wet
+7,old_trail,cold_sensitive,5,14,11.75,5300,matches_wet,-1,,Matches wet
+8,glacier_ridge,backup_hammock,5,15,5.5,6500,matches_wet,0,protected by Waterproof bag,Matches wet
+9,cave_mouth,coffee_bonus,5,14,13.0,12100,matches_wet,-1,,Matches wet
+10,deep_forest,animal_friend,5,14,7.0,9900,matches_wet,-1,,Matches wet
+11,valley_floor,light_pack_expert,5,14,17.3,7100,matches_wet,-1,,Matches wet
+12,high_plateau,leaky_backpack,5,14,7.0,11400,matches_wet,-1,,Matches wet
+13,boggy_hollow,lucky_ration,5,13,12.0,8400,matches_wet,-1,,Matches wet
+14,deep_forest,old_rope,5,15,7.0,16300,matches_wet,0,protected by Waterproof bag,Matches wet
+15,old_trail,hot_drink_lover,5,14,7.75,6900,matches_wet,-1,,Matches wet
+1,valley_floor,picky_eater,6,15,12.8,6300,fine_afternoon,1,,Fine afternoon
+2,wind_pass,fragile_shoelaces,6,13,7.25,15600,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+3,scree_slope,night_walker,6,14,11.5,4800,fine_afternoon,1,,Fine afternoon
+4,lakeside,injured_at_start,6,12,12.75,23400,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+5,boggy_hollow,water_hoarder,6,13,6.5,15900,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+6,high_plateau,clean_freak,6,13,6.5,14900,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+7,old_trail,cold_sensitive,6,14,11.25,4800,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+8,glacier_ridge,backup_hammock,6,15,5.0,6000,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+9,cave_mouth,coffee_bonus,6,15,12.5,11600,fine_afternoon,1,,Fine afternoon
+10,deep_forest,animal_friend,6,15,6.5,9400,fine_afternoon,1,,Fine afternoon
+11,valley_floor,light_pack_expert,6,14,16.8,6600,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+12,high_plateau,leaky_backpack,6,15,6.5,10900,fine_afternoon,1,,Fine afternoon
+13,boggy_hollow,lucky_ration,6,14,11.5,7900,fine_afternoon,1,,Fine afternoon
+14,deep_forest,old_rope,6,15,6.5,15800,fine_afternoon,0,bonus needs Sleeping bag or Winter sleeping bag (-15C),Fine afternoon
+15,old_trail,hot_drink_lover,6,15,7.25,6400,fine_afternoon,1,,Fine afternoon
+1,valley_floor,picky_eater,7,15,14.3,7300,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+2,wind_pass,fragile_shoelaces,7,13,8.75,16600,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+3,scree_slope,night_walker,7,14,13.0,5800,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+4,lakeside,injured_at_start,7,12,14.25,24400,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+5,boggy_hollow,water_hoarder,7,13,8.0,16900,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+6,high_plateau,clean_freak,7,13,8.0,15900,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+7,old_trail,cold_sensitive,7,14,12.75,5800,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+8,glacier_ridge,backup_hammock,7,15,6.5,7000,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+9,cave_mouth,coffee_bonus,7,15,14.0,12600,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+10,deep_forest,animal_friend,7,15,8.0,10400,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+11,valley_floor,light_pack_expert,7,14,18.3,7600,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+12,high_plateau,leaky_backpack,7,15,8.0,11900,far_echo,0,"resupply +2 L, +1500 kcal; protected by Emergency whistle",Far echo
+13,boggy_hollow,lucky_ration,7,14,13.0,8900,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+14,deep_forest,old_rope,7,15,8.0,16800,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+15,old_trail,hot_drink_lover,7,15,8.75,7400,far_echo,0,"resupply +2 L, +1500 kcal",Far echo
+1,valley_floor,picky_eater,8,14,13.8,6800,hail_at_noon,-1,Valley Floor: +1,Hail at noon
+2,wind_pass,fragile_shoelaces,8,11,8.25,16100,hail_at_noon,-2,,Hail at noon
+3,scree_slope,night_walker,8,14,12.5,5300,hail_at_noon,0,protected by Waterproof jacket,Hail at noon
+4,lakeside,injured_at_start,8,10,13.75,23900,hail_at_noon,-2,,Hail at noon
+5,boggy_hollow,water_hoarder,8,11,7.5,16400,hail_at_noon,-2,,Hail at noon
+6,high_plateau,clean_freak,8,11,7.5,15400,hail_at_noon,-2,,Hail at noon
+7,old_trail,cold_sensitive,8,14,12.25,5300,hail_at_noon,0,protected by Waterproof jacket,Hail at noon
+8,glacier_ridge,backup_hammock,8,15,6.0,6500,hail_at_noon,0,protected by Gore-Tex shell jacket,Hail at noon
+9,cave_mouth,coffee_bonus,8,13,13.5,12100,hail_at_noon,-2,,Hail at noon
+10,deep_forest,animal_friend,8,15,7.5,9900,hail_at_noon,0,protected by Gore-Tex shell jacket,Hail at noon
+11,valley_floor,light_pack_expert,8,13,17.8,7100,hail_at_noon,-1,Valley Floor: +1,Hail at noon
+12,high_plateau,leaky_backpack,8,13,7.5,11400,hail_at_noon,-2,,Hail at noon
+13,boggy_hollow,lucky_ration,8,12,12.5,8400,hail_at_noon,-2,,Hail at noon
+14,deep_forest,old_rope,8,15,7.5,16300,hail_at_noon,0,protected by Gore-Tex shell jacket,Hail at noon
+15,old_trail,hot_drink_lover,8,15,8.25,6900,hail_at_noon,0,protected by Waterproof jacket,Hail at noon
+1,valley_floor,picky_eater,9,13,13.3,6300,cold_hands,-1,,Cold hands
+2,wind_pass,fragile_shoelaces,9,11,7.75,15600,cold_hands,0,protected by Gloves,Cold hands
+3,scree_slope,night_walker,9,13,12.0,4800,cold_hands,-1,,Cold hands
+4,lakeside,injured_at_start,9,9,13.25,23400,cold_hands,-1,,Cold hands
+5,boggy_hollow,water_hoarder,9,10,7.0,15900,cold_hands,-1,,Cold hands
+6,high_plateau,clean_freak,9,10,7.0,14900,cold_hands,-1,,Cold hands
+7,old_trail,cold_sensitive,9,12,11.75,4800,cold_hands,-2,Cold Sensitive: -1,Cold hands
+8,glacier_ridge,backup_hammock,9,15,5.5,6000,cold_hands,0,protected by Gloves,Cold hands
+9,cave_mouth,coffee_bonus,9,13,13.0,11600,cold_hands,0,protected by Gloves,Cold hands
+10,deep_forest,animal_friend,9,14,7.0,9400,cold_hands,-1,,Cold hands
+11,valley_floor,light_pack_expert,9,12,17.3,6600,cold_hands,-1,,Cold hands
+12,high_plateau,leaky_backpack,9,12,7.0,10900,cold_hands,-1,,Cold hands
+13,boggy_hollow,lucky_ration,9,11,12.0,7900,cold_hands,-1,,Cold hands
+14,deep_forest,old_rope,9,14,7.0,15800,cold_hands,-1,,Cold hands
+15,old_trail,hot_drink_lover,9,14,7.75,6400,cold_hands,-1,,Cold hands
+1,valley_floor,picky_eater,10,13,15.2,7300,foraging_success,0,,Foraging success
+2,wind_pass,fragile_shoelaces,10,11,9.25,16600,foraging_success,0,,Foraging success
+3,scree_slope,night_walker,10,13,13.5,5800,foraging_success,0,,Foraging success
+4,lakeside,injured_at_start,10,9,15.75,24400,foraging_success,0,,Foraging success
+5,boggy_hollow,water_hoarder,10,9,8.5,16900,foraging_success,-1,Boggy Hollow: -1,Foraging success
+6,high_plateau,clean_freak,10,10,8.5,15900,foraging_success,0,,Foraging success
+7,old_trail,cold_sensitive,10,12,13.25,5800,foraging_success,0,,Foraging success
+8,glacier_ridge,backup_hammock,10,15,5.0,7000,foraging_success,0,"Glacier Ridge: no stove, no water",Foraging success
+9,cave_mouth,coffee_bonus,10,13,14.5,12600,foraging_success,0,,Foraging success
+10,deep_forest,animal_friend,10,14,8.5,10500,foraging_success,0,,Foraging success
+11,valley_floor,light_pack_expert,10,12,19.2,7600,foraging_success,0,,Foraging success
+12,high_plateau,leaky_backpack,10,12,8.5,11900,foraging_success,0,,Foraging success
+13,boggy_hollow,lucky_ration,10,10,13.5,8900,foraging_success,-1,Boggy Hollow: -1,Foraging success
+14,deep_forest,old_rope,10,14,8.5,16900,foraging_success,0,,Foraging success
+15,old_trail,hot_drink_lover,10,14,9.25,7400,foraging_success,0,,Foraging success
+1,valley_floor,picky_eater,11,10,14.7,6600,snowstorm,-3,,Snowstorm
+2,wind_pass,fragile_shoelaces,11,7,8.75,15900,snowstorm,-4,Wind Pass: -1,Snowstorm
+3,scree_slope,night_walker,11,10,13.0,5100,snowstorm,-3,,Snowstorm
+4,lakeside,injured_at_start,11,6,15.25,23700,snowstorm,-3,,Snowstorm
+5,boggy_hollow,water_hoarder,11,6,8.0,16200,snowstorm,-3,,Snowstorm
+6,high_plateau,clean_freak,11,7,8.0,15200,snowstorm,-3,,Snowstorm
+7,old_trail,cold_sensitive,11,8,12.75,5100,snowstorm,-4,Cold Sensitive: -1,Snowstorm
+8,glacier_ridge,backup_hammock,11,15,4.5,6300,snowstorm,0,protected by Four-season tent + Insulated sleeping pad,Snowstorm
+9,cave_mouth,coffee_bonus,11,10,14.0,11900,snowstorm,-3,,Snowstorm
+10,deep_forest,animal_friend,11,11,8.0,9800,snowstorm,-3,,Snowstorm
+11,valley_floor,light_pack_expert,11,9,18.7,6900,snowstorm,-3,,Snowstorm
+12,high_plateau,leaky_backpack,11,9,8.0,11200,snowstorm,-3,,Snowstorm
+13,boggy_hollow,lucky_ration,11,7,13.0,8200,snowstorm,-3,,Snowstorm
+14,deep_forest,old_rope,11,11,8.0,16200,snowstorm,-3,,Snowstorm
+15,old_trail,hot_drink_lover,11,11,8.75,6700,snowstorm,-3,,Snowstorm
+1,valley_floor,picky_eater,12,7,14.2,6100,infected_wound,-3,,Infected wound
+2,wind_pass,fragile_shoelaces,12,7,8.25,15400,infected_wound,0,protected by Antibiotic cream,Infected wound
+3,scree_slope,night_walker,12,7,12.5,4600,infected_wound,-3,,Infected wound
+4,lakeside,injured_at_start,12,3,14.75,23200,infected_wound,-3,,Infected wound
+5,boggy_hollow,water_hoarder,12,3,7.5,15700,infected_wound,-3,,Infected wound
+6,high_plateau,clean_freak,12,7,7.5,14700,infected_wound,0,protected by Antibiotic cream,Infected wound
+7,old_trail,cold_sensitive,12,8,12.25,4600,infected_wound,0,protected by Antibiotic cream,Infected wound
+8,glacier_ridge,backup_hammock,12,12,4.0,5800,infected_wound,-3,,Infected wound
+9,cave_mouth,coffee_bonus,12,7,13.5,11400,infected_wound,-3,,Infected wound
+10,deep_forest,animal_friend,12,8,7.5,9300,infected_wound,-3,,Infected wound
+11,valley_floor,light_pack_expert,12,6,18.2,6400,infected_wound,-3,,Infected wound
+12,high_plateau,leaky_backpack,12,6,7.5,10700,infected_wound,-3,,Infected wound
+13,boggy_hollow,lucky_ration,12,7,12.5,7700,infected_wound,0,protected by Antibiotic cream,Infected wound
+14,deep_forest,old_rope,12,11,7.5,15700,infected_wound,0,protected by Advanced medical kit,Infected wound
+15,old_trail,hot_drink_lover,12,8,8.25,6200,infected_wound,-3,,Infected wound
+1,valley_floor,picky_eater,13,5,13.7,5600,gas_inhalation,-2,,Gas inhalation
+2,wind_pass,fragile_shoelaces,13,5,7.75,14900,gas_inhalation,-2,,Gas inhalation
+3,scree_slope,night_walker,13,5,12.0,4100,gas_inhalation,-2,,Gas inhalation
+4,lakeside,injured_at_start,13,3,14.25,22700,gas_inhalation,0,"protected by Face mask (N95, 5 pack)",Gas inhalation
+5,boggy_hollow,water_hoarder,13,3,7.0,15200,gas_inhalation,0,protected by Rain tarp,Gas inhalation
+6,high_plateau,clean_freak,13,7,7.0,14200,gas_inhalation,0,protected by Rain tarp,Gas inhalation
+7,old_trail,cold_sensitive,13,8,11.75,4100,gas_inhalation,0,"protected by Face mask (N95, 5 pack)",Gas inhalation
+8,glacier_ridge,backup_hammock,13,10,3.5,5300,gas_inhalation,-2,,Gas inhalation
+9,cave_mouth,coffee_bonus,13,7,13.0,10900,gas_inhalation,0,protected by Rain tarp,Gas inhalation
+10,deep_forest,animal_friend,13,8,7.0,8800,gas_inhalation,0,"protected by Face mask (N95, 5 pack)",Gas inhalation
+11,valley_floor,light_pack_expert,13,6,17.7,5900,gas_inhalation,0,"protected by Face mask (N95, 5 pack)",Gas inhalation
+12,high_plateau,leaky_backpack,13,6,7.0,10200,gas_inhalation,0,"protected by Face mask (N95, 5 pack)",Gas inhalation
+13,boggy_hollow,lucky_ration,13,7,12.0,7200,gas_inhalation,0,protected by Rain tarp,Gas inhalation
+14,deep_forest,old_rope,13,11,7.0,15200,gas_inhalation,0,protected by Rain tarp,Gas inhalation
+15,old_trail,hot_drink_lover,13,6,7.75,5700,gas_inhalation,-2,,Gas inhalation
+1,valley_floor,picky_eater,14,5,13.2,5100,spade_handle,0,,Spade loose handle
+2,wind_pass,fragile_shoelaces,14,5,7.25,14400,spade_handle,0,,Spade loose handle
+3,scree_slope,night_walker,14,5,11.5,3600,spade_handle,0,,Spade loose handle
+4,lakeside,injured_at_start,14,3,13.75,22200,spade_handle,0,,Spade loose handle
+5,boggy_hollow,water_hoarder,14,3,6.5,14700,spade_handle,0,,Spade loose handle
+6,high_plateau,clean_freak,14,7,6.5,13700,spade_handle,0,,Spade loose handle
+7,old_trail,cold_sensitive,14,8,11.25,3600,spade_handle,0,,Spade loose handle
+8,glacier_ridge,backup_hammock,14,10,3.0,4800,spade_handle,0,,Spade loose handle
+9,cave_mouth,coffee_bonus,14,7,12.5,10400,spade_handle,0,,Spade loose handle
+10,deep_forest,animal_friend,14,8,6.5,8300,spade_handle,0,,Spade loose handle
+11,valley_floor,light_pack_expert,14,6,17.2,5400,spade_handle,0,,Spade loose handle
+12,high_plateau,leaky_backpack,14,6,6.5,9700,spade_handle,0,,Spade loose handle
+13,boggy_hollow,lucky_ration,14,7,11.5,6700,spade_handle,0,,Spade loose handle
+14,deep_forest,old_rope,14,11,6.5,14700,spade_handle,0,,Spade loose handle
+15,old_trail,hot_drink_lover,14,6,7.25,5200,spade_handle,0,,Spade loose handle
+1,valley_floor,picky_eater,15,5,12.7,4600,heat_headache,0,protected by 1 L water,Heat headache
+2,wind_pass,fragile_shoelaces,15,5,6.75,13900,heat_headache,0,protected by 1 L water,Heat headache
+3,scree_slope,night_walker,15,5,11.0,3100,heat_headache,0,protected by 1 L water,Heat headache
+4,lakeside,injured_at_start,15,3,13.25,21700,heat_headache,0,protected by 1 L water,Heat headache
+5,boggy_hollow,water_hoarder,15,3,6.0,14200,heat_headache,0,protected by 1 L water,Heat headache
+6,high_plateau,clean_freak,15,7,6.0,13200,heat_headache,0,protected by 1 L water,Heat headache
+7,old_trail,cold_sensitive,15,8,10.75,3100,heat_headache,0,protected by 1 L water,Heat headache
+8,glacier_ridge,backup_hammock,15,10,2.5,4300,heat_headache,0,protected by 1 L water,Heat headache
+9,cave_mouth,coffee_bonus,15,7,12.0,9900,heat_headache,0,protected by 1 L water,Heat headache
+10,deep_forest,animal_friend,15,8,6.0,7800,heat_headache,0,protected by 1 L water,Heat headache
+11,valley_floor,light_pack_expert,15,6,16.7,4900,heat_headache,0,protected by 1 L water,Heat headache
+12,high_plateau,leaky_backpack,15,6,6.0,9200,heat_headache,0,protected by 1 L water,Heat headache
+13,boggy_hollow,lucky_ration,15,7,11.0,6200,heat_headache,0,protected by 1 L water,Heat headache
+14,deep_forest,old_rope,15,11,6.0,14200,heat_headache,0,protected by 1 L water,Heat headache
+15,old_trail,hot_drink_lover,15,6,6.75,4700,heat_headache,0,protected by 1 L water,Heat headache
+1,valley_floor,picky_eater,16,5,12.2,4100,signal_mirror_drop,0,,Signal mirror drop
+2,wind_pass,fragile_shoelaces,16,5,6.25,13400,signal_mirror_drop,0,,Signal mirror drop
+3,scree_slope,night_walker,16,5,10.5,2600,signal_mirror_drop,0,,Signal mirror drop
+4,lakeside,injured_at_start,16,3,12.75,21200,signal_mirror_drop,0,,Signal mirror drop
+5,boggy_hollow,water_hoarder,16,3,5.5,13700,signal_mirror_drop,0,,Signal mirror drop
+6,high_plateau,clean_freak,16,7,5.5,12700,signal_mirror_drop,0,,Signal mirror drop
+7,old_trail,cold_sensitive,16,8,10.25,2600,signal_mirror_drop,0,,Signal mirror drop
+8,glacier_ridge,backup_hammock,16,10,2.0,3800,signal_mirror_drop,0,,Signal mirror drop
+9,cave_mouth,coffee_bonus,16,7,11.5,9400,signal_mirror_drop,0,,Signal mirror drop
+10,deep_forest,animal_friend,16,8,5.5,7300,signal_mirror_drop,0,,Signal mirror drop
+11,valley_floor,light_pack_expert,16,6,16.2,4400,signal_mirror_drop,0,,Signal mirror drop
+12,high_plateau,leaky_backpack,16,6,5.5,8700,signal_mirror_drop,0,,Signal mirror drop
+13,boggy_hollow,lucky_ration,16,7,10.5,5700,signal_mirror_drop,0,,Signal mirror drop
+14,deep_forest,old_rope,16,11,5.5,13700,signal_mirror_drop,0,,Signal mirror drop
+15,old_trail,hot_drink_lover,16,6,6.25,4200,signal_mirror_drop,0,,Signal mirror drop
+1,valley_floor,picky_eater,17,4,13.7,5100,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+2,wind_pass,fragile_shoelaces,17,4,7.75,14400,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+3,scree_slope,night_walker,17,3,12.0,3600,tent_pole_break,-2,"resupply +2 L, +1500 kcal; Scree Slope: -1",Tent pole break
+4,lakeside,injured_at_start,17,2,14.25,22200,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+5,boggy_hollow,water_hoarder,17,2,7.0,14700,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+6,high_plateau,clean_freak,17,6,7.0,13700,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+7,old_trail,cold_sensitive,17,8,11.75,3600,tent_pole_break,0,"resupply +2 L, +1500 kcal; protected by Tent repair kit",Tent pole break
+8,glacier_ridge,backup_hammock,17,9,3.5,4800,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+9,cave_mouth,coffee_bonus,17,6,13.0,10400,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+10,deep_forest,animal_friend,17,7,7.0,8300,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+11,valley_floor,light_pack_expert,17,5,17.7,5400,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+12,high_plateau,leaky_backpack,17,5,7.0,9700,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+13,boggy_hollow,lucky_ration,17,6,12.0,6700,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+14,deep_forest,old_rope,17,10,7.0,14700,tent_pole_break,-1,"resupply +2 L, +1500 kcal",Tent pole break
+15,old_trail,hot_drink_lover,17,6,7.75,5200,tent_pole_break,0,"resupply +2 L, +1500 kcal; protected by Tent repair kit",Tent pole break
+1,valley_floor,picky_eater,18,1,13.2,4400,snowstorm,-3,,Snowstorm
+2,wind_pass,fragile_shoelaces,18,0,7.25,13700,snowstorm,-4,Wind Pass: -1; ELIMINATED (HP reached 0),Snowstorm
+3,scree_slope,night_walker,18,0,11.5,2900,snowstorm,-3,ELIMINATED (HP reached 0),Snowstorm
+4,lakeside,injured_at_start,18,-1,13.75,21500,snowstorm,-3,ELIMINATED (HP reached 0),Snowstorm
+5,boggy_hollow,water_hoarder,18,-1,6.5,14000,snowstorm,-3,ELIMINATED (HP reached 0),Snowstorm
+6,high_plateau,clean_freak,18,3,6.5,13000,snowstorm,-3,,Snowstorm
+7,old_trail,cold_sensitive,18,4,11.25,2900,snowstorm,-4,Cold Sensitive: -1,Snowstorm
+8,glacier_ridge,backup_hammock,18,9,3.0,4100,snowstorm,0,protected by Four-season tent + Insulated sleeping pad,Snowstorm
+9,cave_mouth,coffee_bonus,18,3,12.5,9700,snowstorm,-3,,Snowstorm
+10,deep_forest,animal_friend,18,4,6.5,7600,snowstorm,-3,,Snowstorm
+11,valley_floor,light_pack_expert,18,2,17.2,4700,snowstorm,-3,,Snowstorm
+12,high_plateau,leaky_backpack,18,2,6.5,9000,snowstorm,-3,,Snowstorm
+13,boggy_hollow,lucky_ration,18,3,11.5,6000,snowstorm,-3,,Snowstorm
+14,deep_forest,old_rope,18,7,6.5,14000,snowstorm,-3,,Snowstorm
+15,old_trail,hot_drink_lover,18,3,7.25,4500,snowstorm,-3,,Snowstorm
+1,valley_floor,picky_eater,19,1,12.7,3900,far_echo,0,,Far echo
+6,high_plateau,clean_freak,19,3,6.0,12500,far_echo,0,,Far echo
+7,old_trail,cold_sensitive,19,4,10.75,2400,far_echo,0,protected by Emergency whistle,Far echo
+8,glacier_ridge,backup_hammock,19,9,2.5,3600,far_echo,0,,Far echo
+9,cave_mouth,coffee_bonus,19,3,12.0,9200,far_echo,0,,Far echo
+10,deep_forest,animal_friend,19,4,6.0,7100,far_echo,0,protected by Emergency whistle,Far echo
+11,valley_floor,light_pack_expert,19,2,16.7,4200,far_echo,0,protected by Emergency whistle,Far echo
+12,high_plateau,leaky_backpack,19,2,6.0,8500,far_echo,0,protected by Emergency whistle,Far echo
+13,boggy_hollow,lucky_ration,19,3,11.0,5500,far_echo,0,,Far echo
+14,deep_forest,old_rope,19,7,6.0,13500,far_echo,0,,Far echo
+15,old_trail,hot_drink_lover,19,3,6.75,4000,far_echo,0,,Far echo
+1,valley_floor,picky_eater,20,1,12.2,3400,lost_spoon,0,,Lost spoon
+6,high_plateau,clean_freak,20,3,5.5,12000,lost_spoon,0,,Lost spoon
+7,old_trail,cold_sensitive,20,4,10.25,1900,lost_spoon,0,,Lost spoon
+8,glacier_ridge,backup_hammock,20,9,2.0,3100,lost_spoon,0,,Lost spoon
+9,cave_mouth,coffee_bonus,20,3,11.5,8700,lost_spoon,0,,Lost spoon
+10,deep_forest,animal_friend,20,4,5.5,6600,lost_spoon,0,,Lost spoon
+11,valley_floor,light_pack_expert,20,2,16.2,3700,lost_spoon,0,,Lost spoon
+12,high_plateau,leaky_backpack,20,2,5.5,8000,lost_spoon,0,,Lost spoon
+13,boggy_hollow,lucky_ration,20,3,10.5,5000,lost_spoon,0,,Lost spoon
+14,deep_forest,old_rope,20,7,5.5,13000,lost_spoon,0,,Lost spoon
+15,old_trail,hot_drink_lover,20,3,6.25,3500,lost_spoon,0,,Lost spoon

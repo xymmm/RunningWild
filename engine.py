@@ -193,11 +193,11 @@ def init_team_state(inv, location_id, trait_id, data, params):
     food = params["food_initial_kcal"] + t["kcal"]
     notes = []
     if trait_id == "injured_at_start":
-        hp -= 3
-        notes.append("Injured at Start: HP -3")
+        hp -= 2
+        notes.append("Injured at Start: HP -2")
     if trait_id == "lucky_ration":
-        food += 600
-        notes.append("Lucky Ration: +600 kcal")
+        food += 1500
+        notes.append("Lucky Ration: +1500 kcal")
     return {
         "hp": hp,
         "water": round(params["water_initial_L"] + t["litres"], 2),
@@ -281,14 +281,13 @@ def _apply_trait(trait_id, ev, inv, is_mit, hp, state, notes):
     elif trait_id == "repair_expert" and damage and not is_mit and "equipment" in tags and hp < 0 \
             and has(inv, "tent_repair_kit"):
         add(+1, "Repair Expert")
-    elif trait_id == "animal_friend" and "wildlife_calm" in tags and hp != 0:
+    elif trait_id == "animal_friend" and "wildlife_calm" in tags and hp < 0:
         notes.append("Animal Friend: becomes 0")
         hp = 0
-    elif trait_id == "night_walker" and damage and not is_mit and "night_nav" in tags and hp < 0 \
+    elif trait_id == "night_walker" and damage and not is_mit and "navigation" in tags and hp < 0 \
             and has(inv, "headlamp"):
         add(+1, "Night Walker")
-    elif trait_id == "coffee_bonus" and "fatigue" in tags and hp < 0 and has(inv, "coffee_press", "stove_fuel") \
-            and _oneshot(state, "coffee_bonus"):
+    elif trait_id == "coffee_bonus" and "fatigue" in tags and hp < 0 and has(inv, "coffee_press", "stove_fuel"):
         notes.append("Coffee Bonus: becomes 0")
         hp = 0
     elif trait_id == "picky_eater" and "raw_food" in tags and not has(inv, "stove_fuel"):
@@ -384,12 +383,15 @@ def resolve_day(team, event_id, day, data, params):
     st["hungry_days"] = st["hungry_days"] + 1 if eat < params["starvation_kcal_threshold"] else 0
 
     # ---- 4. Daily trait effects
-    if trait_id == "light_pack_expert" and st["pack_weight"] <= 15:
-        hp += 1
-        notes.append("Light Pack Expert: +1")
-    if trait_id == "water_hoarder" and params.get("water_hoarder_enabled", True) and st["carried_litres"] > 5:
-        hp -= 1
-        notes.append("Water Hoarder: -1")
+    every = int(params.get("trait_periodic_every", 5))
+    if day % every == 0:
+        light = params.get("light_pack_fraction", 2 / 3) * params["weight_cap_kg"]
+        if trait_id == "light_pack_expert" and st["pack_weight"] <= light + 1e-9:
+            hp += 1
+            notes.append("Light Pack Expert: +1")
+        if trait_id == "water_hoarder" and params.get("water_hoarder_enabled", True) and st["carried_litres"] > 5:
+            hp -= 1
+            notes.append("Water Hoarder: -1")
 
     st["hp"] += hp
 
@@ -415,12 +417,23 @@ def resolve_day(team, event_id, day, data, params):
 # ---------------------------------------------------------------------------
 
 def final_score(state, params):
+    """End-of-game settlement for a surviving group.
+
+    Leftover water and food are converted into "reserve days": how many more
+    days the group could still drink and eat at the daily ration. Only the
+    scarcer resource counts, and the bonus is capped:
+
+        water_days = floor(W / daily water)      food_days = floor(F / daily food)
+        bonus      = min(water_days, food_days, cap)
+        HP_final   = HP_end + bonus
+
+    So hoarding one resource adds nothing, and hoarding both adds at most `cap`
+    HP, which is less than good protection saves over 20 days.
+    """
     if not state["alive"]:
         return None
-    hw = int(state["water"] // params["endgame_water_L_per_hp"])
-    hf = int(state["food"] // params["endgame_food_kcal_per_hp"])
-    if params.get("endgame_water_hp_cap") is not None:
-        hw = min(hw, int(params["endgame_water_hp_cap"]))
-    if params.get("endgame_food_hp_cap") is not None:
-        hf = min(hf, int(params["endgame_food_hp_cap"]))
-    return {"hp_end": state["hp"], "hp_water": hw, "hp_food": hf, "hp_final": state["hp"] + hw + hf}
+    wd = int(state["water"] // params["baseline_water_L_per_day"]) if params["baseline_water_L_per_day"] > 0 else 0
+    fd = int(state["food"] // params["baseline_food_kcal_per_day"]) if params["baseline_food_kcal_per_day"] > 0 else 0
+    bonus = max(0, min(wd, fd, int(params["endgame_reserve_cap"])))
+    return {"hp_end": state["hp"], "water_days": wd, "food_days": fd, "hp_bonus": bonus,
+            "hp_final": state["hp"] + bonus}

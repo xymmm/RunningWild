@@ -22,17 +22,14 @@ def hp(event, inv=(), loc="lakeside_neutral", trait=None, water=10.0):
     st["water"], st["hp"], st["history"] = water, 20, []
     team = {"inv": inv, "location": loc, "trait": trait, "state": st, "resupply_days": []}
     rec = engine.resolve_day(team, event, 1, data, P)
-    extra = 0
-    if trait == "light_pack_expert" and st["pack_weight"] <= 15:
-        extra = 1
-    return rec["dhp"] - extra
+    return rec["dhp"]
 
 
 CASES = [
     # (event, items, location, trait, water, expected HP change, source)
     ("cold_wave", [], None, None, 10, -3, "slide day 1 base"),
     ("cold_wave", [], "glacier_ridge", None, 10, -4, "slide day 1 Glacier"),
-    ("cold_wave", [], "valley_floor", None, 10, -2, "slide day 1 Valley"),
+    ("cold_wave", [], "valley_floor", None, 10, -3, "Valley now rain and wind only (v3)"),
     ("cold_wave", ["down_jacket"], "glacier_ridge", None, 10, 0, "slide day 1 mitigated"),
     ("cold_wave", [], "glacier_ridge", "cold_sensitive", 10, -5, "slide day 1 Cold Sensitive"),
     ("deep_stream", [], None, "old_rope", 10, -2, "slide day 2 Old Rope"),
@@ -44,7 +41,8 @@ CASES = [
     ("melted_snow", ["water_purif_tabs"], "boggy_hollow", None, 10, 0, "slide day 4 Boggy purified"),
     ("nightingale_sings", ["sleeping_bag"], None, None, 10, 1, "slide day 5 base"),
     ("nightingale_sings", ["sleeping_bag"], "old_trail", None, 10, 0, "slide day 5 Old Trail"),
-    ("nightingale_sings", ["sleeping_bag"], None, "animal_friend", 10, 0, "slide day 5 Animal Friend"),
+    ("nightingale_sings", ["sleeping_bag"], None, "animal_friend", 10, 1, "Animal Friend keeps friendly bonus (v3)"),
+    ("partridge_scare", [], None, "animal_friend", 10, 0, "Animal Friend: calm wildlife costs nothing"),
     ("insect_swarm", [], None, None, 10, -2, "slide day 6 base"),
     ("insect_swarm", [], "deep_forest", None, 10, -3, "slide day 6 Deep Forest"),
     ("insect_swarm", [], "boggy_hollow", None, 10, -3, "slide day 6 Boggy"),
@@ -57,17 +55,18 @@ CASES = [
     ("rain_at_night", [], None, "backup_hammock", 10, 0, "slide day 8 Backup Hammock"),
     ("wet_food_mold", [], "deep_forest", None, 10, -2, "slide day 9 Deep Forest"),
     ("wet_food_mold", [], "cave_mouth", None, 10, -2, "slide day 9 Cave Mouth"),
-    ("lost_at_night", [], "valley_floor", None, 10, 0, "slide day 10 Valley"),
+    ("lost_at_night", [], "valley_floor", None, 10, -2, "printed Valley card: navigation +1 damage (v3)"),
     ("lost_at_night", [], "high_plateau", None, 10, 0, "slide day 10 Plateau"),
     ("lost_at_night", [], "cave_mouth", None, 10, -2, "Cave Mouth card, no headlamp"),
     ("heat_exhaustion", [], None, None, 10, -1, "slide day 12 mitigated by 2 L on hand"),
     ("heat_exhaustion", [], None, None, 1.5, -3, "slide day 12 base (too little water)"),
     ("heat_exhaustion", [], "lakeside", None, 1.5, -2, "slide day 12 Lakeside"),
-    ("heat_exhaustion", [], "valley_floor", None, 1.5, -2, "slide day 12 Valley"),
+    ("heat_exhaustion", [], "valley_floor", None, 1.5, -3, "Valley now rain and wind only (v3)"),
+    ("windy_day", [], "valley_floor", None, 10, 0, "Valley: wind 1 HP milder"),
     ("heat_exhaustion", [], "high_plateau", None, 1.5, -4, "slide day 12 Plateau"),
     ("heat_exhaustion", [], "high_plateau", "heat_resistant", 1.5, -3, "slide day 12 Heat Resistant"),
     ("night_frost", [], "glacier_ridge", None, 10, -2, "slide day 13 Glacier"),
-    ("night_frost", [], "valley_floor", None, 10, 0, "slide day 13 Valley"),
+    ("night_frost", [], "valley_floor", None, 10, -1, "Valley now rain and wind only (v3)"),
     ("night_frost", [], "cave_mouth", None, 10, 0, "slide day 13 Cave"),
     ("bee_sting", [], "deep_forest", None, 10, -2, "slide day 14 Deep Forest"),
     ("bee_sting", [], "deep_forest", "allergy_prone", 10, -3, "slide day 14 Allergy Prone"),
@@ -86,7 +85,8 @@ CASES = [
     ("windstorm", [], "wind_pass", None, 10, -5, "Wind Pass card: wind +2"),
     ("thunderstorm", [], "wind_pass", None, 10, -3, "Wind Pass card: storm +1"),
     ("black_ice_slip", [], "glacier_ridge", None, 10, -3, "Glacier: cold and slip, largest rule only"),
-    ("tent_peg_lost", [], "scree_slope", None, 10, -1, "Scree card: equipment +1"),
+    ("tent_peg_lost", [], "scree_slope", None, 10, 0, "Scree: no-damage equipment events unchanged (v3)"),
+    ("tarp_tear", [], "scree_slope", None, 10, -2, "Scree: damaging equipment events +1"),
     ("path_disappears", [], "old_trail", None, 10, 0, "Old Trail: -2 reduction capped at 0"),
     ("snowstorm", ["four_season_tent", "winter_sleeping_bag"], None, None, 10, 0, "new items substitute"),
     ("mild_fever", ["wilderness_medkit"], None, None, 10, 0, "full medical kit covers medical kit"),
@@ -117,11 +117,26 @@ def test_water_gain_by_location():
     assert gain("valley_floor", {"water_container": 1}) == 2.7  # container x1.5 on streams
 
 
+def test_periodic_traits():
+    """Light Pack Expert and Water Hoarder act every 5th day only."""
+    def total(trait, inv, days=20):
+        st = engine.init_team_state(inv, "lakeside", trait, D, P)
+        st["hp"], st["water"], st["food"] = 100, 100.0, 100000
+        team = {"inv": inv, "location": "lakeside", "trait": trait, "state": st, "resupply_days": []}
+        for d in range(1, days + 1):
+            engine.resolve_day(team, "clear_weather", d, D, P)
+        return st["hp"] - 100
+    assert total("light_pack_expert", {"tent": 1}) == 4                      # 2.5 kg, days 5, 10, 15, 20
+    assert total("light_pack_expert", {"water_5L": 2, "tent": 1}) == 0      # 12.5 kg > 10 kg
+    assert total("water_hoarder", {"water_5L": 1, "water_1L": 1}) == -4     # 6 L packed
+    assert total("water_hoarder", {"water_5L": 1}) == 0                     # exactly 5 L
+
+
 def test_cooking_needs():
     assert engine.pack_totals({"rice_bag": 1}, D)["kcal"] == 0
     assert engine.pack_totals({"rice_bag": 1, "cooking_pot": 1, "stove_fuel": 1}, D)["kcal"] == 3600
 
 
 if __name__ == "__main__":
-    test_cases(); test_water_gain_by_location(); test_cooking_needs()
+    test_cases(); test_water_gain_by_location(); test_periodic_traits(); test_cooking_needs()
     print(f"all {len(CASES)} rule cases pass")

@@ -1,22 +1,82 @@
 {
-  "injured_at_start": {"name": "Injured at Start", "card": "Begin with HP -3."},
-  "leaky_backpack": {"name": "Leaky Backpack", "card": "If you do not carry a waterproof bag, every water-leak event loses an extra 1 L."},
-  "lucky_ration": {"name": "Lucky Ration", "card": "Start with +600 kcal dry food."},
-  "fragile_shoelaces": {"name": "Fragile Shoelaces", "card": "If you do not carry duct tape, the first shoelace snap causes HP -1."},
-  "cold_sensitive": {"name": "Cold Sensitive", "card": "All cold-related events deal +1 HP (down jacket can cancel 1)."},
-  "heat_resistant": {"name": "Heat Resistant", "card": "Hot weather and sun events deal -1 HP."},
-  "climber": {"name": "Climber", "card": "Slip or fall events deal -1 HP."},
-  "allergy_prone": {"name": "Allergy Prone", "card": "Bee sting or allergy events deal +1 HP unless carrying allergy medicine."},
-  "old_batteries": {"name": "Old Batteries", "card": "If no spare batteries, the first headlamp-dead event deals HP -1."},
-  "hot_drink_lover": {"name": "Hot Drink Lover", "card": "Whenever you trigger a tea/hot drink HP+ event, gain +1 extra HP (requires stove + pot)."},
-  "clean_freak": {"name": "Clean Freak", "card": "If you do not carry disinfectant wipes, the first scavenged-food event gives HP -1."},
-  "water_hoarder": {"name": "Water Hoarder", "card": "If you carry more than 5 L of water, suffer HP -1 per day (optional for teacher)."},
-  "light_pack_expert": {"name": "Light Pack Expert", "card": "If total carried weight <= 15 kg, recover HP +1 each night."},
-  "repair_expert": {"name": "Repair Expert", "card": "If you carry a repair kit, equipment-damage events deal -1 HP."},
-  "animal_friend": {"name": "Animal Friend", "card": "Non-attack wildlife encounters always deal HP 0."},
-  "night_walker": {"name": "Night Walker", "card": "Night or darkness events deal -1 HP if you have a headlamp."},
-  "coffee_bonus": {"name": "Coffee Bonus", "card": "If you carry coffee press + stove, the first fatigue/headache event becomes HP 0."},
-  "picky_eater": {"name": "Picky Eater", "card": "Raw eggs/mushrooms/fish/insects always cause HP -1 even if normally safe, unless cooked (stove)."},
-  "backup_hammock": {"name": "Backup Hammock", "card": "If you have no tent/tarp on rainy nights, exposure HP is reduced by 1."},
-  "old_rope": {"name": "Old Rope", "card": "Without rope/tool kit, the first cliff/river crossing event deals +1 HP."}
+  "injured_at_start": {
+    "name": "Injured at Start",
+    "card": "Start the game with 2 HP fewer."
+  },
+  "leaky_backpack": {
+    "name": "Leaky Backpack",
+    "card": "Without a waterproof bag, every water-leak event costs 1 L of water more."
+  },
+  "lucky_ration": {
+    "name": "Lucky Ration",
+    "card": "Start the game with 1500 kcal of extra food."
+  },
+  "fragile_shoelaces": {
+    "name": "Fragile Shoelaces",
+    "card": "Without duct tape, the first boot-lace snap makes you lose 1 HP."
+  },
+  "cold_sensitive": {
+    "name": "Cold Sensitive",
+    "card": "Unprotected cold events make you lose 1 HP more. A down jacket cancels this."
+  },
+  "heat_resistant": {
+    "name": "Heat Resistant",
+    "card": "Unprotected hot-weather and sun events make you lose 1 HP less."
+  },
+  "climber": {
+    "name": "Climber",
+    "card": "Unprotected slip or fall events make you lose 1 HP less."
+  },
+  "allergy_prone": {
+    "name": "Allergy Prone",
+    "card": "Unprotected bee-sting, insect or allergy events make you lose 1 HP more, unless you carry allergy medication."
+  },
+  "old_batteries": {
+    "name": "Old Batteries",
+    "card": "Without spare batteries, the first headlamp-dead event makes you lose 1 HP more."
+  },
+  "hot_drink_lover": {
+    "name": "Hot Drink Lover",
+    "card": "Tea and hot-drink events give you 1 extra HP if you carry a stove and a pot."
+  },
+  "clean_freak": {
+    "name": "Clean Freak",
+    "card": "Without disinfectant wipes, the first scavenged-food event makes you lose 1 HP more."
+  },
+  "water_hoarder": {
+    "name": "Water Hoarder",
+    "card": "If you packed more than 5 L of water, lose 1 HP every 5th day (optional for teacher)."
+  },
+  "light_pack_expert": {
+    "name": "Light Pack Expert",
+    "card": "If your backpack weighs at most two-thirds of the weight limit (10 kg with a 15 kg limit), gain 1 HP every 5th day."
+  },
+  "repair_expert": {
+    "name": "Repair Expert",
+    "card": "With a repair kit, unprotected equipment-damage events make you lose 1 HP less."
+  },
+  "animal_friend": {
+    "name": "Animal Friend",
+    "card": "Calm wildlife encounters never cost you HP (friendly ones still cheer you up)."
+  },
+  "night_walker": {
+    "name": "Night Walker",
+    "card": "With a headlamp, unprotected navigation events make you lose 1 HP less."
+  },
+  "coffee_bonus": {
+    "name": "Coffee Bonus",
+    "card": "With a coffee press and a stove, fatigue, headache and cramp events cost you no HP."
+  },
+  "picky_eater": {
+    "name": "Picky Eater",
+    "card": "Without a stove to cook, raw-food events (mushrooms, fish, berries) make you lose 1 HP more, even if otherwise protected."
+  },
+  "backup_hammock": {
+    "name": "Backup Hammock",
+    "card": "Without a tent or tarp, rainy nights make you lose 1 HP less."
+  },
+  "old_rope": {
+    "name": "Old Rope",
+    "card": "Without a rope, the first cliff or river-crossing event makes you lose 1 HP more."
+  }
 }
