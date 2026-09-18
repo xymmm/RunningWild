@@ -1,0 +1,22 @@
+{
+  "injured_at_start": {"name": "Injured at Start", "card": "Begin with HP -3."},
+  "leaky_backpack": {"name": "Leaky Backpack", "card": "If you do not carry a waterproof bag, every water-leak event loses an extra 1 L."},
+  "lucky_ration": {"name": "Lucky Ration", "card": "Start with +600 kcal dry food."},
+  "fragile_shoelaces": {"name": "Fragile Shoelaces", "card": "If you do not carry duct tape, the first shoelace snap causes HP -1."},
+  "cold_sensitive": {"name": "Cold Sensitive", "card": "All cold-related events deal +1 HP (down jacket can cancel 1)."},
+  "heat_resistant": {"name": "Heat Resistant", "card": "Hot weather and sun events deal -1 HP."},
+  "climber": {"name": "Climber", "card": "Slip or fall events deal -1 HP."},
+  "allergy_prone": {"name": "Allergy Prone", "card": "Bee sting or allergy events deal +1 HP unless carrying allergy medicine."},
+  "old_batteries": {"name": "Old Batteries", "card": "If no spare batteries, the first headlamp-dead event deals HP -1."},
+  "hot_drink_lover": {"name": "Hot Drink Lover", "card": "Whenever you trigger a tea/hot drink HP+ event, gain +1 extra HP (requires stove + pot)."},
+  "clean_freak": {"name": "Clean Freak", "card": "If you do not carry disinfectant wipes, the first scavenged-food event gives HP -1."},
+  "water_hoarder": {"name": "Water Hoarder", "card": "If you carry more than 5 L of water, suffer HP -1 per day (optional for teacher)."},
+  "light_pack_expert": {"name": "Light Pack Expert", "card": "If total carried weight <= 15 kg, recover HP +1 each night."},
+  "repair_expert": {"name": "Repair Expert", "card": "If you carry a repair kit, equipment-damage events deal -1 HP."},
+  "animal_friend": {"name": "Animal Friend", "card": "Non-attack wildlife encounters always deal HP 0."},
+  "night_walker": {"name": "Night Walker", "card": "Night or darkness events deal -1 HP if you have a headlamp."},
+  "coffee_bonus": {"name": "Coffee Bonus", "card": "If you carry coffee press + stove, the first fatigue/headache event becomes HP 0."},
+  "picky_eater": {"name": "Picky Eater", "card": "Raw eggs/mushrooms/fish/insects always cause HP -1 even if normally safe, unless cooked (stove)."},
+  "backup_hammock": {"name": "Backup Hammock", "card": "If you have no tent/tarp on rainy nights, exposure HP is reduced by 1."},
+  "old_rope": {"name": "Old Rope", "card": "Without rope/tool kit, the first cliff/river crossing event deals +1 HP."}
+}

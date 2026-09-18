@@ -1,0 +1,18 @@
+{
+  "hp_initial": 20,
+  "water_initial_L": 6.0,
+  "food_initial_kcal": 6000,
+  "weight_cap_kg": 20.0,
+  "volume_cap_L": 80.0,
+  "max_copies_per_item": 5,
+  "baseline_water_L_per_day": 0.5,
+  "baseline_food_kcal_per_day": 500,
+  "dehydration_days_max": 3,
+  "starvation_days_max": 10,
+  "starvation_kcal_threshold": 500,
+  "endgame_water_L_per_hp": 0.5,
+  "endgame_food_kcal_per_hp": 500,
+  "water_hoarder_enabled": true,
+  "default_days": 20,
+  "default_selection_minutes": 30
+}
