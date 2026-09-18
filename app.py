@@ -433,7 +433,7 @@ def instructor_watcher():
     code = st.session_state.code
     S.tick(code)
     room = S.get(code)
-    key = (room["phase"], room["day"])
+    key = (room["phase"], room["day"], len(room["groups"]))
     if st.session_state.get("seen") != key:
         st.session_state.seen = key
         st.rerun(scope="app")
@@ -467,7 +467,7 @@ def instructor_main():
     st.markdown(f"<h1>Room {esc(code)}</h1><p class='rw-muted'>Phase: {esc(ph)} · "
                 f"Day {room['day']} of {room['days']}</p>", unsafe_allow_html=True)
     st.caption("Open this app in a second tab, choose Big screen, and enter the same room code and PIN.")
-    st.session_state.seen = (room["phase"], room["day"])
+    st.session_state.seen = (room["phase"], room["day"], len(room["groups"]))
     instructor_watcher()
 
     if ph == "lobby":
