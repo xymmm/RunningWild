@@ -72,20 +72,16 @@ def trait_name(tid):
 def event_card_html(eid, big=False):
     ev = D["events"][eid]
     parts = []
+    prot = esc(engine.protection_text(ev, D))
     if ev["base_hp"] > 0:
-        need = ev["mit_set"]
-        if ev["mit_logic"] == "NONE" or not need:
+        if not prot:
             parts.append(f"Everyone gains <b>HP {ev['base_hp']:+d}</b>.")
         else:
-            j = " + " if ev["mit_logic"] == "ALL" else " or "
-            parts.append(f"Gain <b>HP {ev['base_hp']:+d}</b> if you carry "
-                         f"{esc(j.join(engine.item_names(need, D)))}.")
+            parts.append(f"Gain <b>HP {ev['base_hp']:+d}</b> with: {prot}.")
     else:
         if ev["base_hp"] < 0:
             parts.append(f"Unprotected: <b>HP {ev['base_hp']:+d}</b>.")
-        if ev["mit_logic"] != "NONE" and ev["mit_set"]:
-            j = " + " if ev["mit_logic"] == "ALL" else " or "
-            prot = esc(j.join(engine.item_names(ev["mit_set"], D)))
+        if prot:
             after = f" (HP {ev['mit_hp']:+d})" if ev["mit_hp"] != 0 else ""
             parts.append(f"Protected by: {prot}{after}.")
         elif ev["base_hp"] < 0:
@@ -98,11 +94,24 @@ def event_card_html(eid, big=False):
         parts.append(f"Food found: +{ev['food_change']} kcal.")
     if ev["food_change"] < 0:
         parts.append(f"Food lost: {ev['food_change']} kcal unless protected.")
+    if ev["boost_item"]:
+        parts.append(f"{esc(engine.item_names([ev['boost_item']], D)[0])} multiplies this gain "
+                     f"by {ev['boost_mult']:g}.")
     if ev["extra_water"] or ev["extra_food"]:
         parts.append(f"Extra consumption today: {ev['extra_water']} L water, {ev['extra_food']} kcal.")
     size = "rw-big" if big else "rw-mid"
     return (f"<div class='rw-card ember'><div class='{size}'>{esc(ev['name'])}</div>"
             f"<p style='font-size:{'1.6rem' if big else '1.05rem'}'>{' '.join(parts)}</p></div>")
+
+
+def resupply_html(room, big=False):
+    if room["day"] in room.get("resupply_days", []):
+        p = room["params"]
+        size = "2rem" if big else "1.1rem"
+        return (f"<div class='rw-card' style='border-left-color:#3E7CB1'><span style='font-size:{size}'>"
+                f"📦 Resupply day: every group receives +{p['resupply_water_L']:g} L water and "
+                f"+{p['resupply_food_kcal']} kcal food.</span></div>")
+    return ""
 
 
 def status_text(state):
@@ -274,7 +283,9 @@ def group_selection(room, g):
 
     ek = f"base_{room['code']}_{g['group']}"
     if ek not in st.session_state:
-        base = D["items_df"][["id", "name", "category", "weight_kg", "volume_L", "kcal", "litres"]].copy()
+        base = D["items_df"][["id", "name", "category", "weight_kg", "volume_L", "kcal", "litres", "needs"]].copy()
+        base["needs"] = base["needs"].map(
+            lambda n: " + ".join(engine.item_names([x for x in str(n).split("+") if x], D)))
         base["qty"] = base["id"].map(lambda i: g["draft"].get(i, 0))
         st.session_state[ek] = base.set_index("id")
 
@@ -285,7 +296,7 @@ def group_selection(room, g):
                    "Your choice is saved as you go; when the timer ends, your last valid backpack is submitted.")
         edited = st.data_editor(
             st.session_state[ek], key=f"ed_{ek}", height=560, width="stretch",
-            disabled=["name", "category", "weight_kg", "volume_L", "kcal", "litres"],
+            disabled=["name", "category", "weight_kg", "volume_L", "kcal", "litres", "needs"],
             column_config={
                 "name": st.column_config.TextColumn("Item"),
                 "category": st.column_config.TextColumn("Type"),
@@ -293,10 +304,11 @@ def group_selection(room, g):
                 "volume_L": st.column_config.NumberColumn("L", format="%.1f"),
                 "kcal": st.column_config.NumberColumn("Food kcal"),
                 "litres": st.column_config.NumberColumn("Water L"),
+                "needs": st.column_config.TextColumn("Food only usable with"),
                 "qty": st.column_config.NumberColumn("Qty", min_value=0,
                                                      max_value=params["max_copies_per_item"], step=1),
             },
-            column_order=["name", "category", "weight_kg", "volume_L", "kcal", "litres", "qty"],
+            column_order=["name", "category", "weight_kg", "volume_L", "kcal", "litres", "needs", "qty"],
         )
     inv = {i: int(q) for i, q in edited["qty"].items() if pd.notna(q) and int(q) > 0}
     if inv != g["draft"]:
@@ -407,12 +419,28 @@ def instructor_login():
             f0 = st.number_input("Starting food (kcal)", 0, 50000, P["food_initial_kcal"], 500)
             bw = st.number_input("Daily water (L)", 0.0, 5.0, float(P["baseline_water_L_per_day"]), 0.1)
             bf = st.number_input("Daily food (kcal)", 0, 3000, P["baseline_food_kcal_per_day"], 50)
+            wcap = st.number_input("Weight limit (kg)", 5.0, 50.0, float(P["weight_cap_kg"]), 1.0)
+            vcap = st.number_input("Volume limit (L)", 10.0, 200.0, float(P["volume_cap_L"]), 5.0)
+            wcapc = st.number_input("Max final-score HP from leftover water", 0, 100, P["endgame_water_hp_cap"])
+            fcapc = st.number_input("Max final-score HP from leftover food", 0, 100, P["endgame_food_hp_cap"])
             wh = st.checkbox("Use the Water Hoarder trait penalty", P["water_hoarder_enabled"])
+        with st.expander("Resupply days", expanded=True):
+            modes = {"random": "Random days (unannounced)", "fixed": "Every few days", "off": "No resupply"}
+            mode = st.radio("Schedule", list(modes), format_func=modes.get,
+                            index=list(modes).index(P["resupply_mode"]), horizontal=True)
+            every = st.number_input("Every how many days (fixed)", 2, 20, P["resupply_every"])
+            count = st.number_input("How many resupply days (random)", 1, 10, P["resupply_count"])
+            rw = st.number_input("Water per resupply (L)", 0.0, 10.0, float(P["resupply_water_L"]), 0.5)
+            rf = st.number_input("Food per resupply (kcal)", 0, 10000, P["resupply_food_kcal"], 250)
         if st.button("Create room", type="primary", disabled=not pin):
             code = S.create(pin, days, {"hp_initial": hp0, "water_initial_L": w0, "food_initial_kcal": f0,
                                         "baseline_water_L_per_day": bw, "baseline_food_kcal_per_day": bf,
                                         "starvation_kcal_threshold": min(bf, P["starvation_kcal_threshold"]),
-                                        "water_hoarder_enabled": wh})
+                                        "weight_cap_kg": wcap, "volume_cap_L": vcap,
+                                        "endgame_water_hp_cap": wcapc, "endgame_food_hp_cap": fcapc,
+                                        "water_hoarder_enabled": wh, "resupply_mode": mode,
+                                        "resupply_every": every, "resupply_count": count,
+                                        "resupply_water_L": rw, "resupply_food_kcal": rf})
             st.session_state.code = code
             st.session_state.inst_ok = True
             st.rerun()
@@ -507,7 +535,9 @@ def instructor_main():
 
     elif ph in ("traits", "playing"):
         if room["day"] > 0:
-            st.markdown(event_card_html(room["event_log"][-1]), unsafe_allow_html=True)
+            st.markdown(resupply_html(room) + event_card_html(room["event_log"][-1]), unsafe_allow_html=True)
+        st.caption("Resupply days (hidden from groups): " +
+                   (", ".join(str(d) for d in room.get("resupply_days", [])) or "none"))
         c1, c2 = st.columns([1, 1])
         if c1.button(f"Next day → Day {room['day'] + 1}", type="primary", width="stretch"):
             S.next_day(code)
@@ -604,7 +634,8 @@ def screen_main():
     elif ph in ("traits", "playing"):
         st.markdown(f"<p class='rw-muted' style='font-size:1.5rem'>Day {room['day']} of {room['days']}</p>",
                     unsafe_allow_html=True)
-        st.markdown(event_card_html(room["event_log"][-1], big=True), unsafe_allow_html=True)
+        st.markdown(resupply_html(room, big=True) + event_card_html(room["event_log"][-1], big=True),
+                    unsafe_allow_html=True)
         c1, c2 = st.columns([3, 2], gap="large")
         c1.dataframe(progress_table(room), hide_index=True, width="stretch", height=620)
         c2.line_chart(hp_chart_df(room), height=620)

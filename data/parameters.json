@@ -1,9 +1,9 @@
 {
-  "hp_initial": 20,
+  "hp_initial": 15,
   "water_initial_L": 6.0,
   "food_initial_kcal": 6000,
-  "weight_cap_kg": 20.0,
-  "volume_cap_L": 80.0,
+  "weight_cap_kg": 15.0,
+  "volume_cap_L": 60.0,
   "max_copies_per_item": 5,
   "baseline_water_L_per_day": 0.5,
   "baseline_food_kcal_per_day": 500,
@@ -14,5 +14,12 @@
   "endgame_food_kcal_per_hp": 500,
   "water_hoarder_enabled": true,
   "default_days": 20,
-  "default_selection_minutes": 30
+  "default_selection_minutes": 30,
+  "resupply_mode": "random",
+  "resupply_every": 5,
+  "resupply_count": 3,
+  "resupply_water_L": 2.0,
+  "resupply_food_kcal": 1500,
+  "endgame_water_hp_cap": 5,
+  "endgame_food_hp_cap": 5
 }

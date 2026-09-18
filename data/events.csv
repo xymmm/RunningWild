@@ -1,197 +1,197 @@
-id,name,category,tags,base_hp,mit_logic,mit_set,mit_hp,weight,water_change,food_change,extra_water,extra_food
-clear_weather,Clear weather,weather_neutral,,0,NONE,,0,0.01,0.0,0,0.0,0
-cloudy_sky,Cloudy sky,weather_neutral,,0,NONE,,0,0.01,0.0,0,0.0,0
-foggy_morning,Foggy morning,weather_neutral,,0,ANY,compass_map|gps,0,0.01,0.0,0,0.0,0
-misty_dawn,Misty dawn,weather_neutral,,0,ANY,compass_map|gps,0,0.006,0.0,0,0.0,0
-fog_covers_sun,Fog covers sun,weather_neutral,,0,NONE,,0,0.008,0.0,0,0.0,0
-fine_dry_air,Fine dry air,weather_neutral,,0,NONE,,0,0.006,0.0,0,0.0,0
-light_breeze,Light breeze,weather_neutral,,0,NONE,,0,0.006,0.0,0,0.0,0
-dew_on_gear,Dew on gear,weather_neutral,,0,ANY,waterproof_bag,0,0.006,0.0,0,0.0,0
-light_rain,Light rain,weather_wet,weather,-1,ANY,rain_poncho,0,0.01,0.0,0,0.0,0
-short_shower,Short shower,weather_wet,weather,-1,ANY,rain_poncho|waterproof_jacket,0,0.01,0.0,0,0.0,0
-heavy_rain,Heavy rain,weather_wet,storm|weather,-2,ANY,rain_tarp|tent,0,0.01,0.0,0,0.0,0
-torrential_rain,Torrential rain,weather_wet,storm|weather,-3,ALL,rain_tarp|waterproof_bag,0,0.006,0.0,0,0.0,0
-chilly_drizzle,Chilly drizzle,weather_wet,weather,-1,ANY,rain_poncho,0,0.008,0.0,0,0.0,0
-cold_drizzle,Cold drizzle,weather_wet,weather,-1,ANY,rain_poncho,0,0.006,0.0,0,0.0,0
-rain_at_night,Rain at night,weather_wet,rain_night|weather,-1,ANY,tent,0,0.006,0.0,0,0.0,0
-thunderstorm,Thunderstorm,weather_wet,storm|weather,-2,ANY,waterproof_bag|rain_tarp,0,0.008,0.0,0,0.0,0
-hail_storm,Hail storm,weather_wet,storm|weather,-3,ANY,waterproof_jacket|rain_tarp,0,0.008,0.0,0,0.0,0
-hail_at_noon,Hail at noon,weather_wet,storm|weather,-2,ANY,waterproof_jacket,0,0.006,0.0,0,0.0,0
-high_humidity,High humidity,weather_wet,weather|wet_humid,-1,ANY,thermal_socks|extra_socks,0,0.008,0.0,0,0.0,0
-humid_cold,Humid cold,weather_wet,weather|wet_humid,-1,ANY,thermal_socks,0,0.008,0.0,0,0.0,0
-cold_morning,Cold morning,weather_cold,cold|weather,-1,ANY,fleece_jacket,0,0.01,0.0,0,0.0,0
-cold_wave,Cold wave,weather_cold,cold|weather,-3,ANY,sleeping_bag|down_jacket|winter_coat|thermal_blanket|bivy_bag,0,0.01,0.0,0,0.0,200
-frost_night,Frost at night,weather_cold,cold|cold_night|weather,-2,ANY,sleeping_bag,0,0.008,0.0,0,0.0,0
-sudden_cold_drop,Sudden cold drop,weather_cold,cold|weather,-2,ANY,down_jacket,0,0.008,0.0,0,0.0,0
-snow_flurries,Snow flurries,weather_cold,cold|storm|weather,-2,ANY,thermal_blanket|down_jacket,0,0.008,0.0,0,0.0,0
-snowstorm,Snowstorm,weather_cold,cold|storm|weather,-3,ALL,tent|sleeping_bag,0,0.008,0.0,0,0.0,200
-freezing_wind,Freezing wind,weather_cold,cold|weather|wind,-2,ALL,gloves|wool_hat,0,0.008,0.0,0,0.0,0
-cold_night,Cold night,weather_cold,cold|cold_night|weather,-2,ANY,sleeping_bag|heat_pack,0,0.008,0.0,0,0.0,0
-black_ice_slip,Black ice slip,weather_cold,cold|slip_fall|weather,-2,ANY,hiking_boots,0,0.008,0.0,0,0.0,0
-icy_ground,Icy ground,weather_cold,cold|slip_fall|weather,-1,ANY,trekking_pole|hiking_boots,0,0.008,0.0,0,0.0,0
-night_frost,Night frost,weather_cold,cold|cold_night|weather,-1,ANY,heat_pack,0,0.006,0.0,0,0.0,0
-chill_wind,Chill wind,weather_cold,cold|weather|wind,-1,ANY,fleece_jacket,0,0.006,0.0,0,0.0,0
-bright_cold_day,Bright cold day,weather_cold,cold|weather,-1,ALL,sunglasses|fleece_jacket,0,0.006,0.0,0,0.0,0
-frozen_ground,Frozen ground cracks,weather_cold,cold|weather,-1,ANY,hiking_boots,0,0.006,0.0,0,0.0,0
-hot_dry_sun,Hot dry sun,weather_hot,sun|weather,-1,ANY,sun_hat|sunscreen,0,0.01,0.0,0,0.0,0
-uv_burn,UV burn,weather_hot,sun|weather,-1,ANY,sunscreen,0,0.008,0.0,0,0.0,0
-blazing_sun,Blazing sun,weather_hot,sun|weather,-2,ANY,sun_hat,0,0.008,0.0,0,0.3,0
-strong_uv,Strong UV,weather_hot,sun|weather,-1,ANY,sun_hat,0,0.006,0.0,0,0.0,0
-blinding_sun,Blinding sunshine,weather_hot,sun|weather,-1,ANY,sunglasses,0,0.006,0.0,0,0.0,0
-cloudbreak_heat,Cloudbreak heat,weather_hot,sun|weather,-1,ANY,sunscreen,0,0.008,0.0,0,0.0,0
-heat_surge,Heat surge,weather_hot,sun|weather,-1,ANY,sun_hat,0,0.008,0.0,0,0.3,0
-dry_hot_wind,Dry hot wind,weather_hot,sun|weather,-1,ANY,water_2L|water_5L,0,0.008,0.0,0,0.3,0
-windy_day,Windy day,weather_wind,weather|wind,-1,ANY,waterproof_jacket,0,0.01,0.0,0,0.0,0
-strong_wind,Strong wind,weather_wind,weather|wind,-2,ANY,tent|rain_tarp,0,0.01,0.0,0,0.0,0
-windstorm,Windstorm,weather_wind,weather|wind,-3,ALL,tent|tent_repair_kit,0,0.01,0.0,0,0.0,0
-dust_storm,Dust storm,weather_wind,weather|wind,-2,ANY,sunglasses|scarf,0,0.008,0.0,0,0.0,0
-floating_ash,Floating ash,weather_wind,weather|wind,-1,ANY,scarf,0,0.006,0.0,0,0.0,0
-fine_afternoon,Fine afternoon,bonus_morale,,1,NONE,,0,0.006,0.0,0,0.0,0
-calm_warm_night,Calm warm night,bonus_morale,,1,NONE,,0,0.006,0.0,0,0.0,0
-hot_tea,Hot tea,bonus_morale,hot_drink,1,ALL,stove_fuel|cooking_pot,0,0.005,0.0,0,0.0,0
-tea_leaves_found,Tea leaves found,bonus_morale,hot_drink,1,ANY,cooking_pot,0,0.005,0.0,0,0.0,0
-wild_herb_tea,Wild herb tea,bonus_morale,hot_drink,1,ANY,cooking_pot,0,0.005,0.0,0,0.0,0
-nightingale_sings,Nightingale sings,bonus_morale,,1,NONE,,0,0.008,0.0,0,0.0,0
-stove_smoke,Stove smoke,medical_illness,,-1,ANY,rain_tarp,0,0.008,0.0,0,0.0,0
-cold_sore,Cold sore,medical_illness,,-1,ANY,small_medkit,0,0.008,0.0,0,0.0,0
-cough_all_night,Cough all night,medical_illness,,-1,ANY,sleeping_bag,0,0.008,0.0,0,0.0,0
-frozen_breath,Frozen breath,medical_illness,cold|cold_night,-1,ANY,heat_pack,0,0.008,0.0,0,0.0,0
-cold_lungs,Cold lungs,medical_illness,cold,-2,ANY,scarf,0,0.008,0.0,0,0.0,0
-heat_rash,Heat rash,medical_illness,sun,-1,ANY,sunscreen,0,0.008,0.0,0,0.0,0
-severe_fever,Severe fever,medical_illness,,-3,ANY,adv_medkit,0,0.008,0.0,0,0.0,0
-altitude_sickness,Altitude sickness,medical_illness,fatigue,-2,ANY,sleeping_bag,0,0.007,0.0,0,0.0,0
-cold_sweat,Cold sweat,medical_illness,cold,-1,ANY,heat_pack,0,0.007,0.0,0,0.0,0
-heat_headache,Heat headache,medical_illness,fatigue|sun,-1,ANY,water_2L|water_5L,0,0.007,0.0,0,0.0,0
-minor_concussion,Minor concussion,medical_illness,slip_fall,-3,ANY,small_medkit|adv_medkit,0,0.007,0.0,0,0.0,0
-mild_fever,Mild fever,medical_illness,,-2,ANY,small_medkit,0,0.01,0.0,0,0.0,0
-stomach_pain,Stomach pain,medical_illness,,-2,ANY,water_purif_tabs,0,0.01,0.0,0,0.0,0
-food_poisoning,Food poisoning,medical_illness,,-3,ANY,small_medkit|adv_medkit,-1,0.01,0.0,0,0.0,0
-toothache,Toothache,medical_illness,,-1,ANY,painkillers,0,0.01,0.0,0,0.0,0
-nosebleed,Nosebleed,medical_illness,,-1,ANY,water_2L|water_5L,0,0.01,0.0,0,0.0,0
-severe_blister1,Severe blister,medical_injury,,-1,ANY,bandages,0,0.008,0.0,0,0.0,0
-severe_blister2,Severe blister (deep),medical_injury,,-2,ANY,small_medkit,0,0.008,0.0,0,0.0,0
-minor_infection,Minor infection,medical_injury,,-1,ANY,antibiotic_cream,0,0.008,0.0,0,0.0,0
-severe_infection,Severe infection,medical_injury,,-3,ANY,adv_medkit,0,0.008,0.0,0,0.0,0
-infected_wound,Infected wound,medical_injury,,-3,ANY,antibiotic_cream|adv_medkit,0,0.01,0.0,0,0.0,0
-frozen_fingers,Frozen fingers,medical_injury,cold,-2,ANY,gloves|hand_warmers|heat_pack,0,0.008,0.0,0,0.0,0
-frozen_toes,Frozen toes,medical_injury,cold,-2,ANY,thermal_socks,0,0.008,0.0,0,0.0,0
-minor_burn,Minor burn,medical_injury,,-1,ANY,cold_compress,0,0.008,0.0,0,0.0,0
-thorn_scratch,Thorn scratch,medical_injury,,-1,ANY,bandages,0,0.007,0.0,0,0.0,0
-small_cut,Small cut,medical_injury,,-1,ANY,bandages,0,0.01,0.0,0,0.0,0
-blister_foot,Blister on foot,medical_injury,,-1,ANY,bandages,0,0.01,0.0,0,0.0,0
-sprained_ankle,Sprained ankle,medical_injury,slip_fall,-2,ANY,painkillers,0,0.01,0.0,0,0.0,0
-small_burn,Small burn,medical_injury,,-1,ANY,cold_compress,0,0.01,0.0,0,0.0,0
-knife_slip,Knife slip,medical_injury,,-1,ANY,bandages,0,0.01,0.0,0,0.0,0
-allergic_rash,Allergic rash,medical_injury,sting,-1,ANY,allergy_meds,0,0.01,0.0,0,0.0,0
-gas_inhalation,Gas inhalation,medical_injury,,-2,ANY,rain_tarp,0,0.008,0.0,0,0.0,0
-cold_hands,Cold hands,medical_injury,cold,-1,ANY,gloves,0,0.01,0.0,0,0.0,0
-cold_feet,Cold feet,medical_injury,cold,-1,ANY,thermal_socks,0,0.01,0.0,0,0.0,0
-frozen_nose,Frozen nose,medical_injury,cold,-1,ANY,scarf,0,0.01,0.0,0,0.0,0
-sunburn,Sunburn,medical_injury,sun,-1,ANY,sunscreen,0,0.01,0.0,0,0.0,0
-eye_burn,Eye burn,medical_injury,sun,-1,ANY,sunglasses,0,0.01,0.0,0,0.0,0
-sore_back,Sore back,medical_injury,,-1,ANY,seat_pad|ground_tarp,0,0.01,0.0,0,0.0,0
-shoulder_pain,Shoulder pain,medical_injury,,-1,NONE,,0,0.01,0.0,0,0.0,0
-muscle_cramp,Muscle cramp,medical_injury,dehydration,-2,ALL,water_2L|electrolyte,0,0.007,0.0,0,0.3,0
-hypothermia_warn,Hypothermia warning,medical_injury,cold,-3,ANY,sleeping_bag|heat_pack|thermal_blanket|bivy_bag,-1,0.01,0.0,0,0.0,0
-heat_exhaustion,Heat exhaustion,medical_injury,dehydration|sun,-3,ANY,water_2L|water_5L,-1,0.01,0.0,0,0.5,0
-severe_dehydration,Severe dehydration,medical_injury,dehydration,-4,ALL,water_5L|electrolyte,-2,0.01,0.0,0,0.5,0
-mosquito_fever,Mosquito fever,medical_sting,insect|sting,-2,ANY,mosquito_repel,0,0.008,0.0,0,0.0,0
-bee_sting,Bee sting,medical_sting,insect|sting,-1,ANY,allergy_meds,0,0.008,0.0,0,0.0,0
-spider_bite,Spider bite,medical_sting,insect,-2,ANY,small_medkit,0,0.008,0.0,0,0.0,0
-scorpion_sting,Scorpion sting,medical_sting,,-2,ANY,adv_medkit,0,0.007,0.0,0,0.0,0
-snake_bite,Snake bite,medical_sting,,-3,ANY,adv_medkit,0,0.007,0.0,0,0.0,0
-insect_swarm,Insect swarm,insect,insect|sting,-2,ANY,mosquito_repel,0,0.01,0.0,0,0.0,0
-bee_swarm,Bee swarm,insect,insect|sting,-2,ANY,mosquito_repel,-1,0.008,0.0,0,0.0,0
-beehive_disc,Beehive discovered,insect,insect|sting,-1,ANY,mosquito_repel,0,0.005,0.0,0,0.0,0
-lost_at_night,Lost at night,navigation,navigation|night_nav,-1,ANY,compass_map|gps|headlamp,0,0.01,0.0,0,0.0,0
-path_disappears,Path disappears,navigation,navigation,-1,ANY,compass_map,0,0.01,0.0,0,0.0,0
-wrong_turn,Wrong turn,navigation,navigation,-1,ANY,compass_map,0,0.01,0.0,0,0.0,0
-deep_forest,Deep forest,navigation,navigation,-1,ANY,gps,0,0.01,0.0,0,0.0,0
-night_wandering,Night wandering,navigation,navigation|night_nav,-1,ANY,headlamp,0,0.01,0.0,0,0.0,0
-headlamp_dead,Headlamp battery dead,navigation,navigation,-1,ANY,spare_batteries,0,0.01,0.0,0,0.0,0
-far_echo,Far echo,navigation,,0,ANY,whistle|whistle_reflective,0,0.01,0.0,0,0.0,0
-map_soaked,Map soaked,navigation,,0,ANY,waterproof_bag,0,0.01,0.0,0,0.0,0
-compass_drop,Compass drop,navigation,,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-gps_glitch,GPS glitch,navigation,navigation,-1,ANY,compass_map,0,0.01,0.0,0,0.0,0
-compass_demag,Compass demagnetized,navigation,navigation,-2,ANY,gps,0,0.01,0.0,0,0.0,0
-map_torn,Map torn,navigation,,-1,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-slippery_trail,Slippery trail,slip_fall,slip_fall,-1,ANY,trekking_pole|hiking_boots,0,0.01,0.0,0,0.0,0
-loose_rocks,Loose rocks,slip_fall,slip_fall,-1,ANY,hiking_boots,0,0.01,0.0,0,0.0,0
-fallen_log,Fallen log,slip_fall,,0,ANY,multi_tool|saw,0,0.01,0.0,0,0.0,0
-narrow_pass,Narrow pass,slip_fall,crossing,0,ANY,rope_tool_kit|climbing_rope,0,0.01,0.0,0,0.0,0
-cliff_edge,Cliff edge,slip_fall,crossing|slip_fall,-2,ANY,rope_tool_kit|climbing_rope,-1,0.01,0.0,0,0.0,200
-deep_stream,Deep stream,slip_fall,crossing,-1,ANY,rope_tool_kit|trekking_pole,0,0.01,0.0,0,0.0,200
-tent_peg_lost,Tent peg lost,equipment,equipment,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-tent_pole_break,Tent pole break,equipment,equipment,-1,ANY,tent_repair_kit|duct_tape,0,0.01,0.0,0,0.0,0
-backpack_strap,Backpack strap tear,equipment,equipment,-1,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-boot_lace_snap,Boot lace snap,equipment,equipment,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-storage_crack,Storage box crack,equipment,equipment,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-cooking_pot_dent,Cooking pot dent,equipment,equipment,0,ANY,pry_bar,0,0.01,0.0,0,0.0,0
-spade_handle,Spade loose handle,equipment,equipment,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-saw_blade_dull,Saw blade dull,equipment,equipment,0,ANY,tent_repair_kit,0,0.01,0.0,0,0.0,0
-knife_rust,Knife rust,equipment,equipment,0,ANY,disinfectant,0,0.01,0.0,0,0.0,0
-radio_static,Radio static,equipment,equipment,0,NONE,,0,0.01,0.0,0,0.0,0
-water_filter_clog,Water filter clog,equipment,equipment,-1,ANY,water_purif_tabs|filter_bottle,0,0.01,0.0,0,0.0,0
-fuel_spill,Fuel spill,equipment,equipment,-1,ANY,waterproof_box,0,0.01,0.0,0,0.0,0
-fuel_can_leak,Fuel can leak,equipment,equipment,-1,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-matches_wet,Matches wet,equipment,equipment,-1,ANY,waterproof_bag,0,0.01,0.0,0,0.0,0
-lighter_jam,Lighter jam,equipment,equipment,0,ANY,matches,0,0.01,0.0,0,0.0,0
-tarp_tear,Tarp tear,equipment,equipment,-1,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-seat_punct,Seat pad puncture,equipment,equipment,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-power_bank_dead,Power bank dead,equipment,equipment,0,ANY,solar_panel,0,0.01,0.0,0,0.0,0
-radio_batt_empty,Radio battery empty,equipment,equipment,0,ANY,spare_batteries,0,0.01,0.0,0,0.0,0
-drone_lost,Drone lost,equipment,equipment,-1,NONE,,0,0.01,0.0,0,0.0,0
-drone_camera,Drone camera crack,equipment,equipment,0,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-loose_screws,Loose screws,equipment,equipment,0,ANY,tent_repair_kit,0,0.01,0.0,0,0.0,0
-boot_sole_peel,Boot sole peel,equipment,equipment,-1,ANY,duct_tape,0,0.01,0.0,0,0.0,0
-knife_in_water,Knife falls in water,equipment,equipment,-1,ANY,waterproof_bag,0,0.01,0.0,0,0.0,0
-stove_clogged,Stove clogged,equipment,equipment,-1,ANY,tent_repair_kit,0,0.01,0.0,0,0.0,0
-mirror_scratch,Mirror scratched,equipment,equipment,0,NONE,,0,0.01,0.0,0,0.0,0
-signal_mirror_drop,Signal mirror drop,equipment,equipment,0,NONE,,0,0.01,0.0,0,0.0,0
-whistle_lost,Whistle lost,equipment,equipment,0,NONE,,0,0.01,0.0,0,0.0,0
-cup_dent,Cup dent,equipment,equipment,0,NONE,,0,0.01,0.0,0,0.0,0
-shovel_bend,Shovel bend,equipment,equipment,0,ANY,pry_bar,0,0.01,0.0,0,0.0,0
-saw_tooth_broke,Saw tooth broke,equipment,equipment,0,ANY,tent_repair_kit,0,0.01,0.0,0,0.0,0
-broken_water_bag,Broken water bag,equipment,equipment|water_loss,-1,ANY,duct_tape,0,0.005,-1.0,0,0.0,0
-fuel_soaked,Fuel soaked,equipment,equipment,0,ANY,waterproof_box,0,0.005,0.0,0,0.0,0
-lost_spoon,Lost spoon,equipment,equipment,0,NONE,,0,0.005,0.0,0,0.0,0
-water_container_torn,Water container torn,equipment,equipment|water_loss,-1,ANY,duct_tape,0,0.005,-1.0,0,0.0,0
-lost_battery,Lost battery,equipment,equipment,0,ANY,waterproof_box,0,0.01,0.0,0,0.0,0
-mushrooms,Mushrooms,food_spoilage,food_spoil|raw_food|scavenged,-1,ANY,stove_fuel|cooking_pot,0,0.01,0.0,0,0.0,0
-food_frozen,Food frozen,food_spoilage,food_spoil,-1,ANY,cooking_pot|insulated_food,0,0.01,0.0,0,0.0,0
-fish_bones_cut,Fish bones cut,food_spoilage,food_spoil|raw_food|scavenged,-1,ANY,small_medkit,0,0.01,0.0,0,0.0,0
-wet_food_mold,Wet food mold,food_spoilage,food_spoil|wet_humid,-1,ANY,insulated_food|waterproof_bag,0,0.01,0.0,-1000,0.0,0
-foraging_failure,Foraging failure,food_spoilage,food_spoil,-1,ANY,energy_bars|dry_food,0,0.01,0.0,0,0.0,0
-berries_sour,Berries turned sour,food_spoilage,food_spoil|raw_food|scavenged,-1,ANY,small_medkit,0,0.005,0.0,0,0.0,0
-carried_too_much_w,Carried too much water,food_spoilage,,-1,ANY,seat_pad,0,0.005,0.0,0,0.0,0
-stale_crackers,Stale crackers,food_spoilage,food_spoil,0,NONE,,0,0.005,0.0,0,0.0,0
-poisonous_berries,Poisonous berries,food_spoilage,food_spoil|raw_food|scavenged,-2,ANY,small_medkit|adv_medkit,0,0.005,0.0,0,0.0,0
-only_nuts_eaten,Only nuts eaten,food_spoilage,food_spoil,-1,NONE,,0,0.005,0.0,0,0.0,0
-stored_water_frozen,Stored water frozen,water_collection,,-1,ALL,stove_fuel|cooking_pot,0,0.01,0.0,0,0.0,0
-melted_snow,Melted snow,water_collection,water_gain,-1,ANY,water_purif_tabs|filter_bottle|stove_fuel,0,0.005,1.0,0,0.0,0
-water_too_muddy,Water too muddy,water_collection,water_gain,-1,ANY,filter_bottle,0,0.005,1.0,0,0.0,0
-dry_throat,Dry throat,water_collection,dehydration,-1,ANY,water_2L|water_5L,0,0.005,0.0,0,0.0,0
-dry_lips,Dry lips,water_collection,,0,ANY,water_2L|water_5L,0,0.01,0.0,0,0.0,0
-partridge_scare,Partridge scare,wildlife_calm,wildlife_calm,-1,ANY,trekking_pole,0,0.008,0.0,0,0.0,0
-goat_appears,Goat appears,wildlife_calm,wildlife_calm,0,ANY,drone,0,0.008,0.0,0,0.0,0
-lynx_passing,Lynx passing,wildlife_calm,wildlife_calm,0,ANY,bear_spray,0,0.008,0.0,0,0.0,0
-pine_cone_fall,Pine cone fall,wildlife_calm,wildlife_calm,-1,ANY,wool_hat,0,0.008,0.0,0,0.0,0
-wild_boar_distant,Wild boar distant,wildlife_calm,wildlife_calm,0,ANY,bear_spray,0,0.008,0.0,0,0.0,0
-ants_invade,Ants invade bag,wildlife_calm,insect|wildlife_calm,0,ANY,waterproof_bag,0,0.008,0.0,0,0.0,0
-fox_sniff_camp,Fox sniff camp,wildlife_calm,wildlife_calm,0,ANY,whistle,0,0.008,0.0,0,0.0,0
-hawks_overhead,Hawks overhead,wildlife_calm,wildlife_calm,0,NONE,,0,0.008,0.0,0,0.0,0
-deer_passing,Deer passing,wildlife_calm,wildlife_calm,0,NONE,,0,0.008,0.0,0,0.0,0
-dog_barking,Dog barking,wildlife_calm,wildlife_calm,0,ANY,whistle,0,0.008,0.0,0,0.0,0
-bird_droppings,Bird droppings,wildlife_calm,wildlife_calm,0,ANY,rain_poncho,0,0.008,0.0,0,0.0,0
-bear_nearby,Bear nearby,wildlife_attack,,-3,ANY,bear_spray,-1,0.008,0.0,0,0.0,0
-mice_chew_rope,Mice chew rope,wildlife_attack,,-1,ANY,tent_repair_kit,0,0.008,0.0,0,0.0,0
-snake_under_tarp,Snake under tarp,wildlife_attack,,-2,ANY,hiking_boots,0,0.008,0.0,0,0.0,0
-water_leaked,Water leaked,water_collection,water_loss,0,ANY,waterproof_bag,0,0.01,-1.0,0,0.0,0
-container_cracked,Container cracked,water_collection,water_loss,0,ANY,duct_tape,0,0.01,-1.0,0,0.0,0
-clear_stream,Clear stream found,water_collection,water_gain,0,NONE,,0,0.03,1.5,0,0.0,0
-rain_collected,Rainwater collected,water_collection,water_gain,0,NONE,,0,0.025,1.0,0,0.0,0
-mountain_spring,Mountain spring,water_collection,water_gain,0,NONE,,0,0.015,2.0,0,0.0,0
-edible_berries,Edible berries,food_gain,food_gain|scavenged,0,NONE,,0,0.025,0.0,300,0.0,0
-fishing_success,Fishing success,food_gain,food_gain|raw_food,0,NONE,,0,0.015,0.0,600,0.0,0
-nuts_found,Wild nuts found,food_gain,food_gain,0,NONE,,0,0.015,0.0,400,0.0,0
-foraging_success,Foraging success,food_gain,food_gain|water_gain,0,NONE,,0,0.008,2.0,1500,0.0,0
+id,name,category,tags,base_hp,mitigation,need_water,mit_hp,weight,water_change,food_change,extra_water,extra_food,boost_item,boost_mult
+clear_weather,Clear weather,weather_neutral,,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cloudy_sky,Cloudy sky,weather_neutral,,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+foggy_morning,Foggy morning,weather_neutral,,0,compass_map|gps|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+misty_dawn,Misty dawn,weather_neutral,,0,compass_map|gps|satellite_messenger,0.0,0,0.006,0.0,0,0.0,0,,1.0
+fog_covers_sun,Fog covers sun,weather_neutral,,0,,0.0,0,0.008,0.0,0,0.0,0,,1.0
+fine_dry_air,Fine dry air,weather_neutral,,0,,0.0,0,0.006,0.0,0,0.0,0,,1.0
+light_breeze,Light breeze,weather_neutral,,0,,0.0,0,0.006,0.0,0,0.0,0,,1.0
+dew_on_gear,Dew on gear,weather_neutral,,0,waterproof_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
+light_rain,Light rain,weather_wet,weather,-1,rain_poncho|goretex_shell,0.0,0,0.01,0.0,0,0.0,0,,1.0
+short_shower,Short shower,weather_wet,weather,-1,rain_poncho|goretex_shell|waterproof_jacket|softshell_jacket,0.0,0,0.01,0.0,0,0.0,0,,1.0
+heavy_rain,Heavy rain,weather_wet,weather,-2,rain_tarp|tent|four_season_tent|hammock_tarp,0.0,0,0.01,0.0,0,0.0,0,,1.0
+torrential_rain,Torrential rain,weather_wet,storm|weather,-3,rain_tarp+waterproof_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
+chilly_drizzle,Chilly drizzle,weather_wet,weather,-1,rain_poncho|goretex_shell,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_drizzle,Cold drizzle,weather_wet,weather,-1,rain_poncho|goretex_shell,0.0,0,0.006,0.0,0,0.0,0,,1.0
+rain_at_night,Rain at night,weather_wet,rain_night|weather,-1,tent|four_season_tent|hammock_tarp,0.0,0,0.006,0.0,0,0.0,0,,1.0
+thunderstorm,Thunderstorm,weather_wet,storm|weather,-2,waterproof_bag|rain_tarp,0.0,0,0.008,0.0,0,0.0,0,,1.0
+hail_storm,Hail storm,weather_wet,storm|weather,-3,waterproof_jacket|goretex_shell|rain_tarp,0.0,0,0.008,0.0,0,0.0,0,,1.0
+hail_at_noon,Hail at noon,weather_wet,weather,-2,waterproof_jacket|goretex_shell,0.0,0,0.006,0.0,0,0.0,0,,1.0
+high_humidity,High humidity,weather_wet,weather|wet_humid,-1,thermal_socks|extra_socks|merino_base_layer,0.0,0,0.008,0.0,0,0.0,0,,1.0
+humid_cold,Humid cold,weather_wet,weather|wet_humid,-1,thermal_socks|merino_base_layer,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_morning,Cold morning,weather_cold,cold|weather,-1,fleece_jacket|softshell_jacket|merino_base_layer,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cold_wave,Cold wave,weather_cold,cold|weather,-3,sleeping_bag|winter_sleeping_bag|down_jacket|winter_coat|thermal_blanket|bivy_bag,0.0,0,0.01,0.0,0,0.0,200,,1.0
+frost_night,Frost at night,weather_cold,cold|cold_night|weather,-2,sleeping_bag|winter_sleeping_bag,0.0,0,0.008,0.0,0,0.0,0,,1.0
+sudden_cold_drop,Sudden cold drop,weather_cold,cold|weather,-2,down_jacket,0.0,0,0.008,0.0,0,0.0,0,,1.0
+snow_flurries,Snow flurries,weather_cold,cold|weather,-2,thermal_blanket|down_jacket,0.0,0,0.008,0.0,0,0.0,0,,1.0
+snowstorm,Snowstorm,weather_cold,cold|storm|weather,-3,sleeping_bag+tent|four_season_tent+sleeping_bag|tent+winter_sleeping_bag|four_season_tent+winter_sleeping_bag|four_season_tent+sleeping_pad,0.0,0,0.008,0.0,0,0.0,200,,1.0
+freezing_wind,Freezing wind,weather_cold,cold|weather|wind,-2,gloves+wool_hat|balaclava+gloves,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_night,Cold night,weather_cold,cold|cold_night|weather,-2,sleeping_bag|winter_sleeping_bag|heat_pack,0.0,0,0.008,0.0,0,0.0,0,,1.0
+black_ice_slip,Black ice slip,weather_cold,cold|slip_fall|weather,-2,hiking_boots|crampons,0.0,0,0.008,0.0,0,0.0,0,,1.0
+icy_ground,Icy ground,weather_cold,cold|slip_fall|weather,-1,trekking_pole|hiking_boots|crampons|ice_axe,0.0,0,0.008,0.0,0,0.0,0,,1.0
+night_frost,Night frost,weather_cold,cold|cold_night|weather,-1,heat_pack|sleeping_pad,0.0,0,0.006,0.0,0,0.0,0,,1.0
+chill_wind,Chill wind,weather_cold,cold|weather|wind,-1,fleece_jacket|softshell_jacket|merino_base_layer,0.0,0,0.006,0.0,0,0.0,0,,1.0
+bright_cold_day,Bright cold day,weather_cold,cold|weather,-1,fleece_jacket+sunglasses,0.0,0,0.006,0.0,0,0.0,0,,1.0
+frozen_ground,Frozen ground cracks,weather_cold,cold|weather,-1,hiking_boots|crampons,0.0,0,0.006,0.0,0,0.0,0,,1.0
+hot_dry_sun,Hot dry sun,weather_hot,sun|weather,-1,sun_hat|sunscreen,0.0,0,0.01,0.0,0,0.0,0,,1.0
+uv_burn,UV burn,weather_hot,sun|weather,-1,sunscreen,0.0,0,0.008,0.0,0,0.0,0,,1.0
+blazing_sun,Blazing sun,weather_hot,sun|weather,-2,sun_hat,1.0,0,0.008,0.0,0,0.3,0,,1.0
+strong_uv,Strong UV,weather_hot,sun|weather,-1,sun_hat,0.0,0,0.006,0.0,0,0.0,0,,1.0
+blinding_sun,Blinding sunshine,weather_hot,sun|weather,-1,sunglasses,0.0,0,0.006,0.0,0,0.0,0,,1.0
+cloudbreak_heat,Cloudbreak heat,weather_hot,sun|weather,-1,sunscreen,0.0,0,0.008,0.0,0,0.0,0,,1.0
+heat_surge,Heat surge,weather_hot,sun|weather,-1,sun_hat,1.0,0,0.008,0.0,0,0.3,0,,1.0
+dry_hot_wind,Dry hot wind,weather_hot,weather|wind,-1,,1.0,0,0.008,0.0,0,0.3,0,,1.0
+windy_day,Windy day,weather_wind,weather|wind,-1,waterproof_jacket|goretex_shell|softshell_jacket,0.0,0,0.01,0.0,0,0.0,0,,1.0
+strong_wind,Strong wind,weather_wind,weather|wind,-2,tent|four_season_tent|rain_tarp,0.0,0,0.01,0.0,0,0.0,0,,1.0
+windstorm,Windstorm,weather_wind,weather|wind,-3,tent+tent_repair_kit|four_season_tent,0.0,0,0.01,0.0,0,0.0,0,,1.0
+dust_storm,Dust storm,weather_wind,weather|wind,-2,sunglasses|scarf|face_mask,0.0,0,0.008,0.0,0,0.0,0,,1.0
+floating_ash,Floating ash,weather_wind,weather,-1,scarf|face_mask,0.0,0,0.006,0.0,0,0.0,0,,1.0
+fine_afternoon,Fine afternoon,bonus_morale,,1,sleeping_bag|winter_sleeping_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
+calm_warm_night,Calm warm night,bonus_morale,,1,sleeping_bag|winter_sleeping_bag,0.0,0,0.006,0.0,0,0.0,0,,1.0
+hot_tea,Hot tea,bonus_morale,hot_drink,1,cooking_pot+stove_fuel,0.0,0,0.005,0.0,0,0.0,0,,1.0
+tea_leaves_found,Tea leaves found,bonus_morale,hot_drink,1,cooking_pot,0.0,0,0.005,0.0,0,0.0,0,,1.0
+wild_herb_tea,Wild herb tea,bonus_morale,hot_drink,1,cooking_pot,0.0,0,0.005,0.0,0,0.0,0,,1.0
+nightingale_sings,Nightingale sings,bonus_morale,wildlife_calm,1,sleeping_bag|winter_sleeping_bag,0.0,0,0.008,0.0,0,0.0,0,,1.0
+stove_smoke,Stove smoke,medical_illness,,-1,rain_tarp|face_mask,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_sore,Cold sore,medical_illness,,-1,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cough_all_night,Cough all night,medical_illness,,-1,sleeping_bag|winter_sleeping_bag|sleeping_pad,0.0,0,0.008,0.0,0,0.0,0,,1.0
+frozen_breath,Frozen breath,medical_illness,cold|cold_night,-1,heat_pack,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_lungs,Cold lungs,medical_illness,cold,-2,scarf|balaclava,0.0,0,0.008,0.0,0,0.0,0,,1.0
+heat_rash,Heat rash,medical_illness,sun,-1,sunscreen,0.0,0,0.008,0.0,0,0.0,0,,1.0
+severe_fever,Severe fever,medical_illness,,-3,adv_medkit|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+altitude_sickness,Altitude sickness,medical_illness,fatigue,-2,sleeping_bag|winter_sleeping_bag,0.0,0,0.007,0.0,0,0.0,0,,1.0
+cold_sweat,Cold sweat,medical_illness,cold,-1,heat_pack|merino_base_layer,0.0,0,0.007,0.0,0,0.0,0,,1.0
+heat_headache,Heat headache,medical_illness,fatigue|sun,-1,,1.0,0,0.007,0.0,0,0.0,0,,1.0
+minor_concussion,Minor concussion,medical_illness,slip_fall,-3,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.007,0.0,0,0.0,0,,1.0
+mild_fever,Mild fever,medical_illness,,-2,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+stomach_pain,Stomach pain,medical_illness,,-2,water_purif_tabs|gravity_filter,0.0,0,0.01,0.0,0,0.0,0,,1.0
+food_poisoning,Food poisoning,medical_illness,,-3,small_medkit|adv_medkit|wilderness_medkit,0.0,-1,0.01,0.0,0,0.0,0,,1.0
+toothache,Toothache,medical_illness,,-1,painkillers|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+nosebleed,Nosebleed,medical_illness,,-1,,0.5,0,0.01,0.0,0,0.0,0,,1.0
+severe_blister1,Severe blister,medical_injury,,-1,bandages|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+severe_blister2,Severe blister (deep),medical_injury,,-2,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+minor_infection,Minor infection,medical_injury,,-1,antibiotic_cream|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+severe_infection,Severe infection,medical_injury,,-3,adv_medkit|wilderness_medkit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+infected_wound,Infected wound,medical_injury,,-3,antibiotic_cream|wilderness_medkit|adv_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+frozen_fingers,Frozen fingers,medical_injury,cold,-2,gloves|hand_warmers|heat_pack,0.0,0,0.008,0.0,0,0.0,0,,1.0
+frozen_toes,Frozen toes,medical_injury,cold,-2,thermal_socks,0.0,0,0.008,0.0,0,0.0,0,,1.0
+minor_burn,Minor burn,medical_injury,,-1,cold_compress,0.0,0,0.008,0.0,0,0.0,0,,1.0
+thorn_scratch,Thorn scratch,medical_injury,,-1,bandages|wilderness_medkit|gaiters,0.0,0,0.007,0.0,0,0.0,0,,1.0
+small_cut,Small cut,medical_injury,,-1,bandages|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+blister_foot,Blister on foot,medical_injury,,-1,bandages|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+sprained_ankle,Sprained ankle,medical_injury,slip_fall,-2,painkillers|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+small_burn,Small burn,medical_injury,,-1,cold_compress,0.0,0,0.01,0.0,0,0.0,0,,1.0
+knife_slip,Knife slip,medical_injury,,-1,bandages|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+allergic_rash,Allergic rash,medical_injury,sting,-1,allergy_meds,0.0,0,0.01,0.0,0,0.0,0,,1.0
+gas_inhalation,Gas inhalation,medical_injury,,-2,rain_tarp|face_mask,0.0,0,0.008,0.0,0,0.0,0,,1.0
+cold_hands,Cold hands,medical_injury,cold,-1,gloves,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cold_feet,Cold feet,medical_injury,cold,-1,thermal_socks,0.0,0,0.01,0.0,0,0.0,0,,1.0
+frozen_nose,Frozen nose,medical_injury,cold,-1,scarf|face_mask|balaclava,0.0,0,0.01,0.0,0,0.0,0,,1.0
+sunburn,Sunburn,medical_injury,sun,-1,sunscreen,0.0,0,0.01,0.0,0,0.0,0,,1.0
+eye_burn,Eye burn,medical_injury,sun,-1,sunglasses,0.0,0,0.01,0.0,0,0.0,0,,1.0
+sore_back,Sore back,medical_injury,,-1,sleeping_pad,0.0,0,0.01,0.0,0,0.0,0,,1.0
+shoulder_pain,Shoulder pain,medical_injury,,-1,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+muscle_cramp,Muscle cramp,medical_injury,dehydration,-2,electrolyte,0.5,0,0.007,0.0,0,0.3,0,,1.0
+hypothermia_warn,Hypothermia warning,medical_injury,cold,-3,sleeping_bag|winter_sleeping_bag|heat_pack|thermal_blanket|bivy_bag,0.0,-1,0.01,0.0,0,0.0,0,,1.0
+heat_exhaustion,Heat exhaustion,medical_injury,dehydration|sun|weather,-3,,2.0,-1,0.01,0.0,0,0.5,0,,1.0
+severe_dehydration,Severe dehydration,medical_injury,dehydration|sun,-4,electrolyte,3.0,-2,0.01,0.0,0,0.5,0,,1.0
+mosquito_fever,Mosquito fever,medical_sting,insect|sting,-2,mosquito_repel|head_net,0.0,0,0.008,0.0,0,0.0,0,,1.0
+bee_sting,Bee sting,medical_sting,insect|sting,-1,allergy_meds,0.0,0,0.008,0.0,0,0.0,0,,1.0
+spider_bite,Spider bite,medical_sting,insect,-2,small_medkit|adv_medkit|wilderness_medkit|snakebite_kit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+scorpion_sting,Scorpion sting,medical_sting,,-2,small_medkit|adv_medkit|wilderness_medkit|snakebite_kit,0.0,0,0.007,0.0,0,0.0,0,,1.0
+snake_bite,Snake bite,medical_sting,,-3,adv_medkit|wilderness_medkit|snakebite_kit,0.0,0,0.007,0.0,0,0.0,0,,1.0
+insect_swarm,Insect swarm,insect,insect|sting,-2,mosquito_repel|head_net,0.0,0,0.01,0.0,0,0.0,0,,1.0
+bee_swarm,Bee swarm,insect,insect|sting,-2,mosquito_repel,0.0,0,0.008,0.0,0,0.0,0,,1.0
+beehive_disc,Beehive discovered,insect,insect|sting,-1,mosquito_repel|head_net,0.0,0,0.005,0.0,0,0.0,0,,1.0
+lost_at_night,Lost at night,navigation,navigation|night_nav,-1,compass_map|gps|headlamp|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+path_disappears,Path disappears,navigation,navigation,-1,compass_map|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+wrong_turn,Wrong turn,navigation,navigation,-1,compass_map|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+deep_forest,Deep forest,navigation,navigation,-1,gps|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+night_wandering,Night wandering,navigation,navigation|night_nav,-1,headlamp,0.0,0,0.01,0.0,0,0.0,0,,1.0
+headlamp_dead,Headlamp battery dead,navigation,navigation,-1,spare_batteries,0.0,0,0.01,0.0,0,0.0,0,,1.0
+far_echo,Far echo,navigation,,0,whistle|whistle_reflective,0.0,0,0.01,0.0,0,0.0,0,,1.0
+map_soaked,Map soaked,navigation,,0,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
+compass_drop,Compass drop,navigation,,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+gps_glitch,GPS glitch,navigation,navigation,-1,compass_map|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+compass_demag,Compass demagnetized,navigation,navigation,-2,gps|satellite_messenger,0.0,0,0.01,0.0,0,0.0,0,,1.0
+map_torn,Map torn,navigation,,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+slippery_trail,Slippery trail,slip_fall,slip_fall,-1,trekking_pole|hiking_boots,0.0,0,0.01,0.0,0,0.0,0,,1.0
+loose_rocks,Loose rocks,slip_fall,slip_fall,-1,hiking_boots,0.0,0,0.01,0.0,0,0.0,0,,1.0
+fallen_log,Fallen log,slip_fall,,0,multi_tool|saw,0.0,0,0.01,0.0,0,0.0,0,,1.0
+narrow_pass,Narrow pass,slip_fall,crossing,0,rope_tool_kit|climbing_rope|ice_axe,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cliff_edge,Cliff edge,slip_fall,crossing,-2,rope_tool_kit|climbing_rope|ice_axe,0.0,-1,0.01,0.0,0,0.0,200,,1.0
+deep_stream,Deep stream,slip_fall,crossing,-1,rope_tool_kit|trekking_pole|gaiters,0.0,0,0.01,0.0,0,0.0,200,,1.0
+tent_peg_lost,Tent peg lost,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+tent_pole_break,Tent pole break,equipment,equipment,-1,tent_repair_kit|duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+backpack_strap,Backpack strap tear,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+boot_lace_snap,Boot lace snap,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+storage_crack,Storage box crack,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cooking_pot_dent,Cooking pot dent,equipment,equipment,0,pry_bar,0.0,0,0.01,0.0,0,0.0,0,,1.0
+spade_handle,Spade loose handle,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+saw_blade_dull,Saw blade dull,equipment,equipment,0,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+knife_rust,Knife rust,equipment,equipment,0,disinfectant,0.0,0,0.01,0.0,0,0.0,0,,1.0
+radio_static,Radio static,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+water_filter_clog,Water filter clog,equipment,equipment,-1,water_purif_tabs|gravity_filter|filter_bottle,0.0,0,0.01,0.0,0,0.0,0,,1.0
+fuel_spill,Fuel spill,equipment,equipment,-1,waterproof_box,0.0,0,0.01,0.0,0,0.0,0,,1.0
+fuel_can_leak,Fuel can leak,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+matches_wet,Matches wet,equipment,equipment,-1,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
+lighter_jam,Lighter jam,equipment,equipment,0,fire_starter|matches,0.0,0,0.01,0.0,0,0.0,0,,1.0
+tarp_tear,Tarp tear,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+seat_punct,Seat pad puncture,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+power_bank_dead,Power bank dead,equipment,equipment,0,solar_panel,0.0,0,0.01,0.0,0,0.0,0,,1.0
+radio_batt_empty,Radio battery empty,equipment,equipment,0,spare_batteries,0.0,0,0.01,0.0,0,0.0,0,,1.0
+drone_lost,Drone lost,equipment,equipment,-1,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+drone_camera,Drone camera crack,equipment,equipment,0,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+loose_screws,Loose screws,equipment,equipment,0,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+boot_sole_peel,Boot sole peel,equipment,equipment,-1,duct_tape,0.0,0,0.01,0.0,0,0.0,0,,1.0
+knife_in_water,Knife falls in water,equipment,equipment,-1,waterproof_bag,0.0,0,0.01,0.0,0,0.0,0,,1.0
+stove_clogged,Stove clogged,equipment,equipment,-1,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+mirror_scratch,Mirror scratched,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+signal_mirror_drop,Signal mirror drop,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+whistle_lost,Whistle lost,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+cup_dent,Cup dent,equipment,equipment,0,,0.0,0,0.01,0.0,0,0.0,0,,1.0
+shovel_bend,Shovel bend,equipment,equipment,0,pry_bar,0.0,0,0.01,0.0,0,0.0,0,,1.0
+saw_tooth_broke,Saw tooth broke,equipment,equipment,0,tent_repair_kit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+broken_water_bag,Broken water bag,equipment,equipment,-1,duct_tape,0.0,0,0.005,0.0,0,0.0,0,,1.0
+fuel_soaked,Fuel soaked,equipment,equipment,0,waterproof_box,0.0,0,0.005,0.0,0,0.0,0,,1.0
+lost_spoon,Lost spoon,equipment,equipment,0,,0.0,0,0.005,0.0,0,0.0,0,,1.0
+water_container_torn,Water container torn,equipment,equipment|water_loss,0,duct_tape,0.0,0,0.005,-1.0,0,0.0,0,,1.0
+lost_battery,Lost battery,equipment,equipment,0,waterproof_box,0.0,0,0.01,0.0,0,0.0,0,,1.0
+mushrooms,Mushrooms,food_spoilage,food_spoil|raw_food|scavenged,-1,stove_fuel,0.0,0,0.01,0.0,0,0.0,0,,1.0
+food_frozen,Food frozen,food_spoilage,food_spoil,-1,cooking_pot,0.0,0,0.01,0.0,0,0.0,0,,1.0
+fish_bones_cut,Fish bones cut,food_spoilage,raw_food|scavenged,-1,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.01,0.0,0,0.0,0,,1.0
+wet_food_mold,Wet food mold,food_spoilage,food_spoil|wet_humid,-1,insulated_food|waterproof_bag,0.0,0,0.01,0.0,-1000,0.0,0,,1.0
+foraging_failure,Foraging failure,food_spoilage,,-1,energy_bars,0.0,0,0.01,0.0,0,0.0,0,,1.0
+berries_sour,Berries turned sour,food_spoilage,food_spoil|raw_food|scavenged,-1,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.005,0.0,0,0.0,0,,1.0
+carried_too_much_w,Carried too much water,food_spoilage,,-1,seat_pad,0.0,0,0.005,0.0,0,0.0,0,,1.0
+stale_crackers,Stale crackers,food_spoilage,food_spoil,0,,0.0,0,0.005,0.0,0,0.0,0,,1.0
+poisonous_berries,Poisonous berries,food_spoilage,food_spoil|raw_food|scavenged,-2,small_medkit|adv_medkit|wilderness_medkit,0.0,0,0.005,0.0,0,0.0,0,,1.0
+only_nuts_eaten,Only nuts eaten,food_spoilage,food_spoil,-1,,0.0,0,0.005,0.0,0,0.0,0,,1.0
+stored_water_frozen,Stored water frozen,water_collection,,-1,stove_fuel,0.0,0,0.01,0.0,0,0.0,0,,1.0
+melted_snow,Melted snow,water_collection,water_gain,-1,water_purif_tabs|gravity_filter|filter_bottle|stove_fuel,0.0,0,0.005,1.0,0,0.0,0,,1.0
+water_too_muddy,Water too muddy,water_collection,water_gain,-1,filter_bottle|gravity_filter,0.0,0,0.005,1.0,0,0.0,0,,1.0
+dry_throat,Dry throat,water_collection,dehydration,-1,,0.5,0,0.005,0.0,0,0.0,0,,1.0
+dry_lips,Dry lips,water_collection,,0,,0.1,0,0.01,0.0,0,0.0,0,,1.0
+partridge_scare,Partridge scare,wildlife_calm,wildlife_calm,-1,trekking_pole,0.0,0,0.008,0.0,0,0.0,0,,1.0
+goat_appears,Goat appears,wildlife_calm,wildlife_calm,0,drone,0.0,0,0.008,0.0,0,0.0,0,,1.0
+lynx_passing,Lynx passing,wildlife_calm,wildlife_calm,0,bear_spray,0.0,0,0.008,0.0,0,0.0,0,,1.0
+pine_cone_fall,Pine cone fall,wildlife_calm,,-1,wool_hat|balaclava,0.0,0,0.008,0.0,0,0.0,0,,1.0
+wild_boar_distant,Wild boar distant,wildlife_calm,wildlife_calm,0,bear_spray|portable_speaker,0.0,0,0.008,0.0,0,0.0,0,,1.0
+ants_invade,Ants invade bag,wildlife_calm,insect,0,waterproof_bag,0.0,0,0.008,0.0,0,0.0,0,,1.0
+fox_sniff_camp,Fox sniff camp,wildlife_calm,wildlife_calm,0,whistle|portable_speaker,0.0,0,0.008,0.0,0,0.0,0,,1.0
+hawks_overhead,Hawks overhead,wildlife_calm,wildlife_calm,0,,0.0,0,0.008,0.0,0,0.0,0,,1.0
+deer_passing,Deer passing,wildlife_calm,wildlife_calm,0,,0.0,0,0.008,0.0,0,0.0,0,,1.0
+dog_barking,Dog barking,wildlife_calm,wildlife_calm,0,whistle|portable_speaker,0.0,0,0.008,0.0,0,0.0,0,,1.0
+bird_droppings,Bird droppings,wildlife_calm,,0,rain_poncho|goretex_shell,0.0,0,0.008,0.0,0,0.0,0,,1.0
+bear_nearby,Bear nearby,wildlife_attack,,-3,bear_spray,0.0,0,0.008,0.0,0,0.0,0,,1.0
+mice_chew_rope,Mice chew rope,wildlife_attack,,-1,tent_repair_kit,0.0,0,0.008,0.0,0,0.0,0,,1.0
+snake_under_tarp,Snake under tarp,wildlife_attack,,-2,hiking_boots|hammock_tarp|gaiters,0.0,0,0.008,0.0,0,0.0,0,,1.0
+water_leaked,Water leaked,water_collection,water_loss,0,waterproof_bag,0.0,0,0.01,-1.0,0,0.0,0,,1.0
+container_cracked,Container cracked,water_collection,water_loss,0,duct_tape,0.0,0,0.01,-1.0,0,0.0,0,,1.0
+clear_stream,Clear stream found,water_collection,water_gain,0,,0.0,0,0.03,1.5,0,0.0,0,water_container,1.5
+rain_collected,Rainwater collected,water_collection,water_gain,0,,0.0,0,0.025,1.0,0,0.0,0,water_container,2.0
+mountain_spring,Mountain spring,water_collection,water_gain,0,,0.0,0,0.015,2.0,0,0.0,0,,1.0
+edible_berries,Edible berries,food_gain,food_gain|scavenged,0,,0.0,0,0.025,0.0,300,0.0,0,,1.0
+fishing_success,Fishing success,food_gain,food_gain|raw_food,0,,0.0,0,0.015,0.0,600,0.0,0,fishing_kit,2.0
+nuts_found,Wild nuts found,food_gain,food_gain,0,,0.0,0,0.015,0.0,400,0.0,0,,1.0
+foraging_success,Foraging success,food_gain,food_gain|water_gain,0,,0.0,0,0.008,2.0,1500,0.0,0,,1.0

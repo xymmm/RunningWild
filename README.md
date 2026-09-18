@@ -13,7 +13,7 @@ Open the printed address in several browser tabs to try the instructor, big-scre
 
 ## How a session runs
 
-1. **Instructor** creates a room with a PIN and the number of days. The app shows a 4-digit room code.
+1. **Instructor** creates a room with a PIN, the number of days (default 20) and the resupply schedule. The app shows a 4-digit room code.
 2. **Big screen**: open the app in a second tab, choose *Big screen*, enter the room code and PIN, and project it.
 3. **Groups** open the app on their own devices, choose *I am a group*, and enter the room code and their group number.
 4. Instructor draws **starting locations**: equal probability, no repeats until all 10 cards are used.
@@ -30,8 +30,10 @@ Open the printed address in several browser tabs to try the instructor, big-scre
 | `engine.py` | All game rules: draws, mitigation, location and trait effects, water and food, elimination, final score |
 | `rooms.py` | Private rooms shared by all browser sessions, with snapshots in `/tmp` |
 | `calibrate.py` | Monte Carlo comparison of simple strategies under the current settings |
-| `data/items.csv` | 93 items with weight, volume, kcal and litres |
-| `data/events.csv` | 196 events: tags, HP, mitigation items and logic, draw weight, water and food effects |
+| `tests/test_rules.py` | 60 checks against the worked examples in the slides and the printed cards |
+| `AUDIT.md` | What was corrected against the printed table, cards and slides, and why the defaults changed |
+| `data/items.csv` | 118 items with weight, volume, kcal, litres, and cooking needs |
+| `data/events.csv` | 196 events: tags, HP, mitigation alternatives, water needed on hand, draw weight, water and food effects |
 | `data/locations.json` | 10 location cards: printed text and rules |
 | `data/traits.json` | 20 trait cards: printed text (rules are in `engine.py`) |
 | `data/parameters.json` | Default starting values, capacities and daily consumption |
@@ -47,6 +49,8 @@ These are stated in the header of `engine.py` and are the ones to describe in th
 - Water and food gains always happen; losses happen only when the event is not mitigated.
 - Daily order: event HP, event water and food, drinking and eating, daily trait effects, elimination.
 - Extra copies of an item add weight, volume, water and food but do not mitigate twice.
+- In `mitigation`, `|` separates alternatives and `+` joins items that must all be carried; `need_water` is the water the group must hold that day.
+- Resupply days add water and food to every surviving group before the day's event; random resupply days are hidden from groups.
 
 ## Deployment on Streamlit Community Cloud
 

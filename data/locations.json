@@ -1,39 +1,163 @@
 {
-  "lakeside": {"name": "Lakeside",
+  "lakeside": {
+    "name": "Lakeside",
     "card": "Water events produce 1.5x more water (round up to nearest 0.5 L). Dehydration HP penalties are reduced by 1. Cold exposure unchanged.",
-    "hp_rules": [{"tag": "dehydration", "delta": 1}],
-    "water_gain_mult": 1.5, "water_round_up_to": 0.5},
-  "glacier_ridge": {"name": "Glacier Ridge",
+    "hp_rules": [
+      {
+        "tag": "dehydration",
+        "delta": 1
+      }
+    ],
+    "water_gain_mult": 1.5,
+    "water_round_up_to": 0.5
+  },
+  "glacier_ridge": {
+    "name": "Glacier Ridge",
     "card": "Every cold-weather event causes an extra 1 HP damage. Water events require a stove to melt ice; without a stove, water gain becomes zero. Slip/fall events deal an extra 1 HP damage.",
-    "hp_rules": [{"tag": "cold", "delta": -1}, {"tag": "slip_fall", "delta": -1}],
-    "water_gain_requires": ["stove_fuel"]},
-  "deep_forest": {"name": "Deep Forest",
+    "hp_rules": [
+      {
+        "tag": "cold",
+        "delta": -1
+      },
+      {
+        "tag": "slip_fall",
+        "delta": -1
+      }
+    ],
+    "water_gain_requires": [
+      "stove_fuel"
+    ]
+  },
+  "deep_forest": {
+    "name": "Deep Forest",
     "card": "Food and berry events give +100 kcal. Humid or wet-cold events deal an extra 1 HP. Insect-related events deal an extra 1 HP.",
-    "hp_rules": [{"tag": "wet_humid", "delta": -1}, {"tag": "insect", "delta": -1}],
-    "food_gain_bonus": 100},
-  "valley_floor": {"name": "Valley Floor",
-    "card": "All weather exposure HP is reduced by 1. Water events produce 1.2x more water. Navigation events deal an extra 1 HP.",
-    "hp_rules": [{"tag": "weather", "delta": 1}, {"tag": "navigation", "delta": -1}],
-    "water_gain_mult": 1.2},
-  "high_plateau": {"name": "High Plateau",
+    "hp_rules": [
+      {
+        "tag": "wet_humid",
+        "delta": -1
+      },
+      {
+        "tag": "insect",
+        "delta": -1
+      }
+    ],
+    "food_gain_bonus": 100
+  },
+  "valley_floor": {
+    "name": "Valley Floor",
+    "card": "All weather exposure HP is reduced by 1. Water events produce 1.2x more water. Navigation events deal 1 HP less (less risk of being lost).",
+    "hp_rules": [
+      {
+        "tag": "weather",
+        "delta": 1
+      },
+      {
+        "tag": "navigation",
+        "delta": 1
+      }
+    ],
+    "water_gain_mult": 1.2
+  },
+  "high_plateau": {
+    "name": "High Plateau",
     "card": "Sun/UV events deal an extra 1 HP. Wind events deal an extra 1 HP. Navigation events gain 1 HP (better visibility).",
-    "hp_rules": [{"tag": "sun", "delta": -1}, {"tag": "wind", "delta": -1}, {"tag": "navigation", "delta": 1}]},
-  "scree_slope": {"name": "Scree Slope",
+    "hp_rules": [
+      {
+        "tag": "sun",
+        "delta": -1
+      },
+      {
+        "tag": "wind",
+        "delta": -1
+      },
+      {
+        "tag": "navigation",
+        "delta": 1
+      }
+    ]
+  },
+  "scree_slope": {
+    "name": "Scree Slope",
     "card": "Slip, fall, sprain, or ankle events deal an extra 1 HP. Equipment damage events deal an extra 1 HP. Food and water are unchanged.",
-    "hp_rules": [{"tag": "slip_fall", "delta": -1}, {"tag": "equipment", "delta": -1}]},
-  "cave_mouth": {"name": "Cave Mouth",
+    "hp_rules": [
+      {
+        "tag": "slip_fall",
+        "delta": -1
+      },
+      {
+        "tag": "equipment",
+        "delta": -1
+      }
+    ]
+  },
+  "cave_mouth": {
+    "name": "Cave Mouth",
     "card": "Cold night events' damage is reduced by 1. Food spoilage events deal an extra 1 HP. Without headlamp, night navigation events deal an extra 1 HP.",
-    "hp_rules": [{"tag": "cold_night", "delta": 1}, {"tag": "food_spoil", "delta": -1},
-                 {"tag": "night_nav", "delta": -1, "unless_items": ["headlamp"]}]},
-  "wind_pass": {"name": "Wind Pass",
+    "hp_rules": [
+      {
+        "tag": "cold_night",
+        "delta": 1
+      },
+      {
+        "tag": "food_spoil",
+        "delta": -1
+      },
+      {
+        "tag": "night_nav",
+        "delta": -1,
+        "unless_items": [
+          "headlamp",
+          "spare_headlamp"
+        ]
+      }
+    ]
+  },
+  "wind_pass": {
+    "name": "Wind Pass",
     "card": "Wind-related events deal an extra 2 HP. Rain/snow storms deal an extra 1 HP.",
-    "hp_rules": [{"tag": "wind", "delta": -2}, {"tag": "storm", "delta": -1}]},
-  "boggy_hollow": {"name": "Boggy Hollow",
+    "hp_rules": [
+      {
+        "tag": "wind",
+        "delta": -2
+      },
+      {
+        "tag": "storm",
+        "delta": -1
+      }
+    ]
+  },
+  "boggy_hollow": {
+    "name": "Boggy Hollow",
     "card": "Water is easy to find, but always dirty. Without purification, water events cause an extra 1 HP. Insect events deal an extra 1 HP.",
-    "hp_rules": [{"tag": "insect", "delta": -1},
-                 {"tag": "water_gain", "delta": -1, "unless_items": ["water_purif_tabs", "filter_bottle"], "always": true}]},
-  "old_trail": {"name": "Old Trail",
+    "hp_rules": [
+      {
+        "tag": "insect",
+        "delta": -1
+      },
+      {
+        "tag": "water_gain",
+        "delta": -1,
+        "unless_items": [
+          "water_purif_tabs",
+          "filter_bottle",
+          "gravity_filter",
+          "stove_fuel"
+        ],
+        "always": true
+      }
+    ]
+  },
+  "old_trail": {
+    "name": "Old Trail",
     "card": "Navigation events' damage is reduced by 2 HP. Wildlife encounter events (non-attack) become HP 0.",
-    "hp_rules": [{"tag": "navigation", "delta": 2}],
-    "zero_tags": ["wildlife_calm"]}
+    "hp_rules": [
+      {
+        "tag": "navigation",
+        "delta": 2
+      }
+    ],
+    "zero_tags": [
+      "wildlife_calm"
+    ]
+  }
 }

@@ -56,9 +56,11 @@ class RoomStore:
                 code = f"{random.randint(1000, 9999)}"
             params = dict(self.data["params"])
             params.update(params_override or {})
+            seed = random.randint(1, 10**9)
             room = {
                 "code": code, "pin": pin, "created": time.time(),
-                "seed": random.randint(1, 10**9),
+                "seed": seed,
+                "resupply_days": engine.resupply_days(params, seed, int(days)),
                 "phase": "lobby", "days": int(days), "day": 0,
                 "deadline": None, "params": params,
                 "groups": {}, "event_log": [],
@@ -184,7 +186,8 @@ class RoomStore:
             r["event_log"].append(eid)
             for g in r["groups"].values():
                 team = {"inv": g["submitted"] or {}, "location": g["location"],
-                        "trait": g["trait"], "state": g["state"]}
+                        "trait": g["trait"], "state": g["state"],
+                        "resupply_days": r["resupply_days"]}
                 engine.resolve_day(team, eid, r["day"], self.data, r["params"])
             alive = [g for g in r["groups"].values() if g["state"]["alive"]]
             if r["day"] >= r["days"] or not alive:

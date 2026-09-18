@@ -6,8 +6,12 @@ Streamlit app, any Monte Carlo study, and the teaching note.
 
 Data files (folder `data/`) are the single source of truth:
     items.csv        id, name, weight_kg, volume_L, category, kcal, litres, ...
-    events.csv       id, name, category, tags, base_hp, mit_logic, mit_set, mit_hp,
-                     weight, water_change, food_change, extra_water, extra_food
+    events.csv       id, name, category, tags, base_hp, mitigation, need_water, mit_hp,
+                     weight, water_change, food_change, extra_water, extra_food,
+                     boost_item, boost_mult
+                     `mitigation` lists alternatives separated by "|"; items inside one
+                     alternative are joined by "+" and must all be carried.
+                     `need_water` is the water (L) the group must have on hand.
     locations.json   location cards: card text + machine-readable rules
     traits.json      trait cards: card text (rules are coded in `_apply_trait`)
     parameters.json  initial HP / water / food, capacities, daily consumption ...
@@ -15,9 +19,11 @@ Data files (folder `data/`) are the single source of truth:
 Conventions (documented for the teaching note):
   C1  One event per day, drawn with probability proportional to `weight`,
       and the same event applies to every group.
-  C2  Damage events (base_hp <= 0): if mitigated the HP change is mit_hp,
-      otherwise base_hp.  Bonus events (base_hp > 0): the bonus is received
-      if mit_logic is NONE or the listed items are carried, otherwise 0.
+  C2  An event is mitigated when at least one alternative in `mitigation` is
+      fully carried and the group holds at least `need_water` litres at the
+      start of the day.  Damage events (base_hp <= 0): if mitigated the HP
+      change is mit_hp, otherwise base_hp.  Bonus events (base_hp > 0): the
+      bonus needs the listed items, if any, otherwise it is 0.
   C3  Location and trait HP modifiers act only on unmitigated damage events,
       unless a rule is marked "always".  Within one card, when several rules
       match the same event, only the largest one in absolute value applies.
@@ -28,6 +34,12 @@ Conventions (documented for the teaching note):
       effects -> elimination check.
   C7  Holding several copies of an item never mitigates more than one copy;
       copies only add weight, volume, water and food.
+  C8  Food items with a `needs` entry (e.g. rice, noodles) give no kcal unless
+      the listed cooking items are also packed.
+  C9  On a resupply day every surviving group receives the resupply water and
+      food before the day's event.  A zero-tag location or trait rule (e.g.
+      Old Trail for calm wildlife) sets the event's HP change to 0 whatever
+      its sign.
 """
 
 import json
@@ -46,11 +58,11 @@ DATA_DIR = Path(__file__).parent / "data"
 
 def load_data(data_dir=DATA_DIR):
     d = Path(data_dir)
-    items = pd.read_csv(d / "items.csv")
-    events = pd.read_csv(d / "events.csv").fillna({"mit_set": "", "tags": ""})
+    items = pd.read_csv(d / "items.csv").fillna({"needs": ""})
+    events = pd.read_csv(d / "events.csv").fillna({"mitigation": "", "tags": "", "boost_item": ""})
     ev_list = []
     for r in events.to_dict("records"):
-        r["mit_set"] = [s for s in str(r["mit_set"]).split("|") if s]
+        r["alts"] = [[x for x in a.split("+") if x] for a in str(r["mitigation"]).split("|") if a]
         r["tags"] = [s for s in str(r["tags"]).split("|") if s]
         ev_list.append(r)
     return {
@@ -80,6 +92,24 @@ def draw_cards(group_ids, deck, rng):
     return out
 
 
+def resupply_days(params, seed, days):
+    """Days on which every group receives water and food.
+    fixed : every `resupply_every` days (not on the last day)
+    random: `resupply_count` distinct days between day 3 and the second-last day,
+            unannounced to students
+    off   : none"""
+    mode = params.get("resupply_mode", "off")
+    if mode == "fixed":
+        k = max(1, int(params["resupply_every"]))
+        return list(range(k, days, k))
+    if mode == "random":
+        pool = list(range(3, days))
+        rng = random.Random(f"{seed}-resupply")
+        n = min(int(params["resupply_count"]), len(pool))
+        return sorted(rng.sample(pool, n))
+    return []
+
+
 def draw_event(data, seed, day):
     rng = random.Random(f"{seed}-day-{day}")
     ids = list(data["events"])
@@ -106,7 +136,9 @@ def pack_totals(inv, data):
         if q > 0 and i in it:
             t["weight"] += it[i]["weight_kg"] * q
             t["volume"] += it[i]["volume_L"] * q
-            t["kcal"] += int(it[i]["kcal"]) * q
+            needs = [x for x in str(it[i]["needs"]).split("+") if x]
+            if has(inv, *needs):
+                t["kcal"] += int(it[i]["kcal"]) * q
             t["litres"] += float(it[i]["litres"]) * q
     t["weight"] = round(t["weight"], 2)
     t["volume"] = round(t["volume"], 2)
@@ -119,12 +151,32 @@ def is_feasible(inv, data, params):
     return t["weight"] <= params["weight_cap_kg"] + 1e-9 and t["volume"] <= params["volume_cap_L"] + 1e-9
 
 
-def mitigated(inv, ev):
-    if ev["mit_logic"] == "ANY":
-        return has_any(inv, ev["mit_set"])
-    if ev["mit_logic"] == "ALL":
-        return len(ev["mit_set"]) > 0 and has(inv, *ev["mit_set"])
-    return False
+def mitigating_alt(inv, ev):
+    """First alternative fully carried, or None."""
+    for alt in ev["alts"]:
+        if has(inv, *alt):
+            return alt
+    return None
+
+
+def mitigated(inv, ev, water=None):
+    if not ev["alts"] and ev["need_water"] <= 0:
+        return False
+    if ev["alts"] and mitigating_alt(inv, ev) is None:
+        return False
+    if ev["need_water"] > 0 and (water is None or water < ev["need_water"] - 1e-9):
+        return False
+    return True
+
+
+def protection_text(ev, data):
+    """Human-readable mitigation rule, e.g. 'Tent + Sleeping bag or Four-season tent; 1 L water on hand'."""
+    parts = []
+    if ev["alts"]:
+        parts.append(" or ".join(" + ".join(item_names(a, data)) for a in ev["alts"]))
+    if ev["need_water"] > 0:
+        parts.append(f"{ev['need_water']:g} L water on hand")
+    return "; ".join(parts)
 
 
 def item_names(ids, data):
@@ -170,9 +222,11 @@ def init_team_state(inv, location_id, trait_id, data, params):
 def _location_hp(ev, inv, is_mit, hp, loc, notes):
     """Apply location card to a damage event (base_hp <= 0)."""
     for t in loc.get("zero_tags", []):
-        if t in ev["tags"] and hp < 0:
+        if t in ev["tags"] and hp != 0:
             notes.append(f"{loc['name']}: becomes 0")
             return 0
+    if ev["base_hp"] > 0:
+        return hp
     best = None
     for rule in loc.get("hp_rules", []):
         if rule["tag"] not in ev["tags"]:
@@ -227,7 +281,7 @@ def _apply_trait(trait_id, ev, inv, is_mit, hp, state, notes):
     elif trait_id == "repair_expert" and damage and not is_mit and "equipment" in tags and hp < 0 \
             and has(inv, "tent_repair_kit"):
         add(+1, "Repair Expert")
-    elif trait_id == "animal_friend" and "wildlife_calm" in tags and hp < 0:
+    elif trait_id == "animal_friend" and "wildlife_calm" in tags and hp != 0:
         notes.append("Animal Friend: becomes 0")
         hp = 0
     elif trait_id == "night_walker" and damage and not is_mit and "night_nav" in tags and hp < 0 \
@@ -260,19 +314,30 @@ def resolve_day(team, event_id, day, data, params):
     trait_id = team.get("trait")
     notes = []
 
+    # ---- 0. Resupply (before the event)
+    if day in team.get("resupply_days", []):
+        st["water"] = round(st["water"] + params["resupply_water_L"], 2)
+        st["food"] += params["resupply_food_kcal"]
+        notes.append(f"resupply +{params['resupply_water_L']:g} L, +{params['resupply_food_kcal']} kcal")
+
     # ---- 1. HP from the event
-    is_mit = mitigated(inv, ev)
+    is_mit = mitigated(inv, ev, st["water"])
+    alt = mitigating_alt(inv, ev)
     if ev["base_hp"] > 0:
-        ok = ev["mit_logic"] == "NONE" or is_mit
+        ok = (not ev["alts"] and ev["need_water"] <= 0) or is_mit
         hp = ev["base_hp"] if ok else 0
         if not ok:
-            notes.append("bonus needs " + " + ".join(item_names(ev["mit_set"], data)))
+            notes.append("bonus needs " + protection_text(ev, data))
     else:
         hp = ev["mit_hp"] if is_mit else ev["base_hp"]
         if is_mit:
-            used = [i for i in ev["mit_set"] if inv.get(i, 0) > 0]
-            notes.append("protected by " + ", ".join(item_names(used, data)))
-        hp = _location_hp(ev, inv, is_mit, hp, loc, notes)
+            what = item_names(alt, data) if alt else []
+            if ev["need_water"] > 0:
+                what.append(f"{ev['need_water']:g} L water")
+            notes.append("protected by " + " + ".join(what))
+        elif ev["need_water"] > 0 and (not ev["alts"] or alt):
+            notes.append(f"not enough water on hand (needs {ev['need_water']:g} L)")
+    hp = _location_hp(ev, inv, is_mit, hp, loc, notes)
     if trait_id:
         hp = _apply_trait(trait_id, ev, inv, is_mit, hp, st, notes)
     if ev["base_hp"] <= 0:
@@ -288,6 +353,9 @@ def resolve_day(team, event_id, day, data, params):
             wc *= loc["water_gain_mult"]
             step = loc.get("water_round_up_to")
             wc = math.ceil(wc / step - 1e-9) * step if step else round(wc, 1)
+        if ev["boost_item"] and has(inv, ev["boost_item"]):
+            wc = round(wc * ev["boost_mult"], 2)
+            notes.append(f"{item_names([ev['boost_item']], data)[0]}: x{ev['boost_mult']:g}")
         st["water"] += wc
     elif wc < 0 and not is_mit:
         st["water"] += wc
@@ -296,6 +364,9 @@ def resolve_day(team, event_id, day, data, params):
             notes.append("Leaky Backpack: -1 L")
     if fc > 0:
         fc += loc.get("food_gain_bonus", 0)
+        if ev["boost_item"] and has(inv, ev["boost_item"]):
+            fc = int(fc * ev["boost_mult"])
+            notes.append(f"{item_names([ev['boost_item']], data)[0]}: x{ev['boost_mult']:g}")
         st["food"] += fc
     elif fc < 0 and not is_mit:
         st["food"] += fc
@@ -348,4 +419,8 @@ def final_score(state, params):
         return None
     hw = int(state["water"] // params["endgame_water_L_per_hp"])
     hf = int(state["food"] // params["endgame_food_kcal_per_hp"])
+    if params.get("endgame_water_hp_cap") is not None:
+        hw = min(hw, int(params["endgame_water_hp_cap"]))
+    if params.get("endgame_food_hp_cap") is not None:
+        hf = min(hf, int(params["endgame_food_hp_cap"]))
     return {"hp_end": state["hp"], "hp_water": hw, "hp_food": hf, "hp_final": state["hp"] + hw + hf}
