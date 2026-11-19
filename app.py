@@ -178,6 +178,48 @@ def leaderboard(room):
     return df.drop(columns=["_alive", "_dday"])
 
 
+# Column order and widths for the shared tables: the columns the class needs
+# (HP, today's change and its reason, final HP) come first, so they are never
+# cut off on a narrow screen or a projector.
+PROGRESS_ORDER = ["Group", "HP", "Today", "Why", "Water (L)", "Food (kcal)", "Status", "Location", "Trait"]
+PROGRESS_CONFIG = {
+    "Group": st.column_config.NumberColumn("Group", width="small"),
+    "HP": st.column_config.NumberColumn("HP", width="small"),
+    "Today": st.column_config.NumberColumn("Today", width="small"),
+    "Why": st.column_config.TextColumn("Why", width="large"),
+    "Water (L)": st.column_config.NumberColumn("Water (L)", width="small"),
+    "Food (kcal)": st.column_config.NumberColumn("Food (kcal)", width="small"),
+}
+LEADER_ORDER = ["Rank", "Group", "Final HP", "HP end", "Bonus HP", "Water days left", "Food days left",
+                "Status", "Location", "Trait"]
+LEADER_CONFIG = {c: st.column_config.NumberColumn(c, width="small")
+                 for c in ["Rank", "Group", "Final HP", "HP end", "Bonus HP"]}
+
+
+def show_progress(where, room, **kw):
+    where.dataframe(progress_table(room), hide_index=True, width="stretch",
+                    column_order=PROGRESS_ORDER, column_config=PROGRESS_CONFIG, **kw)
+
+
+def show_leaderboard(where, lb, **kw):
+    where.dataframe(lb, hide_index=True, width="stretch",
+                    column_order=LEADER_ORDER, column_config=LEADER_CONFIG, **kw)
+
+
+def last_day_html(room):
+    """The last event played. The game moves to the results as soon as the last
+    day is drawn, so the final screens show that day's event as well."""
+    if not room["event_log"]:
+        return ""
+    return (f"<p class='rw-muted'>Last day · Day {room['day']} of {room['days']}</p>"
+            + resupply_html(room) + event_card_html(room["event_log"][-1]))
+
+
+def submitted_by_text(who):
+    """'auto (time up)' is also set when the instructor closes selection early."""
+    return "automatically, when selection closed" if str(who).startswith("auto") else who
+
+
 def pack_df(inv):
     rows = []
     for i, q in sorted(inv.items()):
@@ -248,14 +290,19 @@ def group_join():
     st.markdown("<h2>Join your room</h2>", unsafe_allow_html=True)
     code = st.text_input("Room code (on the big screen)", max_chars=4)
     group = st.number_input("Your group number", min_value=1, max_value=60, step=1, value=None)
-    if st.button("Join", type="primary", disabled=not (code and group)):
-        ok, msg = S.join(code.strip(), int(group))
-        if ok:
-            st.session_state.code = code.strip()
-            st.session_state.group = str(int(group))
-            st.rerun()
+    # The button is always enabled: a disabled button would stay grey until the
+    # fields were confirmed with Enter, which looks like the app is stuck.
+    if st.button("Join", type="primary"):
+        if not (code and code.strip() and group):
+            st.error("Enter the room code and your group number.")
         else:
-            st.error(msg)
+            ok, msg = S.join(code.strip(), int(group))
+            if ok:
+                st.session_state.code = code.strip()
+                st.session_state.group = str(int(group))
+                st.rerun()
+            else:
+                st.error(msg)
 
 
 @st.fragment(run_every=2)
@@ -266,6 +313,9 @@ def group_watcher():
     if room is None:
         st.error("This room no longer exists.")
         return
+    if st.session_state.group not in room["groups"]:
+        # removed by the instructor: reload so the group is told straight away
+        st.rerun(scope="app")
     key = (room["phase"], room["day"])
     if st.session_state.get("seen") != key:
         st.session_state.seen = key
@@ -293,7 +343,8 @@ def group_selection(room, g):
     left, right = st.columns([3, 2], gap="large")
     with left:
         st.markdown("<h3>Choose your items</h3>", unsafe_allow_html=True)
-        st.caption(f"Set a quantity for each item you pack (up to {params['max_copies_per_item']} copies). "
+        st.caption(f"Type a quantity in the Qty column for each item you pack (up to "
+                   f"{params['max_copies_per_item']} copies). "
                    "Your choice is saved as you go; when the timer ends, your last valid backpack is submitted.")
         edited = st.data_editor(
             st.session_state[ek], key=f"ed_{ek}", height=560, width="stretch",
@@ -306,10 +357,12 @@ def group_selection(room, g):
                 "kcal": st.column_config.NumberColumn("Food kcal"),
                 "litres": st.column_config.NumberColumn("Water L"),
                 "needs": st.column_config.TextColumn("Food only usable with"),
-                "qty": st.column_config.NumberColumn("Qty", min_value=0,
+                "qty": st.column_config.NumberColumn("Qty", min_value=0, width="small",
                                                      max_value=params["max_copies_per_item"], step=1),
             },
-            column_order=["name", "category", "weight_kg", "volume_L", "kcal", "litres", "needs", "qty"],
+            # Qty is the only editable column: keep it next to the item id so it
+            # is always on screen
+            column_order=["qty", "name", "weight_kg", "volume_L", "kcal", "litres", "needs", "category"],
         )
     inv = {i: int(q) for i, q in edited["qty"].items() if pd.notna(q) and int(q) > 0}
     if inv != g["draft"]:
@@ -349,7 +402,10 @@ def group_main():
         return
     g = room["groups"].get(st.session_state.group)
     if g is None:
-        st.error("Your group was removed from this room. Join again.")
+        st.error("Your group was removed from this room by the instructor.")
+        if st.button("Join again", type="primary"):
+            del st.session_state["group"]
+            st.rerun()
         return
     st.markdown(f"<h1>Group {esc(g['group'])}</h1><p class='rw-muted'>Room {esc(room['code'])}</p>",
                 unsafe_allow_html=True)
@@ -384,7 +440,7 @@ def group_main():
         st.markdown("<h3>Your backpack</h3>", unsafe_allow_html=True)
         if g["submitted"]:
             st.dataframe(pack_df(g["submitted"]), hide_index=True)
-            st.caption(f"Submitted by: {g['submitted_by']}")
+            st.caption(f"Submitted: {submitted_by_text(g['submitted_by'])}")
         else:
             st.warning("No valid backpack was submitted; you start with nothing packed.")
     s = g["state"]
@@ -400,7 +456,7 @@ def group_main():
         st.dataframe(hist.iloc[::-1], hide_index=True, width="stretch")
     if ph == "finished":
         st.markdown("<h3>Final results</h3>", unsafe_allow_html=True)
-        st.dataframe(leaderboard(room), hide_index=True, width="stretch")
+        show_leaderboard(st, leaderboard(room))
 
 
 # ---------------------------------------------------------------------------
@@ -433,18 +489,22 @@ def instructor_login():
             count = st.number_input("How many resupply days (random)", 1, 10, P["resupply_count"])
             rw = st.number_input("Water per resupply (L)", 0.0, 10.0, float(P["resupply_water_L"]), 0.5)
             rf = st.number_input("Food per resupply (kcal)", 0, 10000, P["resupply_food_kcal"], 250)
-        if st.button("Create room", type="primary", disabled=not pin):
-            code = S.create(pin, days, {"hp_initial": hp0, "water_initial_L": w0, "food_initial_kcal": f0,
-                                        "baseline_water_L_per_day": bw, "baseline_food_kcal_per_day": bf,
-                                        "starvation_kcal_threshold": min(bf, P["starvation_kcal_threshold"]),
-                                        "weight_cap_kg": wcap, "volume_cap_L": vcap,
-                                        "endgame_reserve_cap": rcap,
-                                        "water_hoarder_enabled": wh, "resupply_mode": mode,
-                                        "resupply_every": every, "resupply_count": count,
-                                        "resupply_water_L": rw, "resupply_food_kcal": rf})
-            st.session_state.code = code
-            st.session_state.inst_ok = True
-            st.rerun()
+        # Always enabled (see the Join button): the PIN is checked on click
+        if st.button("Create room", type="primary"):
+            if not pin:
+                st.error("Choose an instructor PIN first.")
+            else:
+                code = S.create(pin, days, {"hp_initial": hp0, "water_initial_L": w0, "food_initial_kcal": f0,
+                                            "baseline_water_L_per_day": bw, "baseline_food_kcal_per_day": bf,
+                                            "starvation_kcal_threshold": min(bf, P["starvation_kcal_threshold"]),
+                                            "weight_cap_kg": wcap, "volume_cap_L": vcap,
+                                            "endgame_reserve_cap": rcap,
+                                            "water_hoarder_enabled": wh, "resupply_mode": mode,
+                                            "resupply_every": every, "resupply_count": count,
+                                            "resupply_water_L": rw, "resupply_food_kcal": rf})
+                st.session_state.code = code
+                st.session_state.inst_ok = True
+                st.rerun()
     with t2:
         code = st.text_input("Room code", max_chars=4, key="old_code")
         pin = st.text_input("PIN", type="password", key="old_pin")
@@ -468,7 +528,8 @@ def instructor_watcher():
         st.rerun(scope="app")
     groups = sorted(room["groups"].values(), key=lambda x: int(x["group"]))
     if room["phase"] in ("lobby", "locations"):
-        st.write(f"**{len(groups)} groups joined:** " + ", ".join(g["group"] for g in groups))
+        st.write(f"**{len(groups)} group{'' if len(groups) == 1 else 's'} joined:** "
+                 + ", ".join(g["group"] for g in groups))
     if room["phase"] == "selection":
         left = countdown(room)
         n_sub = sum(g["submitted"] is not None for g in groups)
@@ -528,7 +589,8 @@ def instructor_main():
         for g in sorted(room["groups"].values(), key=lambda x: int(x["group"])):
             t = engine.pack_totals(g["submitted"] or {}, D)
             rows.append({"Group": int(g["group"]), "Items": sum((g["submitted"] or {}).values()),
-                         "kg": t["weight"], "L": t["volume"], "Submitted by": g["submitted_by"]})
+                         "kg": t["weight"], "L": t["volume"],
+                         "Submitted": submitted_by_text(g["submitted_by"])})
         st.dataframe(pd.DataFrame(rows), hide_index=True)
         if st.button("Draw trait cards", type="primary"):
             S.draw_traits(code)
@@ -546,16 +608,19 @@ def instructor_main():
         if room["day"] > 0 and c2.button("End the game now", width="stretch"):
             S.finish(code)
             st.rerun()
-        st.dataframe(progress_table(room), hide_index=True, width="stretch")
+        show_progress(st, room)
 
     elif ph == "finished":
         lb = leaderboard(room)
         if not lb.empty and pd.notna(lb.iloc[0]["Final HP"]):
             st.markdown(f"<div class='rw-mid'>Winner: Group {int(lb.iloc[0]['Group'])}</div>",
                         unsafe_allow_html=True)
-        st.dataframe(lb, hide_index=True, width="stretch")
+        show_leaderboard(st, lb)
         st.download_button("Download full day-by-day log (CSV)", all_history_csv(room),
                            file_name=f"running_wild_room_{code}.csv")
+        if room["event_log"]:
+            st.markdown(last_day_html(room), unsafe_allow_html=True)
+            show_progress(st, room)
 
     with st.sidebar.expander("Danger zone"):
         if st.button("Delete this room"):
@@ -638,7 +703,7 @@ def screen_main():
         st.markdown(resupply_html(room, big=True) + event_card_html(room["event_log"][-1], big=True),
                     unsafe_allow_html=True)
         c1, c2 = st.columns([3, 2], gap="large")
-        c1.dataframe(progress_table(room), hide_index=True, width="stretch", height=620)
+        show_progress(c1, room, height=620)
         c2.line_chart(hp_chart_df(room), height=620)
 
     elif ph == "finished":
@@ -649,8 +714,12 @@ def screen_main():
         else:
             st.markdown("<div class='rw-big'>Nobody survived</div>", unsafe_allow_html=True)
         c1, c2 = st.columns([3, 2], gap="large")
-        c1.dataframe(lb, hide_index=True, width="stretch")
+        show_leaderboard(c1, lb)
         c2.line_chart(hp_chart_df(room), height=500)
+        if room["event_log"]:
+            # what happened on the last day, which the class has not seen yet
+            st.markdown(last_day_html(room), unsafe_allow_html=True)
+            show_progress(st, room)
 
 
 # ---------------------------------------------------------------------------
