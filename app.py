@@ -49,6 +49,20 @@ h1, h2, h3, .rw-title { font-family: 'Fraunces', Georgia, serif !important; colo
 .rw-chip { display: inline-block; background: #1F3B2D; color: #F4EFE4; border-radius: 4px;
            padding: 0.35rem 0.8rem; margin: 0.25rem; font-size: 1.3rem; }
 .rw-dead { color: #9A3B2B; font-weight: 600; }
+.rw-facts { margin: 0.5rem 0 0 1.2rem; padding: 0; }
+.rw-facts li { margin: 0.15rem 0; }
+.rw-pill { display: inline-block; border-radius: 4px; padding: 0.1rem 0.6rem; margin: 0.15rem 0.35rem 0.15rem 0;
+           font-weight: 600; color: #FFFFFF; white-space: nowrap; }
+.rw-pill.bad { background: #C8553D; }
+.rw-pill.ok { background: #6B7F3A; }
+.rw-pill.good { background: #3E7CB1; }
+.rw-pill.out { background: #5E6B61; }
+.rw-table { width: 100%; border-collapse: collapse; }
+.rw-table th { text-align: left; color: #5E6B61; font-weight: 600; border-bottom: 2px solid #D8CDB4;
+               padding: 0.3rem 0.6rem; }
+.rw-table td { border-bottom: 1px solid #E6DECB; padding: 0.4rem 0.6rem; vertical-align: top; }
+.rw-table tr.out td { color: #9A8F84; }
+.rw-table .rw-num { text-align: right; white-space: nowrap; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -69,39 +83,112 @@ def trait_name(tid):
     return D["traits"][tid]["name"] if tid else "—"
 
 
-def event_card_html(eid, big=False):
+EVENT_KIND = {
+    "weather_neutral": "Weather", "weather_wet": "Wet weather", "weather_cold": "Cold weather",
+    "weather_hot": "Hot weather", "weather_wind": "Wind", "bonus_morale": "A good moment",
+    "medical_illness": "Illness", "medical_injury": "Injury", "medical_sting": "Bite or sting",
+    "insect": "Insects", "navigation": "Finding the way", "slip_fall": "Difficult ground",
+    "equipment": "Equipment", "food_spoilage": "Food trouble", "water_collection": "Water",
+    "wildlife_calm": "Wildlife", "wildlife_attack": "Dangerous wildlife", "food_gain": "Food found",
+}
+
+
+def loc_holders(room):
+    """Which groups hold which location card: {location id: [group numbers]}."""
+    out = {}
+    for g in sorted(room["groups"].values(), key=lambda x: int(x["group"])):
+        if g["location"]:
+            out.setdefault(g["location"], []).append(g["group"])
+    return out
+
+
+def location_effects(ev, holders=None):
+    """Location cards that react to this event, as short phrases for the event
+    card. With `holders`, only the cards in play are listed, with their groups."""
+    out = []
+    for lid, loc in D["locations"].items():
+        name = loc["name"]
+        if holders is not None:
+            if lid not in holders:
+                continue
+            gs = holders[lid]
+            name += f" ({'Group' if len(gs) == 1 else 'Groups'} {', '.join(gs)})"
+        if ev["base_hp"] != 0 and any(t in ev["tags"] for t in loc.get("zero_tags", [])):
+            out.append(f"{name}: no HP change at all")
+        elif ev["base_hp"] <= 0:
+            best = None
+            for r in loc.get("hp_rules", []):
+                if r["tag"] in ev["tags"] and (best is None or abs(r["delta"]) > abs(best["delta"])):
+                    best = r
+            if best and not (best["delta"] > 0 and ev["base_hp"] == 0):
+                txt = f"{abs(best['delta'])} HP {'more' if best['delta'] < 0 else 'less'}"
+                cond = [] if best.get("always") else ["if not protected"]
+                if best.get("unless_items"):
+                    cond.append("unless carrying " + " or ".join(engine.item_names(best["unless_items"], D)))
+                out.append(f"{name}: {txt}" + (" " + ", ".join(cond) if cond else ""))
+        if ev["water_change"] > 0:
+            if loc.get("water_gain_requires"):
+                out.append(f"{name}: no water without "
+                           + " and ".join(engine.item_names(loc["water_gain_requires"], D)))
+            elif loc.get("water_gain_mult"):
+                out.append(f"{name}: finds {loc['water_gain_mult']:g}x the water")
+        if ev["food_change"] > 0 and loc.get("food_gain_bonus"):
+            out.append(f"{name}: finds {loc['food_gain_bonus']} kcal more")
+    return out
+
+
+def event_card_html(eid, big=False, params=None, holders=None):
+    """The day's event spelled out line by line: what it costs, what protects,
+    what is found or lost, today's ration, and which location cards react."""
     ev = D["events"][eid]
-    parts = []
     prot = esc(engine.protection_text(ev, D))
-    if ev["base_hp"] > 0:
-        if not prot:
-            parts.append(f"Everyone gains <b>HP {ev['base_hp']:+d}</b>.")
-        else:
-            parts.append(f"Gain <b>HP {ev['base_hp']:+d}</b> with: {prot}.")
-    else:
-        if ev["base_hp"] < 0:
-            parts.append(f"Unprotected: <b>HP {ev['base_hp']:+d}</b>.")
+    hp, mit = ev["base_hp"], ev["mit_hp"]
+    locs = location_effects(ev, holders)
+    facts = []
+    if hp < 0:
+        facts.append(f"<b>If you are not protected:</b> you lose {-hp} HP.")
         if prot:
-            after = f" (HP {ev['mit_hp']:+d})" if ev["mit_hp"] != 0 else ""
-            parts.append(f"Protected by: {prot}{after}.")
-        elif ev["base_hp"] < 0:
-            parts.append("No item protects against this.")
+            after = "you lose nothing" if mit == 0 else f"you lose only {-mit} HP"
+            facts.append(f"<b>You are protected if you carry:</b> {prot}. Then {after}.")
+        else:
+            facts.append("<b>Protection:</b> none. No item helps against this.")
+    elif hp > 0:
+        if prot:
+            facts.append(f"<b>Bonus:</b> you gain {hp} HP, but only if you carry: {prot}.")
+        else:
+            facts.append(f"<b>Bonus:</b> every group gains {hp} HP.")
+    else:
+        facts.append("<b>HP:</b> the event itself costs no HP.")
+        if prot and locs and ev["water_change"] >= 0 and ev["food_change"] >= 0:
+            # a harmless event that a location card in play turns into a loss
+            facts.append(f"<b>You are protected if you carry:</b> {prot}.")
     if ev["water_change"] > 0:
-        parts.append(f"Water found: +{ev['water_change']} L.")
+        facts.append(f"<b>Water found:</b> every group finds {ev['water_change']:g} L.")
     if ev["water_change"] < 0:
-        parts.append(f"Water lost: {ev['water_change']} L unless protected.")
+        facts.append(f"<b>Water lost:</b> {-ev['water_change']:g} L"
+                     + (f", unless you carry: {prot}." if prot else "."))
     if ev["food_change"] > 0:
-        parts.append(f"Food found: +{ev['food_change']} kcal.")
+        facts.append(f"<b>Food found:</b> every group finds {ev['food_change']} kcal.")
     if ev["food_change"] < 0:
-        parts.append(f"Food lost: {ev['food_change']} kcal unless protected.")
+        facts.append(f"<b>Food lost:</b> {-ev['food_change']} kcal"
+                     + (", unless you are protected." if prot else "."))
     if ev["boost_item"]:
-        parts.append(f"{esc(engine.item_names([ev['boost_item']], D)[0])} multiplies this gain "
-                     f"by {ev['boost_mult']:g}.")
-    if ev["extra_water"] or ev["extra_food"]:
-        parts.append(f"Extra consumption today: {ev['extra_water']} L water, {ev['extra_food']} kcal.")
-    size = "rw-big" if big else "rw-mid"
-    return (f"<div class='rw-card ember'><div class='{size}'>{esc(ev['name'])}</div>"
-            f"<p style='font-size:{'1.6rem' if big else '1.05rem'}'>{' '.join(parts)}</p></div>")
+        facts.append(f"<b>{esc(engine.item_names([ev['boost_item']], D)[0])}:</b> "
+                     f"multiplies what you find by {ev['boost_mult']:g}.")
+    if params:
+        water = params["baseline_water_L_per_day"] + float(ev["extra_water"])
+        food = params["baseline_food_kcal_per_day"] + int(ev["extra_food"])
+        more = " This is more than a normal day." if ev["extra_water"] or ev["extra_food"] else ""
+        facts.append(f"<b>Today's ration:</b> each group drinks {water:g} L and eats {food} kcal.{more}")
+    if locs:
+        facts.append("<b>Location cards that react today:</b> " + "; ".join(esc(x) for x in locs) + ".")
+    kind = EVENT_KIND.get(ev["category"], str(ev["category"]).replace("_", " ").capitalize())
+    title = "font-size:3.6rem;line-height:1.05" if big else "font-size:2.2rem"
+    body = "1.3rem" if big else "1rem"
+    return (f"<div class='rw-card ember'>"
+            f"<div class='rw-muted' style='font-size:{body}'>{esc(kind)}</div>"
+            f"<div class='rw-mid' style='{title}'>{esc(ev['name'])}</div>"
+            f"<ul class='rw-facts' style='font-size:{body}'>{''.join(f'<li>{f}</li>' for f in facts)}</ul></div>")
 
 
 def resupply_html(room, big=False):
@@ -122,25 +209,137 @@ def status_text(state):
     return f"out on day {state['death_day']} ({state['death_cause']})"
 
 
-def progress_table(room):
+LOC_NAMES = {v["name"] for v in D["locations"].values()}
+TRAIT_NAMES = {v["name"] for v in D["traits"].values()}
+
+
+def card_note(note):
+    """An engine note such as 'Wind Pass: -2' as a readable phrase."""
+    name, sep, what = note.partition(": ")
+    kind = "location card" if name in LOC_NAMES else "trait card" if name in TRAIT_NAMES else None
+    if not sep or kind is None:
+        return note
+    if what == "becomes 0":
+        return f"{name} ({kind}) cancels the HP change"
+    try:
+        return f"{name} ({kind}) {int(what):+d} HP"
+    except ValueError:
+        return f"{name} ({kind}): {what}"
+
+
+def day_story(room, g):
+    """What happened to one group on the current day, in full sentences.
+    Returns the HP change, the explanation, the change in water and food,
+    and whether the group went out today."""
+    s = g["state"]
+    if s is None:
+        return None
+    last = s["history"][-1]
+    if last["day"] == 0:
+        return {"dhp": None, "text": last["notes"] or "Ready to set off.", "res": "", "out": False, "today": False}
+    if last["day"] != room["day"]:
+        return {"dhp": None, "text": f"Out since day {s['death_day']} ({s['death_cause']}).",
+                "res": "", "out": False, "today": False}
+    ev = D["events"][last["event"]]
+    prev = s["history"][-2]
+    notes = [n for n in last["notes"].split("; ") if n]
+    prot = next((n[len("protected by "):] for n in notes if n.startswith("protected by ")), None)
+    dry = any(n.startswith("not enough water") for n in notes)
+    nobonus = next((n[len("bonus needs "):] for n in notes if n.startswith("bonus needs ")), None)
+    resupply = next((n for n in notes if n.startswith("resupply")), None)
+    gone = next((n for n in notes if n.startswith("ELIMINATED")), None)
+    need = engine.protection_text(ev, D)
+    hp, mit = ev["base_hp"], ev["mit_hp"]
+
+    parts = []
+    if hp < 0:
+        if prot:
+            parts.append(f"Protected by {prot}: " + ("no HP lost" if mit == 0 else f"{mit} HP instead of {hp}"))
+        elif dry:
+            parts.append(f"Not protected, not enough water in hand: {hp} HP")
+        elif need:
+            parts.append(f"Not protected, would need {need}: {hp} HP")
+        else:
+            parts.append(f"Nothing protects against this: {hp} HP")
+    elif hp > 0:
+        parts.append(f"No bonus, would need {nobonus}" if nobonus else f"Bonus: +{hp} HP")
+    elif prot:
+        parts.append(f"Carries {prot}")
+    handled = ("protected by ", "not enough water", "bonus needs ", "resupply", "ELIMINATED")
+    parts += [card_note(n) for n in notes if not n.startswith(handled)]
+
+    dhp = last["dhp"]
+    total = "no HP change today" if dhp == 0 else f"{dhp:+d} HP today"
+    if len(parts) > 1:
+        text = "; ".join(parts) + f". In total {total}."
+    elif parts:
+        text = parts[0] + "."
+    else:
+        text = total.capitalize() + "."
+    if gone:
+        text += " " + gone.replace("ELIMINATED", "Eliminated") + "."
+    res = f"Water {prev['water']:g} → {last['water']:g} L, food {prev['food']} → {last['food']} kcal"
+    if resupply:
+        res += f" (including {resupply})"
+    return {"dhp": dhp, "text": text, "res": res, "out": bool(gone), "today": True}
+
+
+def day_summary_html(room, big=False):
+    """Today's outcome at a glance: which groups lost how much, which were
+    spared, which went out."""
+    buckets, out_today = {}, []
+    for g in sorted(room["groups"].values(), key=lambda x: int(x["group"])):
+        story = day_story(room, g)
+        if not story or not story["today"]:
+            continue
+        buckets.setdefault(story["dhp"], []).append(g["group"])
+        if story["out"]:
+            out_today.append(g["group"])
+    if not buckets:
+        return ""
+
+    def who(gs):
+        return ("Group " if len(gs) == 1 else "Groups ") + ", ".join(gs)
+
+    bits = []
+    for dhp in sorted(buckets):
+        cls, label = (("bad", f"Lost {-dhp} HP") if dhp < 0 else
+                      ("ok", "No HP change") if dhp == 0 else ("good", f"Gained {dhp} HP"))
+        bits.append(f"<span class='rw-pill {cls}'>{label}</span>{esc(who(buckets[dhp]))}")
+    if out_today:
+        bits.append(f"<span class='rw-pill out'>Eliminated today</span>{esc(who(out_today))}")
+    size = "1.3rem" if big else "1rem"
+    return f"<div style='font-size:{size};margin:0.2rem 0 0.9rem 0'>" + " &nbsp;&nbsp; ".join(bits) + "</div>"
+
+
+def day_table_html(room, big=False, max_height=None):
+    """Every group's HP, today's change and the reason for it. An HTML table,
+    because the explanation is a sentence and must wrap rather than be cut off."""
     rows = []
     for g in sorted(room["groups"].values(), key=lambda x: int(x["group"])):
         s = g["state"]
         if s is None:
             continue
-        last = s["history"][-1]
-        rows.append({
-            "Group": int(g["group"]),
-            "Location": loc_name(g["location"]),
-            "Trait": trait_name(g["trait"]),
-            "HP": s["hp"],
-            "Today": last["dhp"] if last["day"] == room["day"] else None,
-            "Water (L)": s["water"],
-            "Food (kcal)": s["food"],
-            "Status": status_text(s),
-            "Why": last["notes"] if last["day"] == room["day"] else "",
-        })
-    return pd.DataFrame(rows)
+        story = day_story(room, g)
+        dhp = story["dhp"]
+        colour = "#9A3B2B" if (dhp or 0) < 0 else "#3E6B2A" if (dhp or 0) > 0 else "#5E6B61"
+        today = "—" if dhp is None else f"{dhp:+d}" if dhp else "0"
+        res = f"<br><span class='rw-muted'>{esc(story['res'])}</span>" if story["res"] else ""
+        rows.append(
+            f"<tr class='{'' if s['alive'] else 'out'}'>"
+            f"<td><b>Group {esc(g['group'])}</b><br><span class='rw-muted'>{esc(loc_name(g['location']))}"
+            f" · {esc(trait_name(g['trait']))}</span></td>"
+            f"<td class='rw-num'><b>{s['hp']}</b></td>"
+            f"<td class='rw-num' style='color:{colour}'><b>{today}</b></td>"
+            f"<td>{esc(story['text'])}{res}</td>"
+            f"<td class='rw-num'>{s['water']:g} L</td>"
+            f"<td class='rw-num'>{s['food']} kcal</td></tr>")
+    size = "1.05rem" if big else "0.95rem"
+    box = f"max-height:{max_height}px;overflow-y:auto;" if max_height else ""
+    return (f"<div style='{box}font-size:{size}'><table class='rw-table'><thead><tr>"
+            f"<th>Group</th><th class='rw-num'>HP</th><th class='rw-num'>Today</th>"
+            f"<th>What happened</th><th class='rw-num'>Water</th><th class='rw-num'>Food</th>"
+            f"</tr></thead><tbody>{''.join(rows)}</tbody></table></div>")
 
 
 def hp_chart_df(room):
@@ -178,27 +377,12 @@ def leaderboard(room):
     return df.drop(columns=["_alive", "_dday"])
 
 
-# Column order and widths for the shared tables: the columns the class needs
-# (HP, today's change and its reason, final HP) come first, so they are never
-# cut off on a narrow screen or a projector.
-PROGRESS_ORDER = ["Group", "HP", "Today", "Why", "Water (L)", "Food (kcal)", "Status", "Location", "Trait"]
-PROGRESS_CONFIG = {
-    "Group": st.column_config.NumberColumn("Group", width="small"),
-    "HP": st.column_config.NumberColumn("HP", width="small"),
-    "Today": st.column_config.NumberColumn("Today", width="small"),
-    "Why": st.column_config.TextColumn("Why", width="large"),
-    "Water (L)": st.column_config.NumberColumn("Water (L)", width="small"),
-    "Food (kcal)": st.column_config.NumberColumn("Food (kcal)", width="small"),
-}
+# Column order and widths for the results table: Final HP comes right after
+# the group, so it is never cut off on a narrow screen or a projector.
 LEADER_ORDER = ["Rank", "Group", "Final HP", "HP end", "Bonus HP", "Water days left", "Food days left",
                 "Status", "Location", "Trait"]
 LEADER_CONFIG = {c: st.column_config.NumberColumn(c, width="small")
                  for c in ["Rank", "Group", "Final HP", "HP end", "Bonus HP"]}
-
-
-def show_progress(where, room, **kw):
-    where.dataframe(progress_table(room), hide_index=True, width="stretch",
-                    column_order=PROGRESS_ORDER, column_config=PROGRESS_CONFIG, **kw)
 
 
 def show_leaderboard(where, lb, **kw):
@@ -206,13 +390,16 @@ def show_leaderboard(where, lb, **kw):
                     column_order=LEADER_ORDER, column_config=LEADER_CONFIG, **kw)
 
 
-def last_day_html(room):
-    """The last event played. The game moves to the results as soon as the last
-    day is drawn, so the final screens show that day's event as well."""
+def last_day_html(room, big=False):
+    """The last day in full. The game moves to the results as soon as the last
+    day is drawn, so the final screens show that day's event and outcome too."""
     if not room["event_log"]:
         return ""
-    return (f"<p class='rw-muted'>Last day · Day {room['day']} of {room['days']}</p>"
-            + resupply_html(room) + event_card_html(room["event_log"][-1]))
+    return (f"<p class='rw-muted' style='font-size:{'1.5rem' if big else '1rem'}'>"
+            f"Last day · Day {room['day']} of {room['days']}</p>"
+            + resupply_html(room, big=big)
+            + event_card_html(room["event_log"][-1], big=big, params=room["params"], holders=loc_holders(room))
+            + day_summary_html(room, big=big) + day_table_html(room, big=big))
 
 
 def submitted_by_text(who):
@@ -445,6 +632,16 @@ def group_main():
             st.warning("No valid backpack was submitted; you start with nothing packed.")
     s = g["state"]
     if s:
+        story = day_story(room, g)
+        if room["event_log"] and story:
+            # today's event in full, then what it did to this group and why
+            st.markdown(f"<h3>Day {room['day']} of {room['days']}</h3>" + resupply_html(room)
+                        + event_card_html(room["event_log"][-1], params=room["params"],
+                                          holders=loc_holders(room)),
+                        unsafe_allow_html=True)
+            change =(f"<br><span class='rw-muted'>{esc(story['res'])}</span>" if story["res"] else "")
+            st.markdown(f"<div class='rw-card'><b>What happened to your group:</b> {esc(story['text'])}"
+                        f"{change}</div>", unsafe_allow_html=True)
         st.markdown("<h3>Your journey</h3>", unsafe_allow_html=True)
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("HP", s["hp"])
@@ -598,7 +795,9 @@ def instructor_main():
 
     elif ph in ("traits", "playing"):
         if room["day"] > 0:
-            st.markdown(resupply_html(room) + event_card_html(room["event_log"][-1]), unsafe_allow_html=True)
+            st.markdown(resupply_html(room) + event_card_html(room["event_log"][-1], params=room["params"],
+                                                              holders=loc_holders(room)),
+                        unsafe_allow_html=True)
         st.caption("Resupply days (hidden from groups): " +
                    (", ".join(str(d) for d in room.get("resupply_days", [])) or "none"))
         c1, c2 = st.columns([1, 1])
@@ -608,7 +807,7 @@ def instructor_main():
         if room["day"] > 0 and c2.button("End the game now", width="stretch"):
             S.finish(code)
             st.rerun()
-        show_progress(st, room)
+        st.markdown(day_summary_html(room) + day_table_html(room), unsafe_allow_html=True)
 
     elif ph == "finished":
         lb = leaderboard(room)
@@ -620,7 +819,6 @@ def instructor_main():
                            file_name=f"running_wild_room_{code}.csv")
         if room["event_log"]:
             st.markdown(last_day_html(room), unsafe_allow_html=True)
-            show_progress(st, room)
 
     with st.sidebar.expander("Danger zone"):
         if st.button("Delete this room"):
@@ -700,10 +898,12 @@ def screen_main():
     elif ph in ("traits", "playing"):
         st.markdown(f"<p class='rw-muted' style='font-size:1.5rem'>Day {room['day']} of {room['days']}</p>",
                     unsafe_allow_html=True)
-        st.markdown(resupply_html(room, big=True) + event_card_html(room["event_log"][-1], big=True),
-                    unsafe_allow_html=True)
+        st.markdown(resupply_html(room, big=True)
+                    + event_card_html(room["event_log"][-1], big=True, params=room["params"],
+                                      holders=loc_holders(room))
+                    + day_summary_html(room, big=True), unsafe_allow_html=True)
         c1, c2 = st.columns([3, 2], gap="large")
-        show_progress(c1, room, height=620)
+        c1.markdown(day_table_html(room, big=True, max_height=640), unsafe_allow_html=True)
         c2.line_chart(hp_chart_df(room), height=620)
 
     elif ph == "finished":
@@ -718,8 +918,7 @@ def screen_main():
         c2.line_chart(hp_chart_df(room), height=500)
         if room["event_log"]:
             # what happened on the last day, which the class has not seen yet
-            st.markdown(last_day_html(room), unsafe_allow_html=True)
-            show_progress(st, room)
+            st.markdown(last_day_html(room, big=True), unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------------------------
